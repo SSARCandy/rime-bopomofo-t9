@@ -3,427 +3,229 @@ keyboards:
     isPrimary: false
     rows:
       - keys:
-          - action:
-              character:
-                char: "w"
-            width:
-              percentage: 0.16
-            label:
-              text: "ˊ"
-          - action:
-              character:
-                char: "1"
-            width: available
-            label:
-              text: "ㄅㄉㄚ"
+          - action: { character: { char: "e" } }
+            width: { percentage: 0.16 }
+            label: { text: "ˉ" }
+          - action: { character: { char: "1" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄅㄉㄚ" }
             callout:
               - label: "ㄅ"
-                action:
-                  character:
-                    char: "b"
+                action: { character: { char: "b" } }
               - label: "ㄉ"
-                action:
-                  character:
-                    char: "d"
+                action: { character: { char: "d" } }
               - label: "ㄚ"
-                action:
-                  character:
-                    char: "1"
-          - action:
-              character:
-                char: "2"
-            width: available
-            label:
-              text: "ㄍㄐㄞ"
+                action: { character: { char: "1" } }
+          - action: { character: { char: "2" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄍㄐㄞ" }
             callout:
               - label: "ㄍ"
-                action:
-                  character:
-                    char: "g"
+                action: { character: { char: "g" } }
               - label: "ㄐ"
-                action:
-                  character:
-                    char: "j"
+                action: { character: { char: "j" } }
               - label: "ㄞ"
-                action:
-                  character:
-                    char: "2"
-          - action:
-              character:
-                char: "3"
-            width: available
-            label:
-              text: "ㄓㄗㄢㄦ"
+                action: { character: { char: "2" } }
+          - action: { character: { char: "3" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄓㄗㄢㄦ" }
             callout:
               - label: "ㄓ"
-                action:
-                  character:
-                    char: "Z"
+                action: { character: { char: "Z" } }
               - label: "ㄗ"
-                action:
-                  character:
-                    char: "z"
+                action: { character: { char: "z" } }
               - label: "ㄢ"
-                action:
-                  character:
-                    char: "3"
+                action: { character: { char: "3" } }
               - label: "ㄦ"
-                action:
-                  character:
-                    char: "3"
-          - action:
-              character:
-                char: "e"
-            width:
-              percentage: 0.16
-            label:
-              text: "ˉ"
+                action: { character: { char: "3" } }
+          - action: { symbol: { char: "=" } }
+            width: { percentage: 0.16 }
+            label: { text: "=" }
       - keys:
-          - action:
-              character:
-                char: "y"
-            width:
-              percentage: 0.16
-            label:
-              text: "ˇ"
-          - action:
-              character:
-                char: "4"
-            width: available
-            label:
-              text: "ㄆㄊㄛ"
+          - action: { character: { char: "w" } }
+            width: { percentage: 0.16 }
+            label: { text: "ˊ" }
+          - action: { character: { char: "4" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄆㄊㄛ" }
             callout:
               - label: "ㄆ"
-                action:
-                  character:
-                    char: "p"
+                action: { character: { char: "p" } }
               - label: "ㄊ"
-                action:
-                  character:
-                    char: "t"
+                action: { character: { char: "t" } }
               - label: "ㄛ"
-                action:
-                  character:
-                    char: "4"
-          - action:
-              character:
-                char: "5"
-            width: available
-            label:
-              text: "ㄎㄑㄟ"
+                action: { character: { char: "4" } }
+          - action: { character: { char: "5" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄎㄑㄟ" }
             callout:
               - label: "ㄎ"
-                action:
-                  character:
-                    char: "k"
+                action: { character: { char: "k" } }
               - label: "ㄑ"
-                action:
-                  character:
-                    char: "q"
+                action: { character: { char: "q" } }
               - label: "ㄟ"
-                action:
-                  character:
-                    char: "5"
-          - action:
-              character:
-                char: "6"
-            width: available
-            label:
-              text: "ㄔㄘㄣㄧ"
+                action: { character: { char: "5" } }
+          - action: { character: { char: "6" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄔㄘㄣㄧ" }
             callout:
               - label: "ㄔ"
-                action:
-                  character:
-                    char: "C"
+                action: { character: { char: "C" } }
               - label: "ㄘ"
-                action:
-                  character:
-                    char: "c"
+                action: { character: { char: "c" } }
               - label: "ㄣ"
-                action:
-                  character:
-                    char: "6"
+                action: { character: { char: "6" } }
               - label: "ㄧ"
-                action:
-                  character:
-                    char: "6"
-          - action:
-              keyboardType: t9數字
-            width:
-              percentage: 0.16
-            label:
-              text: "123"
+                action: { character: { char: "6" } }
+          - action: { keyboardType: t9數字 }
+            width: { percentage: 0.16 }
+            label: { text: "123" }
       - keys:
-          - action:
-              character:
-                char: "q"
-            width:
-              percentage: 0.16
-            label:
-              text: "ˋ"
-          - action:
-              character:
-                char: "7"
-            width: available
-            label:
-              text: "ㄇㄋㄜ"
+          - action: { character: { char: "y" } }
+            width: { percentage: 0.16 }
+            label: { text: "ˇ" }
+          - action: { character: { char: "7" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄇㄋㄜ" }
             callout:
               - label: "ㄇ"
-                action:
-                  character:
-                    char: "m"
+                action: { character: { char: "m" } }
               - label: "ㄋ"
-                action:
-                  character:
-                    char: "n"
+                action: { character: { char: "n" } }
               - label: "ㄜ"
-                action:
-                  character:
-                    char: "7"
-          - action:
-              character:
-                char: "8"
-            width: available
-            label:
-              text: "ㄏㄒㄠㄡ"
+                action: { character: { char: "7" } }
+          - action: { character: { char: "8" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄏㄒㄠㄡ" }
             callout:
               - label: "ㄏ"
-                action:
-                  character:
-                    char: "h"
+                action: { character: { char: "h" } }
               - label: "ㄒ"
-                action:
-                  character:
-                    char: "x"
+                action: { character: { char: "x" } }
               - label: "ㄠ"
-                action:
-                  character:
-                    char: "8"
+                action: { character: { char: "8" } }
               - label: "ㄡ"
-                action:
-                  character:
-                    char: "8"
-          - action:
-              character:
-                char: "9"
-            width: available
-            label:
-              text: "ㄕㄙㄤㄨ"
+                action: { character: { char: "8" } }
+          - action: { character: { char: "9" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄕㄙㄤㄨ" }
             callout:
               - label: "ㄕ"
-                action:
-                  character:
-                    char: "S"
+                action: { character: { char: "S" } }
               - label: "ㄙ"
-                action:
-                  character:
-                    char: "s"
+                action: { character: { char: "s" } }
               - label: "ㄤ"
-                action:
-                  character:
-                    char: "9"
+                action: { character: { char: "9" } }
               - label: "ㄨ"
-                action:
-                  character:
-                    char: "9"
+                action: { character: { char: "9" } }
           - action: backspace
-            width:
-              percentage: 0.16
-            label:
-              text: "⌫"
+            width: { percentage: 0.16 }
+            label: { text: "⌫" }
       - keys:
-          - action:
-              character:
-                char: "p"
-            width:
-              percentage: 0.16
-            label:
-              text: "˙"
-          - action:
-              character:
-                char: "0"
-            width: available
-            label:
-              text: "ㄈㄌㄝ"
+          - action: { character: { char: "q" } }
+            width: { percentage: 0.16 }
+            label: { text: "ˋ" }
+          - action: { character: { char: "0" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄈㄌㄝ" }
             callout:
               - label: "ㄈ"
-                action:
-                  character:
-                    char: "f"
+                action: { character: { char: "f" } }
               - label: "ㄌ"
-                action:
-                  character:
-                    char: "l"
+                action: { character: { char: "l" } }
               - label: "ㄝ"
-                action:
-                  character:
-                    char: "0"
+                action: { character: { char: "0" } }
           - action: space
-            width: available
-            label:
-              text: "空白"
-          - action:
-              character:
-                char: "v"
-            width: available
-            label:
-              text: "ㄖㄥㄩ"
+            width: { percentage: 0.226 }
+            label: { text: "空白" }
+          - action: { character: { char: "v" } }
+            width: { percentage: 0.226 }
+            label: { text: "ㄖㄥㄩ" }
             callout:
               - label: "ㄖ"
-                action:
-                  character:
-                    char: "r"
+                action: { character: { char: "r" } }
               - label: "ㄥ"
-                action:
-                  character:
-                    char: "v"
+                action: { character: { char: "v" } }
               - label: "ㄩ"
-                action:
-                  character:
-                    char: "v"
+                action: { character: { char: "v" } }
           - action: enter
-            width:
-              percentage: 0.16
-            label:
-              text: "↵"
+            width: { percentage: 0.16 }
+            label: { text: "↵" }
     buttonInsets:
       left: 3
-      bottom: 4
-      top: 8
+      bottom: 3
+      top: 3
       right: 3
 
   - name: t9數字
     isPrimary: false
     rows:
       - keys:
-          - action:
-              symbol:
-                char: "+"
-            width:
-              percentage: 0.16
-            label:
-              text: "+"
-          - action:
-              symbol:
-                char: "1"
-            width: available
-            label:
-              text: "1"
-          - action:
-              symbol:
-                char: "2"
-            width: available
-            label:
-              text: "2"
-          - action:
-              symbol:
-                char: "3"
-            width: available
-            label:
-              text: "3"
-          - action:
-              symbol:
-                char: "="
-            width:
-              percentage: 0.16
-            label:
-              text: "="
+          - action: { symbol: { char: "+" } }
+            width: { percentage: 0.16 }
+            label: { text: "+" }
+          - action: { symbol: { char: "1" } }
+            width: { percentage: 0.226 }
+            label: { text: "1" }
+          - action: { symbol: { char: "2" } }
+            width: { percentage: 0.226 }
+            label: { text: "2" }
+          - action: { symbol: { char: "3" } }
+            width: { percentage: 0.226 }
+            label: { text: "3" }
+          - action: { symbol: { char: "=" } }
+            width: { percentage: 0.16 }
+            label: { text: "=" }
       - keys:
-          - action:
-              symbol:
-                char: "-"
-            width:
-              percentage: 0.16
-            label:
-              text: "-"
-          - action:
-              symbol:
-                char: "4"
-            width: available
-            label:
-              text: "4"
-          - action:
-              symbol:
-                char: "5"
-            width: available
-            label:
-              text: "5"
-          - action:
-              symbol:
-                char: "6"
-            width: available
-            label:
-              text: "6"
-          - action:
-              keyboardType: t9注音
-            width:
-              percentage: 0.16
-            label:
-              text: "中"
+          - action: { symbol: { char: "-" } }
+            width: { percentage: 0.16 }
+            label: { text: "-" }
+          - action: { symbol: { char: "4" } }
+            width: { percentage: 0.226 }
+            label: { text: "4" }
+          - action: { symbol: { char: "5" } }
+            width: { percentage: 0.226 }
+            label: { text: "5" }
+          - action: { symbol: { char: "6" } }
+            width: { percentage: 0.226 }
+            label: { text: "6" }
+          - action: { keyboardType: t9注音 }
+            width: { percentage: 0.16 }
+            label: { text: "中" }
       - keys:
-          - action:
-              symbol:
-                char: "*"
-            width:
-              percentage: 0.16
-            label:
-              text: "*"
-          - action:
-              symbol:
-                char: "7"
-            width: available
-            label:
-              text: "7"
-          - action:
-              symbol:
-                char: "8"
-            width: available
-            label:
-              text: "8"
-          - action:
-              symbol:
-                char: "9"
-            width: available
-            label:
-              text: "9"
+          - action: { symbol: { char: "*" } }
+            width: { percentage: 0.16 }
+            label: { text: "*" }
+          - action: { symbol: { char: "7" } }
+            width: { percentage: 0.226 }
+            label: { text: "7" }
+          - action: { symbol: { char: "8" } }
+            width: { percentage: 0.226 }
+            label: { text: "8" }
+          - action: { symbol: { char: "9" } }
+            width: { percentage: 0.226 }
+            label: { text: "9" }
           - action: backspace
-            width:
-              percentage: 0.16
-            label:
-              text: "⌫"
+            width: { percentage: 0.16 }
+            label: { text: "⌫" }
       - keys:
-          - action:
-              symbol:
-                char: "/"
-            width:
-              percentage: 0.16
-            label:
-              text: "/"
-          - action:
-              symbol:
-                char: ","
-            width: available
-            label:
-              text: ","
-          - action:
-              symbol:
-                char: "0"
-            width: available
-            label:
-              text: "0"
-          - action:
-              symbol:
-                char: "."
-            width: available
-            label:
-              text: "."
+          - action: { symbol: { char: "/" } }
+            width: { percentage: 0.16 }
+            label: { text: "/" }
+          - action: { symbol: { char: "," } }
+            width: { percentage: 0.226 }
+            label: { text: "," }
+          - action: { symbol: { char: "0" } }
+            width: { percentage: 0.226 }
+            label: { text: "0" }
+          - action: { symbol: { char: "." } }
+            width: { percentage: 0.226 }
+            label: { text: "." }
           - action: enter
-            width:
-              percentage: 0.16
-            label:
-              text: "↵"
+            width: { percentage: 0.16 }
+            label: { text: "↵" }
     buttonInsets:
       left: 3
-      bottom: 4
-      top: 8
+      bottom: 3
+      top: 3
       right: 3
