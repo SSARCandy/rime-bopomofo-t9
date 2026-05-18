@@ -16,18 +16,61 @@ keyboards:
             width: available
             label:
               text: "ㄅㄉㄚ"
+            callout:
+              - label: "ㄅ"
+                action:
+                  character:
+                    char: "B"
+              - label: "ㄉ"
+                action:
+                  character:
+                    char: "D"
+              - label: "ㄚ"
+                action:
+                  character:
+                    char: "1"
           - action:
               character:
                 char: "2"
             width: available
             label:
               text: "ㄍㄐㄞ"
+            callout:
+              - label: "ㄍ"
+                action:
+                  character:
+                    char: "2"
+              - label: "ㄐ"
+                action:
+                  character:
+                    char: "J"
+              - label: "ㄞ"
+                action:
+                  character:
+                    char: "2"
           - action:
               character:
                 char: "3"
             width: available
             label:
               text: "ㄓㄗㄢㄦ"
+            callout:
+              - label: "ㄓ"
+                action:
+                  character:
+                    char: "3"
+              - label: "ㄗ"
+                action:
+                  character:
+                    char: "3"
+              - label: "ㄢ"
+                action:
+                  character:
+                    char: "3"
+              - label: "ㄦ"
+                action:
+                  character:
+                    char: "3"
           - action:
               symbol:
                 char: "="
@@ -49,18 +92,61 @@ keyboards:
             width: available
             label:
               text: "ㄆㄊㄛ"
+            callout:
+              - label: "ㄆ"
+                action:
+                  character:
+                    char: "4"
+              - label: "ㄊ"
+                action:
+                  character:
+                    char: "T"
+              - label: "ㄛ"
+                action:
+                  character:
+                    char: "4"
           - action:
               character:
                 char: "5"
             width: available
             label:
               text: "ㄎㄑㄟ"
+            callout:
+              - label: "ㄎ"
+                action:
+                  character:
+                    char: "5"
+              - label: "ㄑ"
+                action:
+                  character:
+                    char: "5"
+              - label: "ㄟ"
+                action:
+                  character:
+                    char: "5"
           - action:
               character:
                 char: "6"
             width: available
             label:
               text: "ㄔㄘㄣㄧ"
+            callout:
+              - label: "ㄔ"
+                action:
+                  character:
+                    char: "6"
+              - label: "ㄘ"
+                action:
+                  character:
+                    char: "6"
+              - label: "ㄣ"
+                action:
+                  character:
+                    char: "6"
+              - label: "ㄧ"
+                action:
+                  character:
+                    char: "6"
           - action:
               keyboardType: t9數字
             width:
@@ -81,18 +167,65 @@ keyboards:
             width: available
             label:
               text: "ㄇㄋㄜ"
+            callout:
+              - label: "ㄇ"
+                action:
+                  character:
+                    char: "7"
+              - label: "ㄋ"
+                action:
+                  character:
+                    char: "7"
+              - label: "ㄜ"
+                action:
+                  character:
+                    char: "7"
           - action:
               character:
                 char: "8"
             width: available
             label:
               text: "ㄏㄒㄠㄡ"
+            callout:
+              - label: "ㄏ"
+                action:
+                  character:
+                    char: "H"
+              - label: "ㄒ"
+                action:
+                  character:
+                    char: "X"
+              - label: "ㄠ"
+                action:
+                  character:
+                    char: "8"
+              - label: "ㄡ"
+                action:
+                  character:
+                    char: "8"
           - action:
               character:
                 char: "9"
             width: available
             label:
               text: "ㄕㄙㄤㄨ"
+            callout:
+              - label: "ㄕ"
+                action:
+                  character:
+                    char: "9"
+              - label: "ㄙ"
+                action:
+                  character:
+                    char: "9"
+              - label: "ㄤ"
+                action:
+                  character:
+                    char: "9"
+              - label: "ㄨ"
+                action:
+                  character:
+                    char: "9"
           - action: backspace
             width:
               percentage: 0.16
@@ -112,6 +245,19 @@ keyboards:
             width: available
             label:
               text: "ㄈㄌㄝ"
+            callout:
+              - label: "ㄈ"
+                action:
+                  character:
+                    char: "F"
+              - label: "ㄌ"
+                action:
+                  character:
+                    char: "L"
+              - label: "ㄝ"
+                action:
+                  character:
+                    char: "0"
           - action: space
             width: available
             label:
@@ -122,6 +268,19 @@ keyboards:
             width: available
             label:
               text: "ㄖㄥㄩ"
+            callout:
+              - label: "ㄖ"
+                action:
+                  character:
+                    char: "v"
+              - label: "ㄥ"
+                action:
+                  character:
+                    char: "v"
+              - label: "ㄩ"
+                action:
+                  character:
+                    char: "V"
           - action: enter
             width:
               percentage: 0.16

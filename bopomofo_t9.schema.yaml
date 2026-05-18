@@ -28,8 +28,9 @@ engine:
 
 speller:
   # 定義可用按鍵
-  alphabet: "1234567890vwyqp"
-  initials: "1234567890vwyqp"
+  # T9數字鍵 + 聲調鍵 + 9個精確注音大寫碼 (B D F H J L T X V)
+  alphabet: "1234567890vwyqpBDFHJLTXV"
+  initials: "1234567890vwyqpBDFHJLTXV"
   use_space: false
   delimiter: " '"
   algebra:
@@ -41,6 +42,8 @@ speller:
     - xform/3$/Y/
     - xform/4$/Q/
     - xform/5$/P/
+
+    # (舊 F/H 規則已移除，見下方正確 derive 方案)
 
     # ==============================================
     # ★ 核心修復：優先處理 yu (魚/元/月/雲) ★
@@ -79,6 +82,19 @@ speller:
     - xform/er/R/
     - xform/eh/E/
     - xform/([iv])e/$1E/
+
+    # === 精確注音 derive（必須在韻母代號化之後、數字映射之前）===
+    # 使用「自由大寫字母」(B D F H J L T X V)，這些字母不在任何後續 xform 的字元集中，
+    # 因此 derive 產生的大寫前綴在數字映射後仍能存活，形成可匹配的精確碼。
+    - derive/^b/B/    # ㄅ 精確碼 B
+    - derive/^d/D/    # ㄉ 精確碼 D
+    - derive/^f/F/    # ㄈ 精確碼 F
+    - derive/^h/H/    # ㄏ 精確碼 H
+    - derive/^j/J/    # ㄐ 精確碼 J
+    - derive/^l/L/    # ㄌ 精確碼 L
+    - derive/^t/T/    # ㄊ 精確碼 T
+    - derive/^x/X/    # ㄒ 精確碼 X
+    - derive/^v/V/    # ㄩ 精確碼 V
 
     # --- 支援簡拼 (注音首碼) ---
     - derive/^(.).+$/$1/
@@ -138,4 +154,4 @@ key_binder:
 recognizer:
   import_preset: default
   patterns:
-    abc: "^[1234567890vwyqp]+$"
+    abc: "^[1234567890vwyqpBDFHJLTXV]+$"

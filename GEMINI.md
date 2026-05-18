@@ -5,12 +5,12 @@ Custom RIME input method schema for T9 (3x4) Bopomofo layout, specifically optim
 ## Project Overview
 - **Type**: RIME Input Method Schema
 - **Target Layout**: T9 (3x4) numeric grid for Traditional Chinese (Bopomofo/注音).
-- **Core Technology**: RIME (Squirrel/Weasel/Trime) schema engine.
+- **Core Technology**: RIME engine, deployed via **Hamster (倉輸入法)** on iOS.
 - **Dictionary**: Based on `terra_pinyin` (Earth Pinyin) with tone support.
 
 ## Key Files
 - `bopomofo_t9.schema.yaml`: The main RIME schema definition containing spelling algebra and engine configuration.
-- `t9bopomo.yaml`: Keyboard layout definition (likely for Trime/OpenBangla or similar mobile RIME clients).
+- `t9bopomo.yaml`: Keyboard layout definition (for Hamster or similar mobile RIME clients).
 - `terra_pinyin.dict.yaml`: The source dictionary providing characters and their pinyin/bopomofo readings.
 
 ## Development Conventions
@@ -41,4 +41,168 @@ The `speller/algebra` in the schema file maps Bopomofo symbols to numeric keys:
 1. Copy `bopomofo_t9.schema.yaml` and `terra_pinyin.dict.yaml` to your RIME user directory.
 2. Add `bopomofo_t9` to your `default.custom.yaml` under `schema_list`.
 3. Deploy RIME.
-4. For mobile (Trime), ensure `t9bopomo.yaml` is correctly referenced in your keyboard configuration.
+4. For Hamster iOS, upload files via Wi-Fi or iCloud sync, then redeploy.
+
+---
+
+## Hamster (倉輸入法) — iOS Client
+
+- **GitHub**: https://github.com/imfuxiao/Hamster
+- **App Store**: 搜尋「倉輸入法」(id6446617683)
+- **Engine**: librime (BSD) + KeyboardKit (MIT)
+- **Wiki**: https://github.com/imfuxiao/Hamster/wiki
+- **Online Layout Builder**: https://lost-melody.github.io/hamster-tools
+
+### File Deployment (上傳方案)
+
+| 方式 | 步驟 |
+|---|---|
+| Wi-Fi 上傳 | App 內開啟 Wi-Fi 服務 → 瀏覽器輸入 LAN 地址 → 拖入文件 → 重新部署 |
+| iCloud 同步 | 開啟 iCloud → 將文件放入 `iCloud/Hamster/RIME/Rime/` → 重新部署 |
+| 壓縮包導入 | 打包（根目錄直接放文件，無子目錄）→ 分享給倉 App 開啟 |
+
+> 修改後務必在 App 的 **RIME → 重新部署** 使設定生效。
+
+---
+
+### hamster.yaml 主配置
+
+主配置文件為 `hamster.yaml`（推薦使用 `hamster.custom.yaml` 以 `patch:` 方式覆寫，避免更新覆蓋）。
+
+```yaml
+keyboard:
+  useKeyboardType: chineseNineGrid  # 預設鍵盤類型
+  disableSwipeLabel: false           # 是否隱藏划動標籤
+  swipeLabelUpAndDownLayout: false   # 上下滑動標籤規則布局
+  upSwipeOnLeft: true                # 上滑標籤顯示在左側
+  displayButtonBubbles: true         # 顯示按鍵氣泡
+  enableKeySounds: true
+  enableHapticFeedback: false
+  longPressDelay: 0.3                # 長按觸發延遲（秒）
+
+swipe:
+  spaceDragSensitivity: 15     # 空格拖移靈敏度（越小越靈敏）
+  distanceThreshold: 40         # 划動觸發距離閾值（px）
+  tangentThreshold: 0.577       # 划動角度限制（tan值，≈30度）
+  longPressDelay: 0.3
+
+rime:
+  maximumNumberOfCandidate: 100
+  overrideDictFiles: true       # 重新部署時覆蓋詞庫（自造詞需設 false）
+```
+
+**鍵盤類型 (useKeyboardType)**：
+
+| 值 | 說明 |
+|---|---|
+| `chinese` | 中文 26 鍵 |
+| `chineseNineGrid` | 中文九宮格（T9） |
+| `alphabetic` | 英文鍵盤 |
+| `numericNineGrid` | 數字九宮格 |
+| 自定義名稱 | 填入自定義鍵盤的 `name` 值 |
+
+---
+
+### 自定義鍵盤布局 (keyboards)
+
+布局定義在 `hamster.yaml` 的 `keyboards` 區塊，或獨立的 `hamster_keyboards.yaml` 文件。
+
+#### 基本結構
+
+```yaml
+keyboards:
+  - name: 我的T9鍵盤             # 對應 useKeyboardType 的值
+    rows:
+      - keys:
+          - action: { character: { char: "1" } }
+            width:
+              portrait: { widthType: percentage, width: 0.333 }
+            swipe:
+              - direction: up
+                action: { symbol: { char: "ㄅ" } }
+                label: "ㄅ"
+            callout:
+              - label: "ㄅ"
+                action: { character: { char: "1" } }
+              - label: "ㄉ"
+                action: { character: { char: "1" } }
+```
+
+#### Action 類型
+
+| Action | 格式範例 | 說明 |
+|---|---|---|
+| 字符輸入（過 RIME） | `{ character: { char: "6" } }` | 送入 RIME 引擎，觸發拼音/注音處理 |
+| 符號輸入（不過 RIME） | `{ symbol: { char: "！" } }` | 直接上屏，跳過 RIME 引擎 |
+| 切換鍵盤 | `{ keyboardType: chineseNineGrid }` | 切換到指定鍵盤 |
+| 快捷指令 | `{ shortcutCommand: "#左移" }` | 執行內建系統指令 |
+
+#### 內建快捷指令 (shortcutCommand)
+
+| 指令 | 功能 |
+|---|---|
+| `#重输` | 清空未上屏的輸入緩衝 |
+| `#左移` | 光標左移一格 |
+| `#右移` | 光標右移一格 |
+| `#换行` | 換行（等同 Enter） |
+| `#简繁切换` | 簡繁切換 |
+| `#中英切换` | 中英模式切換 |
+| `#复制` | 複製選中文字 |
+| `#粘贴` | 貼上剪貼板 |
+| `#剪切` | 剪切選中文字 |
+
+---
+
+### 按鍵手勢配置
+
+#### 划動 (Swipe)
+
+每個按鍵支持四個方向的划動，各自綁定獨立 action：
+
+```yaml
+- action: { character: { char: "6" } }
+  swipe:
+    - direction: up       # 上滑 → 送出注音符號
+      action: { character: { char: "6" } }
+      label: "ㄧ"
+    - direction: down     # 下滑 → 重新輸入
+      action: { shortcutCommand: "#重输" }
+    - direction: left     # 左滑 → 直接上屏逗號
+      action: { symbol: { char: "，" } }
+    - direction: right    # 右滑 → 直接上屏句號
+      action: { symbol: { char: "。" } }
+```
+
+**direction 值**：`up` | `down` | `left` | `right`
+
+划動靈敏度由 `hamster.yaml` 的 `swipe` 區塊全局控制：
+- `distanceThreshold`：划動最小距離（px），預設 40
+- `tangentThreshold`：角度限制（tan 值），預設 0.577（≈30°），防止誤觸
+- `longPressDelay`：長按觸發延遲，預設 0.3 秒
+
+#### 長按呼出 (Callout)
+
+長按按鍵後彈出選字氣泡（類似 iOS 原生長按字母鍵）：
+
+```yaml
+- action: { character: { char: "1" } }
+  callout:
+    - label: "ㄅ"
+      action: { character: { char: "1" } }
+    - label: "ㄉ"
+      action: { character: { char: "1" } }
+    - label: "ㄚ"
+      action: { character: { char: "1" } }
+```
+
+長按延遲由 `keyboard/longPressDelay`（秒）控制，預設 0.3。
+
+---
+
+### T9 九宮格注意事項
+
+- 若九宮格只能輸入數字（不觸發 RIME），檢查「鍵盤設定 → 數字鍵由 RIME 處理」需**關閉**。
+- RIME schema 的 `speller/algebra` 必須正確將數字鍵映射至注音符號。
+- `processByRIME: true`（預設）表示按鍵輸入送入 RIME；`false` 直接上屏（適合符號鍵）。
+- 上傳方案文件後必須**重新部署**才生效。
+- 詞庫修改後若啟用 `overrideDictFiles: true`，重新部署會覆蓋用戶自造詞；如需保留請設為 `false`。
