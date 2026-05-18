@@ -141,6 +141,15 @@ keyboards:
           - action: space
             width: { percentage: 0.226 }
             label: { text: "空白" }
+            callout:
+              - label: "，"
+                action: { symbol: { char: "，" } }
+              - label: "。"
+                action: { symbol: { char: "。" } }
+              - label: "？"
+                action: { symbol: { char: "？" } }
+              - label: "！"
+                action: { symbol: { char: "！" } }
           - action: { character: { char: "v" } }
             width: { percentage: 0.226 }
             label: { text: "ㄖㄥㄩ" }
@@ -153,8 +162,8 @@ keyboards:
               - label: "ㄖ"
                 action: { character: { char: "r" } }
           - action: enter
+            type: return
             width: { percentage: 0.16 }
-            label: { text: "↵" }
     buttonInsets:
       left: 3
       bottom: 3
@@ -226,8 +235,8 @@ keyboards:
             width: { percentage: 0.226 }
             label: { text: "." }
           - action: enter
+            type: return
             width: { percentage: 0.16 }
-            label: { text: "↵" }
     buttonInsets:
       left: 3
       bottom: 3
