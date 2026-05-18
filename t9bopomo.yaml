@@ -15,7 +15,7 @@ keyboards:
               - label: "ㄉ"
                 action: { character: { char: "d" } }
               - label: "ㄚ"
-                action: { character: { char: "1" } }
+                action: { character: { char: "a" } }
           - action: { character: { char: "2" } }
             width: { percentage: 0.226 }
             label: { text: "ㄍㄐㄞ" }
@@ -25,19 +25,20 @@ keyboards:
               - label: "ㄐ"
                 action: { character: { char: "j" } }
               - label: "ㄞ"
-                action: { character: { char: "2" } }
+                action: { character: { char: "A" } }
           - action: { character: { char: "3" } }
             width: { percentage: 0.226 }
             label: { text: "ㄓㄗㄢㄦ" }
             callout:
-              - label: "ㄓ"
-                action: { character: { char: "Z" } }
+              # 右側按鍵氣泡向左展開，需反轉定義以維持視覺順序 (ㄓㄗㄢㄦ)
+              - label: "ㄦ"
+                action: { character: { char: "R" } }
+              - label: "ㄢ"
+                action: { character: { char: "M" } }
               - label: "ㄗ"
                 action: { character: { char: "z" } }
-              - label: "ㄢ"
-                action: { character: { char: "3" } }
-              - label: "ㄦ"
-                action: { character: { char: "3" } }
+              - label: "ㄓ"
+                action: { character: { char: "Z" } }
           - action: { symbol: { char: "=" } }
             width: { percentage: 0.16 }
             label: { text: "=" }
@@ -54,7 +55,7 @@ keyboards:
               - label: "ㄊ"
                 action: { character: { char: "t" } }
               - label: "ㄛ"
-                action: { character: { char: "4" } }
+                action: { character: { char: "o" } }
           - action: { character: { char: "5" } }
             width: { percentage: 0.226 }
             label: { text: "ㄎㄑㄟ" }
@@ -64,19 +65,20 @@ keyboards:
               - label: "ㄑ"
                 action: { character: { char: "q" } }
               - label: "ㄟ"
-                action: { character: { char: "5" } }
+                action: { character: { char: "I" } }
           - action: { character: { char: "6" } }
             width: { percentage: 0.226 }
             label: { text: "ㄔㄘㄣㄧ" }
             callout:
-              - label: "ㄔ"
-                action: { character: { char: "C" } }
+              # 右側按鍵反轉定義 (ㄔㄘㄣㄧ)
+              - label: "ㄧ"
+                action: { character: { char: "i" } }
+              - label: "ㄣ"
+                action: { character: { char: "N" } }
               - label: "ㄘ"
                 action: { character: { char: "c" } }
-              - label: "ㄣ"
-                action: { character: { char: "6" } }
-              - label: "ㄧ"
-                action: { character: { char: "6" } }
+              - label: "ㄔ"
+                action: { character: { char: "C" } }
           - action: { keyboardType: t9數字 }
             width: { percentage: 0.16 }
             label: { text: "123" }
@@ -93,7 +95,7 @@ keyboards:
               - label: "ㄋ"
                 action: { character: { char: "n" } }
               - label: "ㄜ"
-                action: { character: { char: "7" } }
+                action: { character: { char: "e" } }
           - action: { character: { char: "8" } }
             width: { percentage: 0.226 }
             label: { text: "ㄏㄒㄠㄡ" }
@@ -103,21 +105,22 @@ keyboards:
               - label: "ㄒ"
                 action: { character: { char: "x" } }
               - label: "ㄠ"
-                action: { character: { char: "8" } }
+                action: { character: { char: "O" } }
               - label: "ㄡ"
-                action: { character: { char: "8" } }
+                action: { character: { char: "U" } }
           - action: { character: { char: "9" } }
             width: { percentage: 0.226 }
             label: { text: "ㄕㄙㄤㄨ" }
             callout:
-              - label: "ㄕ"
-                action: { character: { char: "S" } }
+              # 右側按鍵反轉定義 (ㄕㄙㄤㄨ)
+              - label: "ㄨ"
+                action: { character: { char: "u" } }
+              - label: "ㄤ"
+                action: { character: { char: "K" } }
               - label: "ㄙ"
                 action: { character: { char: "s" } }
-              - label: "ㄤ"
-                action: { character: { char: "9" } }
-              - label: "ㄨ"
-                action: { character: { char: "9" } }
+              - label: "ㄕ"
+                action: { character: { char: "S" } }
           - action: backspace
             width: { percentage: 0.16 }
             label: { text: "⌫" }
@@ -134,7 +137,7 @@ keyboards:
               - label: "ㄌ"
                 action: { character: { char: "l" } }
               - label: "ㄝ"
-                action: { character: { char: "0" } }
+                action: { character: { char: "E" } }
           - action: space
             width: { percentage: 0.226 }
             label: { text: "空白" }
@@ -142,12 +145,13 @@ keyboards:
             width: { percentage: 0.226 }
             label: { text: "ㄖㄥㄩ" }
             callout:
-              - label: "ㄖ"
-                action: { character: { char: "r" } }
-              - label: "ㄥ"
-                action: { character: { char: "v" } }
+              # 右側按鍵反轉定義 (ㄖㄥㄩ)
               - label: "ㄩ"
                 action: { character: { char: "v" } }
+              - label: "ㄥ"
+                action: { character: { char: "G" } }
+              - label: "ㄖ"
+                action: { character: { char: "r" } }
           - action: enter
             width: { percentage: 0.16 }
             label: { text: "↵" }
