@@ -1,7 +1,7 @@
 schema:
   schema_id: bopomofo_t9
   name: 注音九宮格(自訂)
-  version: "6.0"
+  version: "6.1"
 
 engine:
   processors:
@@ -29,32 +29,22 @@ engine:
     - uniquifier
 
 speller:
-  # T9數字鍵 + 聲調鍵 + 所有注音精確碼(ASCII字母)
-  # 精確碼表:
-  # 聲母: b(ㄅ) p(ㄆ) m(ㄇ) f(ㄈ) d(ㄉ) t(ㄊ) n(ㄋ) l(ㄌ) g(ㄍ) k(ㄎ) h(ㄏ) j(ㄐ) q(ㄑ) x(ㄒ) Z(ㄓ) C(ㄔ) S(ㄕ) r(ㄖ) z(ㄗ) c(ㄘ) s(ㄙ)
-  # 介母: i(ㄧ) u(ㄨ) v(ㄩ)
-  # 韻母: a(ㄚ) o(ㄛ) e(ㄜ) E(ㄝ) A(ㄞ) I(ㄟ) O(ㄠ) U(ㄡ) M(ㄢ) N(ㄣ) K(ㄤ) G(ㄥ) R(ㄦ)
-  # 聲調: e(1) w(2) y(3) q(4) p(5)
   alphabet: "1234567890vwyqpbdgjZzptkCcmnhxSsflreiuEAIOMNKGRA"
   initials: "1234567890vwyqpbdgjZzptkCcmnhxSsflreiuEAIOMNKGRA"
   use_space: false
   delimiter: " '"
   algebra:
     - xform/^r5$/er5/
-
-    # 聲調預處理 (一聲用臨時標記 X 保留)
+    # 聲調預處理
     - xform/1$/X/
     - xform/2$/W/
     - xform/3$/Y/
     - xform/4$/Q/
     - xform/5$/P/
-
-    # 介母
+    # 介母與拼音修正
     - xform/^yu/v/
     - xform/^yi?/i/
     - xform/^wu?/u/
-
-    # 拼音修正
     - xform/iu/iou/
     - xform/ui/uei/
     - xform/ong/ung/
@@ -63,14 +53,11 @@ speller:
     - xform/iu/v/
     - xform/^([jqx])u/$1v/
     - xform/([iuv])n/$1en/
-
-    # 聲母特殊處理(保留大寫作為精確碼)
+    # 聲母與韻母精確碼
     - xform/^zhi?/Z/
     - xform/^chi?/C/
     - xform/^shi?/S/
     - xform/^([zcsr])i/$1/
-
-    # 韻母代號化 (精確碼)
     - xform/ai/A/
     - xform/ei/I/
     - xform/ao/O/
@@ -83,21 +70,8 @@ speller:
     - xform/eh/E/
     - xform/([iv])e/$1E/
 
-    # === 派生模糊碼 (用於 T9 直接輸入) ===
-    # 韻母/介母 → 數字
-    - derive/a/1/
-    - derive/A/2/
-    - derive/[MR]/3/
-    - derive/o/4/
-    - derive/I/5/
-    - derive/[Ni]/6/
-    - derive/e/7/
-    - derive/[OU]/8/
-    - derive/[Ku]/9/
-    - derive/E/0/
-    - derive/[Gv]/v/
-
-    # 聲母 → 數字
+    # === 提升長句準確率：區分「聲母」與「韻母」的派生順序 ===
+    # 1. 先處理聲母 (確保字首匹配權重較高)
     - derive/^b/1/
     - derive/^d/1/
     - derive/^g/2/
@@ -120,28 +94,36 @@ speller:
     - derive/^l/0/
     - derive/^r/v/
 
-    # 聲調字母
+    # 2. 再處理韻母/介母
+    - derive/a/1/
+    - derive/A/2/
+    - derive/[MR]/3/
+    - derive/o/4/
+    - derive/I/5/
+    - derive/[Ni]/6/
+    - derive/e/7/
+    - derive/[OU]/8/
+    - derive/[Ku]/9/
+    - derive/E/0/
+    - derive/[Gv]/v/
+
+    # 聲調與簡拼
     - xform/W/w/
     - xform/Y/y/
     - xform/Q/q/
     - xform/P/p/
     - xform/X$/e/
-
-    # 允許省略聲調
     - derive/[wyqpe]$//
-
-    # 簡拼
-    - derive/^(.).+$/$1/
-    - derive/^(.).+([wyqp])$/$1$2/
+    - abbrev/^(.).+$/$1/ 
+    - abbrev/^(.).+([wyqp])$/$1$2/
 
 translator:
   dictionary: terra_pinyin
   prism: bopomofo_t9_custom
+  enable_sentence: true           # 強化長句自動造句
+  enable_user_dict: true         # 開啟個人詞庫學習
   preedit_format:
-    # 0. 處理一聲精確調鍵 e
     - xform/(.)e$/$1ˉ/
-
-    # 1. 處理聲母精確鍵 (包括原本與聲調衝突的 p, q)
     - xform/^p/ㄆ/
     - xform/ p/ ㄆ/
     - xform/'p/'ㄆ/
@@ -150,7 +132,6 @@ translator:
     - xform/ q/ ㄑ/
     - xform/'q/'ㄑ/
     - xform/q/ˋ/
-
     - xform/b/ㄅ/
     - xform/d/ㄉ/
     - xform/g/ㄍ/
@@ -170,8 +151,6 @@ translator:
     - xform/f/ㄈ/
     - xform/l/ㄌ/
     - xform/r/ㄖ/
-
-    # 2. 處理介母/韻母精確鍵
     - xform/i/ㄧ/
     - xform/u/ㄨ/
     - xform/v/ㄩ/
@@ -188,8 +167,6 @@ translator:
     - xform/K/ㄤ/
     - xform/G/ㄥ/
     - xform/R/ㄦ/
-
-    # 3. 模糊 T9 鍵
     - xform/1/ㄅ/
     - xform/2/ㄍ/
     - xform/3/ㄓ/
@@ -201,13 +178,15 @@ translator:
     - xform/9/ㄕ/
     - xform/0/ㄈ/
     - xform/v/ㄖ/
-
-    # 4. 其他聲調鍵
     - xform/w/ˊ/
     - xform/y/ˇ/
 
 key_binder:
   import_preset: default
+  bindings:
+    # 修正 Return 鍵：當你在輸入碼狀態時，按 Return 會直接送出 preedit (注音符號)
+    - { when: composing, accept: Return, send: Shift+Return }
+    - { when: composing, accept: KP_Enter, send: Shift+Return }
 
 recognizer:
   import_preset: default
@@ -220,4 +199,4 @@ predictor:
   max_iterations: 1
 
 simplifier:
-  opencc_config: s2t.json  # 簡體聯想詞自動轉換為繁體
+  opencc_config: s2t.json
