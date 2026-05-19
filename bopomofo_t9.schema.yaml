@@ -1,7 +1,7 @@
 schema:
   schema_id: bopomofo_t9
   name: 注音九宮格(自訂)
-  version: "6.1"
+  version: "6.0"
 
 engine:
   processors:
@@ -35,13 +35,11 @@ speller:
   delimiter: " '"
   algebra:
     - xform/^r5$/er5/
-    # 聲調預處理
     - xform/1$/X/
     - xform/2$/W/
     - xform/3$/Y/
     - xform/4$/Q/
     - xform/5$/P/
-    # 介母與拼音修正
     - xform/^yu/v/
     - xform/^yi?/i/
     - xform/^wu?/u/
@@ -53,7 +51,6 @@ speller:
     - xform/iu/v/
     - xform/^([jqx])u/$1v/
     - xform/([iuv])n/$1en/
-    # 聲母與韻母精確碼
     - xform/^zhi?/Z/
     - xform/^chi?/C/
     - xform/^shi?/S/
@@ -69,9 +66,17 @@ speller:
     - xform/er/R/
     - xform/eh/E/
     - xform/([iv])e/$1E/
-
-    # === 提升長句準確率：區分「聲母」與「韻母」的派生順序 ===
-    # 1. 先處理聲母 (確保字首匹配權重較高)
+    - derive/a/1/
+    - derive/A/2/
+    - derive/[MR]/3/
+    - derive/o/4/
+    - derive/I/5/
+    - derive/[Ni]/6/
+    - derive/e/7/
+    - derive/[OU]/8/
+    - derive/[Ku]/9/
+    - derive/E/0/
+    - derive/[Gv]/v/
     - derive/^b/1/
     - derive/^d/1/
     - derive/^g/2/
@@ -93,35 +98,18 @@ speller:
     - derive/^f/0/
     - derive/^l/0/
     - derive/^r/v/
-
-    # 2. 再處理韻母/介母
-    - derive/a/1/
-    - derive/A/2/
-    - derive/[MR]/3/
-    - derive/o/4/
-    - derive/I/5/
-    - derive/[Ni]/6/
-    - derive/e/7/
-    - derive/[OU]/8/
-    - derive/[Ku]/9/
-    - derive/E/0/
-    - derive/[Gv]/v/
-
-    # 聲調與簡拼
     - xform/W/w/
     - xform/Y/y/
     - xform/Q/q/
     - xform/P/p/
     - xform/X$/e/
     - derive/[wyqpe]$//
-    - abbrev/^(.).+$/$1/ 
-    - abbrev/^(.).+([wyqp])$/$1$2/
+    - derive/^(.).+$/$1/
+    - derive/^(.).+([wyqp])$/$1$2/
 
 translator:
   dictionary: terra_pinyin
   prism: bopomofo_t9_custom
-  enable_sentence: true           # 強化長句自動造句
-  enable_user_dict: true         # 開啟個人詞庫學習
   preedit_format:
     - xform/(.)e$/$1ˉ/
     - xform/^p/ㄆ/
@@ -184,9 +172,8 @@ translator:
 key_binder:
   import_preset: default
   bindings:
-    # 修正 Return 鍵：當你在輸入碼狀態時，按 Return 會直接送出 preedit (注音符號)
+    # 這裡是你唯一需要的新功能：按下 Enter 時，把預覽的注音直接送出去
     - { when: composing, accept: Return, send: Shift+Return }
-    - { when: composing, accept: KP_Enter, send: Shift+Return }
 
 recognizer:
   import_preset: default
