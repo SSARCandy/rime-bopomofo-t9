@@ -1,7 +1,7 @@
 schema:
   schema_id: bopomofo_t9
   name: 注音九宮格
-  version: "10.0"
+  version: "10.1"
 
 engine:
   processors:
@@ -25,7 +25,7 @@ engine:
     - punct_translator
     - script_translator
   filters:
-    - lua_filter@t9_sort_filter
+    #- lua_filter@t9_sort_filter
     - simplifier
     - uniquifier
 
@@ -39,16 +39,18 @@ speller:
     # 1. 先搬移可能衝突的字母 (ㄑ->A, ㄒ->B)
     - xform/q/A/
     - xform/x/B/
-    # 2. 基本注音轉換
+    
+    # 2. 基本注音轉換 (🌟 修復組合鼻音韻母)
+    - xform/yong/vP/    # ㄩㄥ (用)
+    - xform/iong/vP/    # ㄩㄥ (窘)
+    - xform/weng/uP/    # ㄨㄥ (翁)
+    - xform/ong/uP/     # ㄨㄥ (東)
+    - xform/ing/iP/     # ㄧㄥ (英)
     - xform/^yu/v/
     - xform/^yi?/i/
     - xform/^wu?/u/
     - xform/iu/iou/
     - xform/ui/uei/
-    - xform/ong/ung/
-    - xform/ing/Iing/
-    - xform/ung/Uung/
-    - xform/iu/v/
     - xform/^([jqx])u/$1v/
     - xform/([iuv])n/$1en/
     - xform/^zhi?/Z/
@@ -66,11 +68,13 @@ speller:
     - xform/er/R/
     - xform/eh/E/
     - xform/([iv])e/$1E/
+    
     # 3. 聲調轉換 (放在最後，確保不會被前面的 xform 誤傷)
     - xform/1$/q/
     - xform/2$/w/
     - xform/3$/x/
     - xform/4$/y/
+    
     # 4. T9 模糊鍵映射
     - derive/a/1/
     - derive/I/2/
@@ -104,6 +108,7 @@ speller:
     - derive/^f/0/
     - derive/^l/0/
     - derive/^r/v/
+    
     # 5. 結尾處理
     - derive/[qwxy]$//
     - derive/^(.).+$/$1/
