@@ -131,6 +131,9 @@ keyboards:
           - action: backspace
             width: { percentage: 0.16 }
             label: { text: "⌫" }
+            callout:
+              - label: "清空"
+                action: { shortcutCommand: "#重输" }
       - keys:
           - action: { character: { char: "y" } }
             width: { percentage: 0.16 }
@@ -240,6 +243,9 @@ keyboards:
           - action: backspace
             width: { percentage: 0.16 }
             label: { text: "⌫" }
+            callout:
+              - label: "清空"
+                action: { shortcutCommand: "#重输" }
       - keys:
           - action: { symbol: { char: "/" } }
             width: { percentage: 0.16 }
