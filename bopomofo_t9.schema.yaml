@@ -7,7 +7,6 @@ engine:
   processors:
     - ascii_composer
     - speller
-    - predictor
     - recognizer
     - key_binder
     - punctuator
@@ -21,12 +20,10 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
-    - predict_translator
     - punct_translator
     - script_translator
   filters:
     #- lua_filter@t9_sort_filter
-    - simplifier
     - uniquifier
 
 speller:
@@ -111,11 +108,16 @@ speller:
     
     # 5. 結尾處理
     - derive/[qwxy]$//
-    - derive/^(.).+$/$1/
+    - abbrev/^(.).+$/$1/
 
 translator:
   dictionary: terra_pinyin
   prism: bopomofo_t9_custom
+  enable_user_dict: true
+  enable_sentence: true
+  enable_encoder: true
+  encode_commit_history: true
+  max_phrase_length: 7
   preedit_format:
     # 先轉換所有符號
     - xform/A/ㄑ/
@@ -182,11 +184,3 @@ recognizer:
   import_preset: default
   patterns:
     abc: "^[a-zA-Z0-9]+$"
-
-predictor:
-  db: predict.db
-  max_candidates: 5
-  max_iterations: 1
-
-simplifier:
-  opencc_config: s2t.json
