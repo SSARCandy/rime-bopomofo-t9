@@ -5,22 +5,16 @@ schema:
 
 engine:
   processors:
-    - ascii_composer
     - speller
     - recognizer
     - key_binder
-    - punctuator
     - selector
-    - navigator
     - express_editor
   segmentors:
-    - ascii_segmentor
     - matcher
     - abc_segmentor
-    - punct_segmentor
     - fallback_segmentor
   translators:
-    - punct_translator
     - script_translator
   filters:
     - lua_filter@t9_sort_filter
@@ -36,7 +30,7 @@ speller:
     # 1. 先搬移可能衝突的字母 (ㄑ->A, ㄒ->B)
     - xform/q/A/
     - xform/x/B/
-    
+
     # 2. 基本注音轉換 (🌟 修復組合鼻音韻母)
     - xform/yong/vP/    # ㄩㄥ (用)
     - xform/iong/vP/    # ㄩㄥ (窘)
@@ -65,46 +59,47 @@ speller:
     - xform/er/R/
     - xform/eh/E/
     - xform/([iv])e/$1E/
-    
+
     # 3. 聲調轉換 (放在最後，確保不會被前面的 xform 誤傷)
     - xform/1$/q/
     - xform/2$/w/
     - xform/3$/x/
     - xform/4$/y/
-    
+
     # 4. T9 模糊鍵映射
+    # 按鍵 1：ㄅ(b) ㄉ(d) ㄚ(a)
+    - derive/^[bd]/1/
     - derive/a/1/
+    # 按鍵 2：ㄍ(g) ㄐ(j) ㄞ(I)
+    - derive/^[gj]/2/
     - derive/I/2/
+    # 按鍵 3：ㄓ(Z) ㄗ(z) ㄢ(M) ㄦ(R)
+    - derive/^[Zz]/3/
     - derive/[MR]/3/
+    # 按鍵 4：ㄆ(p) ㄊ(t) ㄛ(o)
+    - derive/^[pt]/4/
     - derive/o/4/
+    # 按鍵 5：ㄎ(k) ㄑ(A) ㄟ(J)
+    - derive/^[kA]/5/
     - derive/J/5/
+    # 按鍵 6：ㄔ(C) ㄘ(c) ㄣ(N) ㄧ(i)
+    - derive/^[Cc]/6/
     - derive/[Ni]/6/
+    # 按鍵 7：ㄇ(m) ㄋ(n) ㄜ(e)
+    - derive/^[mn]/7/
     - derive/e/7/
+    # 按鍵 8：ㄏ(h) ㄒ(B) ㄠ(K) ㄡ(L)
+    - derive/^[hB]/8/
     - derive/[KL]/8/
+    # 按鍵 9：ㄕ(S) ㄙ(s) ㄤ(O) ㄨ(u)
+    - derive/^[Ss]/9/
     - derive/[Ou]/9/
+    # 按鍵 0：ㄈ(f) ㄌ(l) ㄝ(E)
+    - derive/^[fl]/0/
     - derive/E/0/
-    - derive/[Pv]/v/
-    - derive/^b/1/
-    - derive/^d/1/
-    - derive/^g/2/
-    - derive/^j/2/
-    - derive/^Z/3/
-    - derive/^z/3/
-    - derive/^p/4/
-    - derive/^t/4/
-    - derive/^k/5/
-    - derive/^A/5/
-    - derive/^C/6/
-    - derive/^c/6/
-    - derive/^m/7/
-    - derive/^n/7/
-    - derive/^h/8/
-    - derive/^B/8/
-    - derive/^S/9/
-    - derive/^s/9/
-    - derive/^f/0/
-    - derive/^l/0/
+    # 按鍵 v：ㄖ(r) ㄥ(P) ㄩ(v)
     - derive/^r/v/
+    - derive/[Pv]/v/
     
     # 5. 結尾處理
     - derive/[qwxy]$//
