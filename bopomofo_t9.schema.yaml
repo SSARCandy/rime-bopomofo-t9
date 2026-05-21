@@ -23,7 +23,7 @@ engine:
     - punct_translator
     - script_translator
   filters:
-    #- lua_filter@t9_sort_filter
+    - lua_filter@t9_sort_filter
     - uniquifier
 
 speller:
