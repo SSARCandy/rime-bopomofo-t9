@@ -106,7 +106,7 @@ speller:
     - derive/^(.).+$/$1/
 
 translator:
-  dictionary: terra_pinyin
+  dictionary: bopomofo_t9
   prism: bopomofo_t9_custom
   enable_user_dict: true
   enable_sentence: true

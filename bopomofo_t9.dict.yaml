@@ -1,10 +1,10 @@
 # Rime dictionary
 # encoding: utf-8
-# 使用教育部長見字、常見詞語字而成的字典
+# 使用教育部常見字、常見詞語、以及我個人習慣而成的字典
 #
 
 ---
-name: terra_pinyin
+name: bopomofo_t9
 version: "2026.05.20"
 sort: by_weight
 use_preset_vocabulary: true
@@ -2765,7 +2765,7 @@ min_phrase_weight: 100
 次	ci4
 欣	xin1
 欲	yu4
-欸  ei4
+欸	ei4
 欺	qi1
 欻	chua1	50%
 欻	hu1	50%
@@ -32521,213 +32521,205 @@ min_phrase_weight: 100
 龜蛇二將	gui1 she2 er4 jiang4
 
 # Emoji Candidates - Countries
-🇹🇼  tai2 wan1
-🇦🇫  e1 fu4 han4
-🇦🇱  e1 er3 ba1 ni2 ya4
-🇩🇿  e1 er3 ji2 li4 ya4
-🇦🇩  an1 dao4 er3
-🇦o  an1 ge1 la1
-🇦🇮  an1 gui1 la1
-🇦🇬  an1 ti2 gua1 ji2 ba1 bu4 da2
-🇦🇷  e1 gen1 ting2
-🇦🇲  ya4 mei3 ni2 ya4
-🇦🇺  ao4 da4 li4 ya4
-🇦3  ao4 di4 li4
-🇦🇿  e1 ze2 bai4 jiang1
-🇧🇸  ba1 ha1 ma3
-🇧🇭  ba1 lin2
-🇧🇩  meng4 jia1 la1
-🇧🇧  ba1 bei3 duo1
-🇧🇾  bai2 e2 luo2 si1
-🇧🇪  bi3 li4 shi2
-🇧🇿  bei3 li3 si1
-🇧🇯  ben3 ning2
-🇧🇹  bu4 dan1
-🇧🇴  bo1 li4 wei2 ya4
-🇧🇦  bo1 si1 ni2 ya4 he2 hei4 sai4 ge1 wei2 na4
-🇧🇼  bo2 ci2 wa3 na4
-🇧🇷  ba1 xi1
-🇧🇳  wen2 lai2
-🇧🇬  bao3 jia1 li4 ya4
-🇧🇫  bu4 ji2 na4 fa3 suo3
-🇧🇮  bu4 long2 di2
-🇰🇭  jian3 pu3 zhai4
-🇨🇲  ka1 mei4 long2
-🇨🇦  jia1 na2 da4
-🇨🇻  fo2 de2 jiao3
-🇨🇫  zhong1 fei1 gong4 he2 guo2
-🇹🇩  zha2 de2
-🇨🇱  zhi4 li4
-🇨🇳  zhong1 guo2
-🇨🇴  ge1 lun2 bi3 ya4
-🇰🇲  ke3 mo2 luo2
-🇨g  gang1 guo2 gong4 he2 guo2
-🇨🇩  gang1 guo2 min2 zhu3 gong4 he2 guo2
-🇨🇷  ge1 si1 da2 li2 jia1
-🇨🇮  ke4 te4 di2 wa3
-🇭🇷  ke4 luo2 ai1 di4 ya4
-🇨🇺  gu3 ba1
-🇨🇾  sai4 pu3 lu4 si1
-🇨🇿  jie2 ke4
-🇩🇰  dan1 mai4
-🇩🇯  ji2 bu4 ti2
-🇩🇲  duo1 mi3 ni2 ke4
-🇩🇴  duo1 mi3 ni2 jia1 gong4 he2 guo2
-🇪🇨  e4 gua1 duo1
-🇪🇬  ai1 ji2
-🇸🇻  sa4 er3 wa3 duo1
-🇬🇶  chi4 dao4 ji3 nei4 ya4
-🇪4  e4 li4 cui4 ya4
-🇪🇪  ai4 sha1 ni2 ya4
-🇪🇹  ai1 sai4 e2 bi3 ya4
-🇫🇯  fei3 ji4
-🇫🇮  fen1 lan2
-🇫🇷  fa3 guo2
-🇬🇦  jia1 peng2
-🇬🇲  gang1 bi3 ya4
-🇬🇪  qiao2 zhu4 ya4
-🇩🇪  de2 guo2
-🇬🇭  jia1 na4
-🇬🇷  xi1 la4
-🇬🇩  ge2 lin2 na4 da2
-🇬🇹  gua1 di4 ma3 la1
-🇬🇳  ji3 nei4 ya4
-🇬🇼  ji3 nei4 ya4 bi3 sao4
-🇬🇾  gui1 ya4 na4
-🇭🇹  hai3 di4
-🇭🇳  hong2 du1 la1 si1
-🇭🇺  xiong1 ya2 li4
-🇮🇸  bing1 dao4
-🇮🇳  yin4 du4
-🇮🇩  yin4 ni2
-🇮🇷  yi1 lang3
-🇮🇶  yi1 la1 ke4
-🇮🇪  ai4 er3 lan2
-🇮🇱  yi3 se4 lie4
-🇮🇹  yi4 da4 li4
-🇯🇲  ya2 mai3 jia1
-🇯🇵  ri4 ben3
-🇯🇴  yue1 dan4
-🇰🇿  ha1 sa4 ke4
-🇰🇪  ken3 ya4
-🇰🇮  ji2 li3 ba1 si1
-🇰🇵  bei3 han2
-🇰🇷  nan2 han2
-🇰🇼  ke1 wei1 te4
-🇰g  ji2 er3 ji2 si1
-🇱🇦  la3 wo4
-🇱🇻  la1 tuo1 wei2 ya4
-🇱🇧  li2 ba1 nen4
-🇱🇸  lai2 suo3 tuo1
-🇱r  li3 bi3 li3 ya4
-🇱🇾  li3 bi3 ya4
-🇱🇮  lie4 zi1 dun1 si1 teng1
-🇱🇹  li4 tao2 wan3
-🇱🇺  lu2 sen1 bao3
-🇲🇬  ma3 da2 jia1 si1 jia1
-🇲🇼  ma3 la2 wei2
-🇲🇾  ma3 lai2 xi1 ya4
-🇲🇻  ma3 er3 di4 fu1
-🇲🇱  ma3 li4
-🇲🇹  ma3 er3 ta1
-🇲🇭  ma3 sha4 er3 qun2 dao3
-🇲🇷  mao2 li3 ta3 ni2 ya4
-🇲🇺  mao2 li3 qi2 si1
-🇲🇽  mo4 xi1 ge1
-🇫🇲  mi4 ke4 luo2 ni2 xi1 ya4
-🇲🇩  mo2 er3 duo1 wa3
-🇲🇨  mo2 na4 ge1
-🇲🇳  meng3 gu3
-🇲🇪  hei1 shan1
-🇲🇦  mo2 luo4 ge1
-🇲🇿  mo4 san1 bi3 ke4
-🇲🇲  mian3 dian4
-🇳🇦  na4 mi3 bi3 ya4
-🇳🇷  nuo4 lu3
-🇳🇵  ni2 bo2 er3
-🇳🇱  he2 lan2
-🇳🇿  niu3 zi1 lan2
-🇳🇮  ni2 jia1 la1 gua1
-🇳🇪  ni2 ri4
-🇳🇬  ni2 ri4 li4 ya4
-🇳🇴  nuo4 wei1
-🇴🇲  e1 man4
-🇵🇰  ba1 ji1 si1 tan3
-🇵🇼  bo2 lau2
-🇵🇦  ba1 na2 ma3
-🇵g  ba1 bu4 ya4 xin1 ji3 nei4 ya4
-🇵🇾  ba1 la1 gui1
-🇵🇪  mi4 lu3
-🇵🇭  fei1 lu4 bin1
-🇵🇱  bo1 lan2
-🇵🇹  pu2 tao2 ya2
-🇶🇦  ka3 ta3 er3
-🇷🇴  luo2 ma3 ni2 ya4
-🇷🇺  e2 luo2 si1
-🇷🇼  lu2 an1 da2
-🇰🇳  sheng4 ji2 ci2 he2 ni2 wei2 si1
-🇱🇨  sheng4 lu4 xi1 ya4
-🇻🇨  sheng4 wen2 sen1 ji2 ge2 na4 ding1 qun2 dao3
-🇼🇸  sa4 mo2 ya4
-🇸🇲  sheng4 ma3 li4 nuo4
-🇸🇹  sheng4 duo1 mei3 he2 pu3 lin2 xi1 bi3
-🇸🇦  sha1 wu1 di4 e1 la1 bo2
-🇸🇳  sai4 nei4 jia1 er3
-🇷🇸  sai4 er3 wei2 ya4
-🇸🇨  sai4 xie2 er3
-🇸🇱  sai4 la1 li2 ang2
-🇸🇬  xin1 jia1 po1
-🇸🇰  si1 luo4 fa2 ke4
-🇸🇮  si1 luo4 wei2 ni2 ya4
-🇸🇧  suo3 luo2 men2 qun2 dao3
-🇸om  suo3 ma3 li4 ya4
-🇿🇦  nan2 fei1
-🇸🇸  nan2 su1 dan1
-🇪🇸  xi1 ban1 ya2
-🇱🇰  si1 li3 lan2 ka3
-🇸🇩  su1 dan1
-🇸🇷  su1 li3 nan2
-🇸🇿  si1 wa1 di4 ni2
-🇸🇪  rui4 dian3
-🇨🇭  rui4 shi4
-🇸🇾  xu4 li4 ya4
-🇹🇯  ta3 ji2 ke4
-🇹🇿  tan3 san1 ni2 ya4
-🇹🇭  tai4 guo2
-🇹🇱  dong1 di4 wen4
-🇹g  duo1 ge1
-🇹🇴  tang3 jia1
-🇹🇹  qian1 li3 da2 ji2 tuo1 ba1 ge1
-🇹🇳  tu2 ni2 si1
-🇹🇷  tu3 er3 qi2
-🇹🇲  tu3 ku4 man4
-🇹🇻  tu2 wa3 lu3
-🇺🇬  wu1 gan1 da2
-🇺🇦  wu1 ke4 lan2
-🇦🇪  e1 la1 bo2 lian2 he2 qiu2 chang3 guo2
-🇬🇧  ying1 guo2
-🇺🇸  mei3 guo2
-🇺🇾  wu1 la1 gui1
-🇺🇿  wu1 zi1 bie2 ke4
-🇻🇺  wa3 nu4 e1 tu2
-🇻🇦  fan4 di4 gang1
-🇻🇪  wei3 nei4 rui4 la1
-🇻🇳  yue4 nan2
-🇾🇪  ye3 men2
-🇿🇲  san3 bi3 ya4
-🇿🇼  jin1 ba1 bu4 wei2
+🇹🇼	tai2 wan1
+🇦🇫​	e1 fu4 han4
+🇦🇱​​​	e1 er3 ba1 ni2 ya4
+🇩🇿​​​	e1 er3 ji2 li4 ya4
+🇦🇩​	an1 dao4 er3
+🇦🇮​	an1 gui1 la1
+🇦🇬​​​​​	an1 ti2 gua1 ji2 ba1 bu4 da2
+🇦🇷​	e1 gen1 ting2
+🇦🇲​​	ya4 mei3 ni2 ya4
+🇦🇺​​	ao4 da4 li4 ya4
+🇦🇿​​	e1 ze2 bai4 jiang1
+🇧🇸​	ba1 ha1 ma3
+🇧🇭	ba1 lin2
+🇧🇩​	meng4 jia1 la1
+🇧🇧​	ba1 bei3 duo1
+🇧🇾​​	bai2 e2 luo2 si1
+🇧🇪​	bi3 li4 shi2
+🇧🇿​	bei3 li3 si1
+🇧🇯	ben3 ning2
+🇧🇹	bu4 dan1
+🇧🇴​​	bo1 li4 wei2 ya4
+🇧🇦​​​​​​​​	bo1 si1 ni2 ya4 he2 hei4 sai4 ge1 wei2 na4
+🇧🇼​​	bo2 ci2 wa3 na4
+🇧🇷	ba1 xi1
+🇧🇳	wen2 lai2
+🇧🇬​​	bao3 jia1 li4 ya4
+🇧🇫​​​	bu4 ji2 na4 fa3 suo3
+🇧🇮​	bu4 long2 di2
+🇰🇭​	jian3 pu3 zhai4
+🇨🇲​	ka1 mei4 long2
+🇨🇦​	jia1 na2 da4
+🇨🇻​	fo2 de2 jiao3
+🇨🇫​​​	zhong1 fei1 gong4 he2 guo2
+🇹🇩	zha2 de2
+🇨🇱	zhi4 li4
+🇨🇳	zhong1 guo2
+🇨🇴​​	ge1 lun2 bi3 ya4
+🇰🇲​	ke3 mo2 luo2
+🇨🇩​​​​​	gang1 guo2 min2 zhu3 gong4 he2 guo2
+🇨🇷​​​	ge1 si1 da2 li2 jia1
+🇨🇮​​	ke4 te4 di2 wa3
+🇭🇷​​​	ke4 luo2 ai1 di4 ya4
+🇨🇺	gu3 ba1
+🇨🇾​​	sai4 pu3 lu4 si1
+🇨🇿	jie2 ke4
+🇩🇰	dan1 mai4
+🇩🇯​	ji2 bu4 ti2
+🇩🇲​​	duo1 mi3 ni2 ke4
+🇩🇴​​​​​	duo1 mi3 ni2 jia1 gong4 he2 guo2
+🇪🇨​	e4 gua1 duo1
+🇪🇬	ai1 ji2
+🇸🇻​​	sa4 er3 wa3 duo1
+🇬🇶​​​	chi4 dao4 ji3 nei4 ya4
+🇪🇪​​	ai4 sha1 ni2 ya4
+🇪🇹​​​	ai1 sai4 e2 bi3 ya4
+🇫🇯	fei3 ji4
+🇫🇮	fen1 lan2
+🇫🇷	fa3 guo2
+🇬🇦	jia1 peng2
+🇬🇲​	gang1 bi3 ya4
+🇬🇪​	qiao2 zhu4 ya4
+🇩🇪	de2 guo2
+🇬🇭	jia1 na4
+🇬🇷	xi1 la4
+🇬🇩​​	ge2 lin2 na4 da2
+🇬🇹​​	gua1 di4 ma3 la1
+🇬🇳​	ji3 nei4 ya4
+🇬🇼​​​	ji3 nei4 ya4 bi3 sao4
+🇬🇾​	gui1 ya4 na4
+🇭🇹	hai3 di4
+🇭🇳​​	hong2 du1 la1 si1
+🇭🇺​	xiong1 ya2 li4
+🇮🇸	bing1 dao3
+🇮🇳	yin4 du4
+🇮🇩	yin4 ni2
+🇮🇷	yi1 lang3
+🇮🇶​	yi1 la1 ke4
+🇮🇪​	ai4 er3 lan2
+🇮🇱​	yi3 se4 lie4
+🇮🇹​	yi4 da4 li4
+🇯🇲​	ya2 mai3 jia1
+🇯🇵	ri4 ben3
+🇯🇴	yue1 dan4
+🇰🇿​	ha1 sa4 ke4
+🇰🇪	ken3 ya4
+🇰🇮​​	ji2 li3 ba1 si1
+🇰🇵	bei3 han2
+🇰🇷	nan2 han2
+🇰🇼​	ke1 wei1 te4
+🇱🇦	la3 wo4
+🇱🇻​​	la1 tuo1 wei2 ya4
+🇱🇧​	li2 ba1 nen4
+🇱🇸​	lai2 suo3 tuo1
+🇱🇾​	li3 bi3 ya4
+🇱🇮​​​	lie4 zi1 dun1 si1 teng1
+🇱🇹​	li4 tao2 wan3
+🇱🇺​	lu2 sen1 bao3
+🇲🇬​​​	ma3 da2 jia1 si1 jia1
+🇲🇼​	ma3 la2 wei2
+🇲🇾​​	ma3 lai2 xi1 ya4
+🇲🇻​​	ma3 er3 di4 fu1
+🇲🇱	ma3 li4
+🇲🇹​	ma3 er3 ta1
+🇲🇭​​​	ma3 sha4 er3 qun2 dao3
+🇲🇷​​​	mao2 li3 ta3 ni2 ya4
+🇲🇺​​	mao2 li3 qi2 si1
+🇲🇽​	mo4 xi1 ge1
+🇫🇲​​​​	mi4 ke4 luo2 ni2 xi1 ya4
+🇲🇩​​	mo2 er3 duo1 wa3
+🇲🇨​	mo2 na4 ge1
+🇲🇳	meng3 gu3
+🇲🇪	hei1 shan1
+🇲🇦​	mo2 luo4 ge1
+🇲🇿​​	mo4 san1 bi3 ke4
+🇲🇲	mian3 dian4
+🇳🇦​​	na4 mi3 bi3 ya4
+🇳🇷	nuo4 lu3
+🇳🇵​	ni2 bo2 er3
+🇳🇱	he2 lan2
+🇳🇿​	niu3 zi1 lan2
+🇳🇮​​	ni2 jia1 la1 gua1
+🇳🇪	ni2 ri4
+🇳🇬​​	ni2 ri4 li4 ya4
+🇳🇴	nuo4 wei1
+🇴🇲	e1 man4
+🇵🇰​​	ba1 ji1 si1 tan3
+🇵🇼	bo2 lau2
+🇵🇦​	ba1 na2 ma3
+🇵🇾​	ba1 la1 gui1
+🇵🇪	mi4 lu3
+🇵🇭​	fei1 lu4 bin1
+🇵🇱	bo1 lan2
+🇵🇹​	pu2 tao2 ya2
+🇶🇦​	ka3 ta3 er3
+🇷🇴​​	luo2 ma3 ni2 ya4
+🇷🇺​	e2 luo2 si1
+🇷🇼​	lu2 an1 da2
+🇰🇳​​​​​	sheng4 ji2 ci2 he2 ni2 wei2 si1
+🇱🇨​​	sheng4 lu4 xi1 ya4
+🇻🇨​​​​​​​	sheng4 wen2 sen1 ji2 ge2 na4 ding1 qun2 dao3
+🇼🇸​	sa4 mo2 ya4
+🇸🇲​​	sheng4 ma3 li4 nuo4
+🇸🇹​​​​​​	sheng4 duo1 mei3 he2 pu3 lin2 xi1 bi3
+🇸🇦​​​​	sha1 wu1 di4 e1 la1 bo2
+🇸🇳​​	sai4 nei4 jia1 er3
+🇷🇸​​	sai4 er3 wei2 ya4
+🇸🇨​	sai4 xie2 er3
+🇸🇱​​	sai4 la1 li2 ang2
+🇸🇬​	xin1 jia1 po1
+🇸🇰​​	si1 luo4 fa2 ke4
+🇸🇮​​​	si1 luo4 wei2 ni2 ya4
+🇸🇧​​​	suo3 luo2 men2 qun2 dao3
+🇿🇦	nan2 fei1
+🇸🇸​	nan2 su1 dan1
+🇪🇸​	xi1 ban1 ya2
+🇱🇰​​	si1 li3 lan2 ka3
+🇸🇩	su1 dan1
+🇸🇷​	su1 li3 nan2
+🇸🇿​​	si1 wa1 di4 ni2
+🇸🇪	rui4 dian3
+🇨🇭	rui4 shi4
+🇸🇾​	xu4 li4 ya4
+🇹🇯​	ta3 ji2 ke4
+🇹🇿​​	tan3 san1 ni2 ya4
+🇹🇭	tai4 guo2
+🇹🇱​	dong1 di4 wen4
+🇹🇬	duo1 ge1
+🇹🇴	tang3 jia1
+🇹🇹​​​​​	qian1 li3 da2 ji2 tuo1 ba1 ge1
+🇹🇳​	tu2 ni2 si1
+🇹🇷​	tu3 er3 qi2
+🇹🇲​	tu3 ku4 man4
+🇹🇻​	tu2 wa3 lu3
+🇺🇬​	wu1 gan1 da2
+🇺🇦​	wu1 ke4 lan2
+🇦🇪​​​​​​	e1 la1 bo2 lian2 he2 da4 gong1 guo2
+🇬🇧	ying1 guo2
+🇺🇸	mei3 guo2
+🇺🇾​	wu1 la1 gui1
+🇺🇿​​	wu1 zi1 bie2 ke4
+🇻🇺​​	wa3 nu4 e1 tu2
+🇻🇦​	fan4 di4 gang1
+🇻🇪​​	wei3 nei4 rui4 la1
+🇻🇳	yue4 nan2
+🇾🇪	ye3 men2
+🇿🇲​	san3 bi3 ya4
+🇿🇼​​	jin1 ba1 bu4 wei2
 
 # Emoji Candidates - Common Expressions
-😊  kai1 xin1
-😂  ha1 ha1
-🤝  wo4 shou3
-❤️  ai4 xin1
-👍  zan4
-🙏  xie4 xie4
-😭  ku1
-😠  sheng1 qi4
-😴  shui4 jiao4
-🎉  gong1 xi3
-🎂  sheng1 ri4
-😍  xi3 huan1
-✈️  fei1 ji1
+😊️	kai1 xin1
+😂️	ha1 ha1
+🤝️	wo4 shou3
+❤️	ai4 xin1
+👍	zan4
+🙏️	xie4 xie4
+😭	ku1
+😠️	sheng1 qi4
+😴️	shui4 jiao4
+🎉️	gong1 xi3
+🎂️	sheng1 ri4
+😍️	xi3 huan1
+✈️	fei1 ji1
