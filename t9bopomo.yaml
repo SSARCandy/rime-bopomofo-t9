@@ -43,6 +43,8 @@ keyboards:
             width: { percentage: 0.16 }
             label: { text: "=" }
             callout:
+              - label: "~"
+                action: { symbol: { char: "~" } }
               - label: "%"
                 action: { symbol: { char: "%" } }
               - label: "<"
@@ -205,6 +207,8 @@ keyboards:
             width: { percentage: 0.16 }
             label: { text: "=" }
             callout:
+              - label: "~"
+                action: { symbol: { char: "~" } }
               - label: "%"
                 action: { symbol: { char: "%" } }
               - label: "<"
