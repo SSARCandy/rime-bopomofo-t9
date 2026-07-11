@@ -5,7 +5,7 @@
 
 ---
 name: bopomofo_t9
-version: "2026.07.11"
+version: "2026.07.11.1"
 sort: by_weight
 use_preset_vocabulary: true
 max_phrase_length: 5
@@ -6422,673 +6422,673 @@ min_phrase_weight: 100
 
 # 個人常用詞典表 (Traditional Chinese / Pinyin)
 # 常用口語與語氣詞
-好欸 hao3 ei4
-不知欸 bu4 zhi1 dao4 ei4
-真的欸 zhen1 de5 ei4
-對欸 dui4 ei4
-好喔 hao3 o1
-可以喔 ke3 yi3 o1
-行喔 xing2 o1
-對啊 dui4 a5
-是真的 shi4 zhen1 de5
-稍微 shao1 wei1
-大概 da4 gai4
-估計 gu1 ji4
-好像 hao3 xiang4
-或是 huo4 shi4
-而且 er2 qie3
-其實 qi2 shi2
-然後 ran2 hou4
-感覺 gan3 jue2
-覺得 jue2 de5
-應該 ying1 gai1
-可能 ke3 neng2
-確定 que4 ding4
-一下 yi1 xia4
-一下下 yi1 xia4 xia4
-真的 zhen1 de5
-超強 chao1 qiang2
-厲害 li4 hai4
-麻煩 ma2 fan2
-謝謝 xie4 xie4
-辛苦了 xin1 ku3 le5
-了解 liao3 jie3
-沒問題 mei2 wen4 ti2
-不好意思 bu4 hao3 yi4 si1
-抱歉 bao4 qian4
-原來 yuan2 lai2
-確實 que4 shi2
-真的嗎 zhen1 de5 ma1
-對吧 dui4 ba5
+好欸	hao3 ei4
+不知欸	bu4 zhi1 dao4 ei4
+真的欸	zhen1 de5 ei4
+對欸	dui4 ei4
+好喔	hao3 o1
+可以喔	ke3 yi3 o1
+行喔	xing2 o1
+對啊	dui4 a5
+是真的	shi4 zhen1 de5
+稍微	shao1 wei1
+大概	da4 gai4
+估計	gu1 ji4
+好像	hao3 xiang4
+或是	huo4 shi4
+而且	er2 qie3
+其實	qi2 shi2
+然後	ran2 hou4
+感覺	gan3 jue2
+覺得	jue2 de5
+應該	ying1 gai1
+可能	ke3 neng2
+確定	que4 ding4
+一下	yi1 xia4
+一下下	yi1 xia4 xia4
+真的	zhen1 de5
+超強	chao1 qiang2
+厲害	li4 hai4
+麻煩	ma2 fan2
+謝謝	xie4 xie4
+辛苦了	xin1 ku3 le5
+了解	liao3 jie3
+沒問題	mei2 wen4 ti2
+不好意思	bu4 hao3 yi4 si1
+抱歉	bao4 qian4
+原來	yuan2 lai2
+確實	que4 shi2
+真的嗎	zhen1 de5 ma1
+對吧	dui4 ba5
 
 # 開發與軟體工程
-參數 can1 shu4
-伺服器 si4 fu2 qi4
-自動化 zi4 dong4 hua4
-環境變數 huan2 jing4 bian4 shu4
-協議 xie2 yi4
-部署 bu4 shu3
-腳本 jiao3 ben3
-渲染 xuan4 ran3
-模組 mo2 zu3
-介面 jie4 mian4
-物件 wu4 jian4
-專案 zhuan1 an4
-憑證 ping2 zheng4
-金鑰 jin1 yao4
-加密 jia1 mi4
-解密 jie3 mi4
-資料庫 zi1 liao4 ku4
-備份 bei4 fen4
-同步 tong2 bu4
-類別 lei4 bie2
-繼承 ji4 cheng2
-方法 fang1 fa3
-函數 han2 shu4
-指標 zhi3 biao1
-記憶體 ji4 yi4 ti3
-遞迴 di4 hui2
-疊代 die2 dai4
-容器 rong2 qi4
-編譯 bian1 yi4
-直譯 zhi2 yi4
-靜態 jing4 tai4
-動態 dong4 tai4
-常數 chang2 shu4
-變數 bian4 shu4
-全域 quan2 yu4
-區域 qu1 yu4
-邏輯 luo2 ji2
-演算法 yan3 suan4 fa3
-效能 xiao4 neng2
-重構 chong2 gou4
-框架 kuang4 jia4
-套件 tao4 jian4
-單元測試 dan1 yuan2 ce4 shi4
-整合測試 zheng3 he2 ce4 shi4
-自動化測試 zi4 dong4 hua4 ce4 shi4
-持續整合 chi2 xu4 zheng3 he2
-持續部署 chi2 xu4 bu4 shu3
-版本控制 ban3 ben3 kong4 zhi4
-分支 fen1 zhi1
-合併 he2 bing4
-衝突 chong1 tu2
-暫存 zan4 cun2
-遠端 yuan3 duan1
-本地 ben3 di4
-正式環境 zheng4 shi4 huan2 jing4
-開發環境 kai1 fa1 huan2 jing4
-測試環境 ce4 shi4 huan2 jing4
-後端 hou4 duan4
-前端 qian2 duan4
-全端 quan2 duan4
-原生 yuan2 sheng1
-混合 hun4 he2
-跨平台 kua4 ping2 tai2
-使用者體驗 shi3 yong4 zhe3 ti3 yan4
-使用者介面 shi3 yong4 zhe3 jie4 mian4
-併發 bing4 fa1
-執行緒 zhi2 xing2 xu4
-負載 fu4 zai4
-授權 shou4 quan2
-身分驗證 shen1 fen4 yan4 zheng4
-快取 kuai4 qu3
-域名 yu4 ming2
-解析 jie3 xi1
-防火牆 fang2 huo3 qiang2
-白名單 bai2 ming2 dan1
-黑名單 hei1 ming2 dan1
-存取 cun2 qu3
-權限 quan2 xian4
-角色 jiao3 se4
+參數	can1 shu4
+伺服器	si4 fu2 qi4
+自動化	zi4 dong4 hua4
+環境變數	huan2 jing4 bian4 shu4
+協議	xie2 yi4
+部署	bu4 shu3
+腳本	jiao3 ben3
+渲染	xuan4 ran3
+模組	mo2 zu3
+介面	jie4 mian4
+物件	wu4 jian4
+專案	zhuan1 an4
+憑證	ping2 zheng4
+金鑰	jin1 yao4
+加密	jia1 mi4
+解密	jie3 mi4
+資料庫	zi1 liao4 ku4
+備份	bei4 fen4
+同步	tong2 bu4
+類別	lei4 bie2
+繼承	ji4 cheng2
+方法	fang1 fa3
+函數	han2 shu4
+指標	zhi3 biao1
+記憶體	ji4 yi4 ti3
+遞迴	di4 hui2
+疊代	die2 dai4
+容器	rong2 qi4
+編譯	bian1 yi4
+直譯	zhi2 yi4
+靜態	jing4 tai4
+動態	dong4 tai4
+常數	chang2 shu4
+變數	bian4 shu4
+全域	quan2 yu4
+區域	qu1 yu4
+邏輯	luo2 ji2
+演算法	yan3 suan4 fa3
+效能	xiao4 neng2
+重構	chong2 gou4
+框架	kuang4 jia4
+套件	tao4 jian4
+單元測試	dan1 yuan2 ce4 shi4
+整合測試	zheng3 he2 ce4 shi4
+自動化測試	zi4 dong4 hua4 ce4 shi4
+持續整合	chi2 xu4 zheng3 he2
+持續部署	chi2 xu4 bu4 shu3
+版本控制	ban3 ben3 kong4 zhi4
+分支	fen1 zhi1
+合併	he2 bing4
+衝突	chong1 tu2
+暫存	zan4 cun2
+遠端	yuan3 duan1
+本地	ben3 di4
+正式環境	zheng4 shi4 huan2 jing4
+開發環境	kai1 fa1 huan2 jing4
+測試環境	ce4 shi4 huan2 jing4
+後端	hou4 duan4
+前端	qian2 duan4
+全端	quan2 duan4
+原生	yuan2 sheng1
+混合	hun4 he2
+跨平台	kua4 ping2 tai2
+使用者體驗	shi3 yong4 zhe3 ti3 yan4
+使用者介面	shi3 yong4 zhe3 jie4 mian4
+併發	bing4 fa1
+執行緒	zhi2 xing2 xu4
+負載	fu4 zai4
+授權	shou4 quan2
+身分驗證	shen1 fen4 yan4 zheng4
+快取	kuai4 qu3
+域名	yu4 ming2
+解析	jie3 xi1
+防火牆	fang2 huo3 qiang2
+白名單	bai2 ming2 dan1
+黑名單	hei1 ming2 dan1
+存取	cun2 qu3
+權限	quan2 xian4
+角色	jiao3 se4
 
 # 金融投資與理財
-半導體 ban4 dao3 ti3
-槓桿 gang4 gan3
-複利 fu4 li4
-殖利率 zhi2 li4 lv4
-波段 bo1 duan4
-建倉 jian4 cang1
-平倉 ping2 cang1
-壓力位 ya1 li4 wei4
-支撐位 zhi1 cheng1 wei4
-房貸 fang2 dai4
-寬限期 kuan1 xian4 qi1
-成交 cheng2 jiao1
-美股 mei3 gu3
-台股 tai2 gu3
-避險 bi4 xian3
-通膨 tong1 peng2
-標的 biao1 di4
-回撤 hui2 che4
-多頭 duo1 tou2
-空頭 kong1 tou2
-盤整 pan2 zheng4
-趨勢 qu1 shi4
-跳空 tiao4 kong1
-缺口 que1 kou3
-均線 jun1 xian4
-成交量 cheng2 jiao1 liang4
-本益比 ben3 yi4 bi3
-股價 gu3 jia4
-淨值 jing4 zhi2
-配息 pei4 xi1
-除權 chu2 quan2
-除息 chu2 xi1
-長線 chang2 xian4
-短線 duan3 xian4
-基本面 ji1 ben3 mian4
-技術面 ji4 shu4 mian4
-消息面 xiao1 xi1 mian4
-籌碼面 chou2 ma3 mian4
-法說會 fa3 shuo1 hui4
-營收 ying2 shou1
-毛利 mao2 li4
-純利 chun2 li4
-每股盈餘 mei3 gu3 ying2 yu2
-股東 gu3 dong1
-董事會 dong3 shi4 hui4
-減資 jian3 zi1
-增資 zeng1 zi1
-上市 shang4 shi4
-上櫃 shang4 gui4
-興櫃 xing1 gui4
-申購 shen1 gou4
-競價 jing4 jia4
-限價 xian4 jia4
-市價 shi4 jia4
-手續費 shou3 xu4 fei4
-證交稅 zheng4 jiao1 shui4
-資產 zi1 chan3
-負債 fu4 zhai4
-流動性 liu2 dong4 xing4
-變現 bian4 xian4
-投資組合 tou2 zi1 zu3 he2
-分散 fan1 san4
-集中 ji2 zhong1
-配置 pei4 zhi4
-報酬率 bao4 chou2 lv4
-年化 nian2 hua4
-波動 bo1 dong4
-風險 feng1 xian3
-承受 cheng2 shou4
-穩定 wen3 ding4
-成長 cheng2 zhang4
-價值 jia4 zhi2
-策略 ce4 lve4
-回測 hui2 ce4
-訊號 xun4 hao4
-進場 jin4 chang2
-出場 chu1 chang2
-停損 ting2 sun3
-停利 ting2 li4
-追高 zhui1 gao1
-殺低 sha1 di1
-攤平 tan1 ping2
-補倉 bu3 cang1
-清倉 qing1 cang1
-持股 chi2 gu3
-空倉 kong1 cang1
-滿倉 man3 cang1
-溢價 yi4 jia4
-折價 zhe2 jia4
-套利 tao4 li4
-期貨 qi1 huo4
-選擇權 xuan3 ze2 quan2
-權證 quan2 zheng4
-債券 zhai4 quan4
-基金 ji1 jin1
-虛擬貨幣 xu1 ni3 huo4 bi4
-比特幣 bi3 te4 bi4
-乙太幣 yi3 tai4 bi4
-穩定幣 wen3 ding4 bi4
-交易所 jiao1 yi4 suo3
-錢包 qian2 bao1
-冷錢包 leng3 qian2 bao1
-熱錢包 re4 qian2 bao1
-私鑰 si1 yao4
-地址 di4 zhi3
-轉帳 zhuan3 zhang4
-流動性 wa1 kuang4
+半導體	ban4 dao3 ti3
+槓桿	gang4 gan3
+複利	fu4 li4
+殖利率	zhi2 li4 lv4
+波段	bo1 duan4
+建倉	jian4 cang1
+平倉	ping2 cang1
+壓力位	ya1 li4 wei4
+支撐位	zhi1 cheng1 wei4
+房貸	fang2 dai4
+寬限期	kuan1 xian4 qi1
+成交	cheng2 jiao1
+美股	mei3 gu3
+台股	tai2 gu3
+避險	bi4 xian3
+通膨	tong1 peng2
+標的	biao1 di4
+回撤	hui2 che4
+多頭	duo1 tou2
+空頭	kong1 tou2
+盤整	pan2 zheng4
+趨勢	qu1 shi4
+跳空	tiao4 kong1
+缺口	que1 kou3
+均線	jun1 xian4
+成交量	cheng2 jiao1 liang4
+本益比	ben3 yi4 bi3
+股價	gu3 jia4
+淨值	jing4 zhi2
+配息	pei4 xi1
+除權	chu2 quan2
+除息	chu2 xi1
+長線	chang2 xian4
+短線	duan3 xian4
+基本面	ji1 ben3 mian4
+技術面	ji4 shu4 mian4
+消息面	xiao1 xi1 mian4
+籌碼面	chou2 ma3 mian4
+法說會	fa3 shuo1 hui4
+營收	ying2 shou1
+毛利	mao2 li4
+純利	chun2 li4
+每股盈餘	mei3 gu3 ying2 yu2
+股東	gu3 dong1
+董事會	dong3 shi4 hui4
+減資	jian3 zi1
+增資	zeng1 zi1
+上市	shang4 shi4
+上櫃	shang4 gui4
+興櫃	xing1 gui4
+申購	shen1 gou4
+競價	jing4 jia4
+限價	xian4 jia4
+市價	shi4 jia4
+手續費	shou3 xu4 fei4
+證交稅	zheng4 jiao1 shui4
+資產	zi1 chan3
+負債	fu4 zhai4
+流動性	liu2 dong4 xing4
+變現	bian4 xian4
+投資組合	tou2 zi1 zu3 he2
+分散	fan1 san4
+集中	ji2 zhong1
+配置	pei4 zhi4
+報酬率	bao4 chou2 lv4
+年化	nian2 hua4
+波動	bo1 dong4
+風險	feng1 xian3
+承受	cheng2 shou4
+穩定	wen3 ding4
+成長	cheng2 zhang4
+價值	jia4 zhi2
+策略	ce4 lve4
+回測	hui2 ce4
+訊號	xun4 hao4
+進場	jin4 chang2
+出場	chu1 chang2
+停損	ting2 sun3
+停利	ting2 li4
+追高	zhui1 gao1
+殺低	sha1 di1
+攤平	tan1 ping2
+補倉	bu3 cang1
+清倉	qing1 cang1
+持股	chi2 gu3
+空倉	kong1 cang1
+滿倉	man3 cang1
+溢價	yi4 jia4
+折價	zhe2 jia4
+套利	tao4 li4
+期貨	qi1 huo4
+選擇權	xuan3 ze2 quan2
+權證	quan2 zheng4
+債券	zhai4 quan4
+基金	ji1 jin1
+虛擬貨幣	xu1 ni3 huo4 bi4
+比特幣	bi3 te4 bi4
+乙太幣	yi3 tai4 bi4
+穩定幣	wen3 ding4 bi4
+交易所	jiao1 yi4 suo3
+錢包	qian2 bao1
+冷錢包	leng3 qian2 bao1
+熱錢包	re4 qian2 bao1
+私鑰	si1 yao4
+地址	di4 zhi3
+轉帳	zhuan3 zhang4
+流動性	wa1 kuang4
 
 # 智慧家居與硬體規格
-感測器 gan3 ce4 qi4
-網關 wang3 guan1
-腳架 jiao3 jia4
-雲台 yun2 tai2
-螢幕 ying2 mu4
-投影 tou2 ying3
-解析度 jie3 xi1 du4
-更新率 geng1 xin1 lv4
-色準 se4 zhun3
-無線 wu2 xian4
-藍牙 lan2 ya2
-智能 zhi4 neng2
-控制 kong4 zhi4
-開關 kai1 guan1
-插座 cha1 zuo4
-燈泡 deng1 pao4
-燈條 deng1 tiao2
-亮度 liang4 du4
-色溫 se4 wen1
-情境 qing2 jing4
-聯動 lian2 dong4
-觸發 chu4 fa1
-條件 tiao2 jian4
-動作 dong4 zuo4
-延時 yan2 shi2
-定時 ding4 shi2
-週期 zhou1 qi1
-人體 ren2 ti3
-溫濕度 wen1 shi1 du4
-漏水 lou4 shui3
-煙霧 yan1 wu4
-相機 xiang4 ji1
-鏡頭 jing4 tou2
-焦距 jiao1 ju4
-光圈 guang1 quan1
-快門 kuai4 men2
-感光度 gan3 guang1 du4
-對焦 dui4 jiao1
-變焦 bian4 jiao1
-定焦 ding4 jiao1
-防手震 fang2 shou3 zhen4
-錄影 lu4 ying3
-幀率 zhen1 lv4
-編碼 bian1 ma3
-解碼 jie3 ma4
-格式 ge2 shi4
-記憶卡 ji4 yi4 ka3
-讀取 du2 qu3
-寫入 xie4 ru4
-硬碟 ying4 die2
-固態 gu4 tai4
-機械 ji1 xie4
-外接 wai4 jie1
-擴充 kuo4 chong1
-傳輸 chuan2 shu1
-速度 su4 du4
-頻寬 pin2 kuan1
-延遲 yan2 chi2
-散熱 san4 re4
-風扇 feng1 shan4
-水冷 shui3 leng3
-電源 dian4 yuan2
-瓦數 wa3 shu4
-效率 xiao4 lv4
-機殼 ji1 ke2
-主機板 zhu3 ji1 ban3
-處理器 chu3 li3 qi4
-顯卡 xian3 ka3
-機架 ji1 jia4
-理線 li3 xian4
+感測器	gan3 ce4 qi4
+網關	wang3 guan1
+腳架	jiao3 jia4
+雲台	yun2 tai2
+螢幕	ying2 mu4
+投影	tou2 ying3
+解析度	jie3 xi1 du4
+更新率	geng1 xin1 lv4
+色準	se4 zhun3
+無線	wu2 xian4
+藍牙	lan2 ya2
+智能	zhi4 neng2
+控制	kong4 zhi4
+開關	kai1 guan1
+插座	cha1 zuo4
+燈泡	deng1 pao4
+燈條	deng1 tiao2
+亮度	liang4 du4
+色溫	se4 wen1
+情境	qing2 jing4
+聯動	lian2 dong4
+觸發	chu4 fa1
+條件	tiao2 jian4
+動作	dong4 zuo4
+延時	yan2 shi2
+定時	ding4 shi2
+週期	zhou1 qi1
+人體	ren2 ti3
+溫濕度	wen1 shi1 du4
+漏水	lou4 shui3
+煙霧	yan1 wu4
+相機	xiang4 ji1
+鏡頭	jing4 tou2
+焦距	jiao1 ju4
+光圈	guang1 quan1
+快門	kuai4 men2
+感光度	gan3 guang1 du4
+對焦	dui4 jiao1
+變焦	bian4 jiao1
+定焦	ding4 jiao1
+防手震	fang2 shou3 zhen4
+錄影	lu4 ying3
+幀率	zhen1 lv4
+編碼	bian1 ma3
+解碼	jie3 ma4
+格式	ge2 shi4
+記憶卡	ji4 yi4 ka3
+讀取	du2 qu3
+寫入	xie4 ru4
+硬碟	ying4 die2
+固態	gu4 tai4
+機械	ji1 xie4
+外接	wai4 jie1
+擴充	kuo4 chong1
+傳輸	chuan2 shu1
+速度	su4 du4
+頻寬	pin2 kuan1
+延遲	yan2 chi2
+散熱	san4 re4
+風扇	feng1 shan4
+水冷	shui3 leng3
+電源	dian4 yuan2
+瓦數	wa3 shu4
+效率	xiao4 lv4
+機殼	ji1 ke2
+主機板	zhu3 ji1 ban3
+處理器	chu3 li3 qi4
+顯卡	xian3 ka3
+機架	ji1 jia4
+理線	li3 xian4
 
 # 飲食、生活與偏好
-微糖 wei2 tang2
-去冰 qu4 bing1
-微冰 wei2 bing1
-奶蓋 nai3 gai4
-鹹奶蓋 xian2 nai3 gai4
-牛排 niu2 pai2
-熟度 shu2 du4
-餐券 can1 quan4
-訂位 ding4 wei4
-靠窗 kao4 chuang1
-兩位 liang3 wei4
-刷卡 shua1 ka3
-載具 zai4 ju4
-統編 tong3 bian1
-外帶 wai4 dai4
-內用 nei4 yong4
-結帳 jie2 zhang4
-餐廳 can1 ting1
-預約 yu4 yue1
-菜單 cai4 dan1
-推薦 tui1 jian4
-招牌 zhao1 pai2
-限量 xian4 liang4
-供應 gong1 ying4
-甜點 tian2 dian3
-飲料 yin3 liao4
-咖啡 ka1 fei1
-拿鐵 na2 tie3
-美式 mei3 shi4
-手沖 shou3 chong1
-焙度 bei4 du4
-酸度 suan1 du4
-苦味 ku3 wei4
-香氣 xiang1 qi4
-口感 kou3 gan3
-服務 fu2 wu4
-環境 huan2 jing4
-氣氛 qi4 fen1
-價格 jia4 ge2
-划算 hua2 suan4
-便宜 pian2 yi2
-貴 gui4
-好吃 hao3 chi1
-美味 mei3 wei4
-特別 te4 bie2
-一般 yi1 ban1
-普通 pu3 tong1
-踩雷 cai3 lei2
-必吃 bi4 chi1
-口袋名單 kou3 dai4 ming2 dan1
-回訪 hui2 fang3
-評論 ping2 lun4
-評分 ping2 fen1
-營業 ying2 ye4
-時間 shi2 jian4
-排隊 pai2 dui4
-等候 deng3 hou4
-跳號 tiao4 hao4
-叫號 jiao4 hao4
-收費 shou1 fei4
-低消 di1 xiao1
-服務費 fu2 wu4 fei4
-清潔 qing1 jie2
-超市 chao1 shi4
-便利商店 bian4 li4 shang1 dian4
-百貨 bai3 huo4
-商場 shang1 chang2
-電影 dian4 ying3
-運動 yun4 dong4
-健身 jian4 shen1
-跑步 pao3 bu4
-游泳 you2 yong3
-登山 deng1 shan1
-露營 lu4 ying3
-拍照 pai1 zhao4
-攝影 she4 ying3
-追劇 zhui1 ju4
-遊戲 you2 xi4
-動漫 dong4 man4
-小說 xiao3 shuo1
-音樂 yin1 yue4
-演唱會 yan3 chang4 hui4
-展覽 zhan3 lan3
-門票 men2 piao4
+微糖	wei2 tang2
+去冰	qu4 bing1
+微冰	wei2 bing1
+奶蓋	nai3 gai4
+鹹奶蓋	xian2 nai3 gai4
+牛排	niu2 pai2
+熟度	shu2 du4
+餐券	can1 quan4
+訂位	ding4 wei4
+靠窗	kao4 chuang1
+兩位	liang3 wei4
+刷卡	shua1 ka3
+載具	zai4 ju4
+統編	tong3 bian1
+外帶	wai4 dai4
+內用	nei4 yong4
+結帳	jie2 zhang4
+餐廳	can1 ting1
+預約	yu4 yue1
+菜單	cai4 dan1
+推薦	tui1 jian4
+招牌	zhao1 pai2
+限量	xian4 liang4
+供應	gong1 ying4
+甜點	tian2 dian3
+飲料	yin3 liao4
+咖啡	ka1 fei1
+拿鐵	na2 tie3
+美式	mei3 shi4
+手沖	shou3 chong1
+焙度	bei4 du4
+酸度	suan1 du4
+苦味	ku3 wei4
+香氣	xiang1 qi4
+口感	kou3 gan3
+服務	fu2 wu4
+環境	huan2 jing4
+氣氛	qi4 fen1
+價格	jia4 ge2
+划算	hua2 suan4
+便宜	pian2 yi2
+貴	gui4
+好吃	hao3 chi1
+美味	mei3 wei4
+特別	te4 bie2
+一般	yi1 ban1
+普通	pu3 tong1
+踩雷	cai3 lei2
+必吃	bi4 chi1
+口袋名單	kou3 dai4 ming2 dan1
+回訪	hui2 fang3
+評論	ping2 lun4
+評分	ping2 fen1
+營業	ying2 ye4
+時間	shi2 jian4
+排隊	pai2 dui4
+等候	deng3 hou4
+跳號	tiao4 hao4
+叫號	jiao4 hao4
+收費	shou1 fei4
+低消	di1 xiao1
+服務費	fu2 wu4 fei4
+清潔	qing1 jie2
+超市	chao1 shi4
+便利商店	bian4 li4 shang1 dian4
+百貨	bai3 huo4
+商場	shang1 chang2
+電影	dian4 ying3
+運動	yun4 dong4
+健身	jian4 shen1
+跑步	pao3 bu4
+游泳	you2 yong3
+登山	deng1 shan1
+露營	lu4 ying3
+拍照	pai1 zhao4
+攝影	she4 ying3
+追劇	zhui1 ju4
+遊戲	you2 xi4
+動漫	dong4 man4
+小說	xiao3 shuo1
+音樂	yin1 yue4
+演唱會	yan3 chang4 hui4
+展覽	zhan3 lan3
+門票	men2 piao4
 
 # 旅遊與地理
-信義區 xin4 yi4 qu1
-台北 tai2 bei3
-新北 xin1 bei3
-桃園 tao2 yuan2
-新竹 xin1 zhu2
-台中 tai2 zhong1
-彰化 zhang1 hua4
-嘉義 jia1 yi4
-台南 tai2 nan2
-高雄 gao1 xiong2
-屏東 ping2 dong1
-宜蘭 yi2 lan2
-花蓮 hua1 lian2
-台東 tai2 dong1
-首爾 shou3 er3
-釜山 fu3 shan1
-慶州 qing4 zhou1
-東京 dong1 jing1
-大阪 da4 ban3
-京都 jing1 du1
-福岡 fu2 gang1
-札幌 zha2 huang3
-羅馬 luo2 ma3
-米蘭 mi3 lan2
-佛羅倫斯 fu2 luo2 lun2 si1
-威尼斯 wei1 ni2 si1
-巴塞隆納 ba1 sai4 long2 na4
-馬德里 ma3 de2 li3
-雷克雅維克 lei2 ke4 ya3 wei2 ke4
-冰島 bing1 dao3
-新加坡 xin1 jia1 po1
-香港 xiang1 gang3
-深圳 shen1 zhen4
-機票 ji1 piao4
-飯店 fan4 dian4
-行程 xing2 cheng2
-住宿 zhu4 su4
-退房 tui4 fang2
-辦理入住 ban4 li3 ru4 zhu4
-行李 xing2 li3
-托運 tuo1 yun4
-隨身 sui2 shen1
-安檢 an1 jian4
-海關 hai3 guan1
-簽證 qian1 zheng4
-護照 hu4 zhao4
-保險 bao3 xian3
-漫遊 man4 you2
-網卡 wang3 ka3
-地圖 di4 tu2
-導航 dao3 hang2
-交通 jiao1 tong1
-捷運 jie2 yun4
-地鐵 di4 tie3
-火車 huo3 che1
-高鐵 gao1 tie3
-公車 gong1 che1
-租車 zu1 che1
-開車 kai1 che1
-步行 bu4 xing2
-景點 jing3 dian3
-古蹟 gu3 ji1
-建築 jian4 zhu4
-文化 wen2 hua4
-藝術 yi4 shu4
-購物 gou4 wu4
-伴手禮 ban4 shou3 li3
-藥妝 yao4 zhuang1
-電器 dian4 qi4
-免稅 mian4 shui4
-退稅 tui4 shui4
-換匯 huan4 hui4
-匯率 hui4 lv4
-現金 xian4 jin1
-信用卡 xin4 yong4 ka3
-支付 zhi1 fu4
-預算 yu4 suan4
-花費 hua1 fei4
+信義區	xin4 yi4 qu1
+台北	tai2 bei3
+新北	xin1 bei3
+桃園	tao2 yuan2
+新竹	xin1 zhu2
+台中	tai2 zhong1
+彰化	zhang1 hua4
+嘉義	jia1 yi4
+台南	tai2 nan2
+高雄	gao1 xiong2
+屏東	ping2 dong1
+宜蘭	yi2 lan2
+花蓮	hua1 lian2
+台東	tai2 dong1
+首爾	shou3 er3
+釜山	fu3 shan1
+慶州	qing4 zhou1
+東京	dong1 jing1
+大阪	da4 ban3
+京都	jing1 du1
+福岡	fu2 gang1
+札幌	zha2 huang3
+羅馬	luo2 ma3
+米蘭	mi3 lan2
+佛羅倫斯	fu2 luo2 lun2 si1
+威尼斯	wei1 ni2 si1
+巴塞隆納	ba1 sai4 long2 na4
+馬德里	ma3 de2 li3
+雷克雅維克	lei2 ke4 ya3 wei2 ke4
+冰島	bing1 dao3
+新加坡	xin1 jia1 po1
+香港	xiang1 gang3
+深圳	shen1 zhen4
+機票	ji1 piao4
+飯店	fan4 dian4
+行程	xing2 cheng2
+住宿	zhu4 su4
+退房	tui4 fang2
+辦理入住	ban4 li3 ru4 zhu4
+行李	xing2 li3
+托運	tuo1 yun4
+隨身	sui2 shen1
+安檢	an1 jian4
+海關	hai3 guan1
+簽證	qian1 zheng4
+護照	hu4 zhao4
+保險	bao3 xian3
+漫遊	man4 you2
+網卡	wang3 ka3
+地圖	di4 tu2
+導航	dao3 hang2
+交通	jiao1 tong1
+捷運	jie2 yun4
+地鐵	di4 tie3
+火車	huo3 che1
+高鐵	gao1 tie3
+公車	gong1 che1
+租車	zu1 che1
+開車	kai1 che1
+步行	bu4 xing2
+景點	jing3 dian3
+古蹟	gu3 ji1
+建築	jian4 zhu4
+文化	wen2 hua4
+藝術	yi4 shu4
+購物	gou4 wu4
+伴手禮	ban4 shou3 li3
+藥妝	yao4 zhuang1
+電器	dian4 qi4
+免稅	mian4 shui4
+退稅	tui4 shui4
+換匯	huan4 hui4
+匯率	hui4 lv4
+現金	xian4 jin1
+信用卡	xin4 yong4 ka3
+支付	zhi1 fu4
+預算	yu4 suan4
+花費	hua1 fei4
 
 # 各種組合與常用狀態詞
-更新 geng1 xin1
-修改 xiu1 gai3
-刪除 shan1 chu2
-新增 xin1 zeng1
-儲存 chu3 cun2
-取消 qu3 xiao1
-確認 que4 ding4
-完成 wan2 cheng2
-失敗 shi1 bai4
-成功 cheng2 gong1
-錯誤 cuo4 wu4
-異常 yi4 chang2
-警告 jing3 gao4
-通知 tong1 zhi1
-提醒 ti2 xing2
-設定 she4 ding4
-調整 tiao2 zheng3
-連線 lian2 xian4
-斷線 duan4 xian4
-重試 chong2 shi4
-等待 deng3 dai4
-處理 chu3 li3
-進行 jin4 xing2
-結束 jie2 shu4
-開始 kai1 shi3
-暫停 zan4 ting2
-繼續 ji4 xu4
-停止 ting2 zhi3
-搜尋 sou1 xun2
-查詢 cha2 xun2
-篩選 shai1 xuan3
-排序 pai2 xu4
-分享 fen1 xiang3
-傳送 chuan2 song4
-接收 jie1 shou1
-下載 xia4 zai4
-上傳 shang4 chuan2
-預覽 yu4 lan3
-打印 da3 yin4
-輸出 shu1 chu1
-輸入 shu1 ru4
-轉檔 zhuan3 dang3
-壓縮 ya1 suo1
-解壓縮 jie3 ya1 suo1
-分類 fen1 lei4
-標籤 biao1 qian1
-紀錄 ji4 lu4
-日誌 ri4 zhi4
-報告 bao4 gao4
-分析 fen1 xi1
-統計 tong3 ji4
-圖表 tu2 biao1
-數據 shu4 ju4
-資訊 zi1 xun4
-內容 nei4 rong4
-標題 biao1 ti2
-描述 miao2 shu4
-關鍵字 guan1 jian4 zi4
-連結 lian2 jie2
-圖片 tu2 pian4
-影片 ying3 pian4
-音訊 yin1 xun4
-檔案 dang3 an4
-資料夾 zi1 liao4 jia3
-桌面 zhuo1 mian4
-視窗 shi4 chuang1
-選單 xuan3 dan1
-按鈕 an4 niu3
-輸入框 shu1 ru4 kuang1
-勾選 gou1 xuan3
-下拉 xia4 la1
-捲動 juan3 dong4
-點擊 dian3 ji1
-拖曳 tuo1 ye4
-縮放 suo1 fang4
-切換 qie4 huan4
-刷新 shua1 xin1
-重置 chong2 zhi4
-預設 yu4 she4
-自訂 zi4 ding4
-進階 jin4 jie1
-簡易 jian3 yi4
-專業 zhuan1 ye4
-版本 ban3 ben3
-序號 xu4 hao4
-註冊 zhu4 ce4
-登入 deng1 ru4
-登出 deng1 chu1
-帳號 zhang4 hao4
-密碼 mi4 ma3
-驗證 yan4 zheng4
-安全 an1 quan2
-隱私 yin3 si1
-條款 tiao2 kuan1
-政策 zheng4 ce4
-幫助 bang1 zhu4
-反饋 fan3 kui4
-問題 wen4 ti2
-解答 jie3 da2
-支援 zhi1 yuan2
-聯絡 lian2 luo4
-關於 guan1 yu2
-官方 guan1 fang1
-正式 zheng4 shi4
-測試 ce4 shi4
-實驗 shi2 yan4
-正式版 zheng4 shi4 ban3
-測試版 ce4 shi4 ban3
-開發者 kai1 fa1 zhe3
-社群 she4 qun2
-討論 tao3 lun4
-論壇 lun4 tan2
-教學 jiao4 xue2
-文檔 wen2 dang4
-範例 fan4 li4
-原始碼 yuan2 shi3 ma3
-開源 kai1 yuan2
-專利 zhuan1 li4
-版權 ban3 quan2
-免費 mian4 fei4
-付費 fu4 fei4
-訂閱 ding4 yue4
-試用 shi4 yong4
-購買 gou4 mai3
-退款 tui4 kuan3
-帳單 zhang4 dan1
-發票 fa1 piao4
-餘額 yu2 e2
-點數 dian3 shu4
-折扣 zhe2 kou4
-優惠 you1 hui4
-活動 huo4 dong4
-禮物 li3 wu4
-抽獎 chou1 jiang3
-排名 pai2 ming2
-等級 deng3 ji2
-成就 cheng2 jiu4
-積分 ji1 fen1
-任務 ren4 wu4
-挑戰 tiao2 zhan4
-合作 he2 zuo4
-競爭 jing4 zheng1
-比賽 bi3 sai4
-獎勵 jiang3 li4
-懲罰 cheng2 fa2
-規則 gui1 ze2
-系統 xi4 tong3
-機制 ji1 zhi4
-架構 jia4 gou4
-模式 mo2 shi4
-流程 liu2 cheng2
-步驟 bu4 zhou4
-階段 jie4 duan4
-目標 mu4 biao1
-計畫 ji4 hua4
-執行 zhi2 xing2
-成果 cheng2 guo3
-回顧 hui2 gu4
-改善 gai3 shan4
-未來 wei4 lai2
-過去 guo4 qu4
-現在 xian4 zai4
-目前 mu4 qian2
-最近 zui4 jin4
-安排 an1 pai2
-整理 zheng3 li3
-清單 qing1 dan1
-筆記 bi3 ji4
-日曆 ri4 li4
-鬧鐘 nao4 zhong1
-天氣 tian1 qi4
-溫度 wen2 du4
-濕度 shi1 du4
-空氣 kong1 qi4
-品質 pin3 zhi4
-健康 jian4 kang1
-睡眠 shui2 mian4
-步數 bu4 shu4
-卡路里 ka3 lu4 li3
-心率 xin1 lv4
-壓力 ya1 li4
-放鬆 fang4 song1
-休息 xiu1 xi2
-飲水 yin3 shui3
-飲食 yin3 shi2
-營養 ying2 yang3
-維生素 wei2 sheng1 su4
-藥品 yao4 pin3
-診所 zhen3 suo3
-醫院 yi1 yuan4
-掛號 gua4 hao4
-醫生 yi1 sheng1
-檢查 jian3 cha2
-結果 jie2 guo3
-處方 chu3 fang1
-復健 fu4 jian4
-療程 liao2 cheng2
-保養 bao3 yang3
-預防 yu4 fang2
+更新	geng1 xin1
+修改	xiu1 gai3
+刪除	shan1 chu2
+新增	xin1 zeng1
+儲存	chu3 cun2
+取消	qu3 xiao1
+確認	que4 ding4
+完成	wan2 cheng2
+失敗	shi1 bai4
+成功	cheng2 gong1
+錯誤	cuo4 wu4
+異常	yi4 chang2
+警告	jing3 gao4
+通知	tong1 zhi1
+提醒	ti2 xing2
+設定	she4 ding4
+調整	tiao2 zheng3
+連線	lian2 xian4
+斷線	duan4 xian4
+重試	chong2 shi4
+等待	deng3 dai4
+處理	chu3 li3
+進行	jin4 xing2
+結束	jie2 shu4
+開始	kai1 shi3
+暫停	zan4 ting2
+繼續	ji4 xu4
+停止	ting2 zhi3
+搜尋	sou1 xun2
+查詢	cha2 xun2
+篩選	shai1 xuan3
+排序	pai2 xu4
+分享	fen1 xiang3
+傳送	chuan2 song4
+接收	jie1 shou1
+下載	xia4 zai4
+上傳	shang4 chuan2
+預覽	yu4 lan3
+打印	da3 yin4
+輸出	shu1 chu1
+輸入	shu1 ru4
+轉檔	zhuan3 dang3
+壓縮	ya1 suo1
+解壓縮	jie3 ya1 suo1
+分類	fen1 lei4
+標籤	biao1 qian1
+紀錄	ji4 lu4
+日誌	ri4 zhi4
+報告	bao4 gao4
+分析	fen1 xi1
+統計	tong3 ji4
+圖表	tu2 biao1
+數據	shu4 ju4
+資訊	zi1 xun4
+內容	nei4 rong4
+標題	biao1 ti2
+描述	miao2 shu4
+關鍵字	guan1 jian4 zi4
+連結	lian2 jie2
+圖片	tu2 pian4
+影片	ying3 pian4
+音訊	yin1 xun4
+檔案	dang3 an4
+資料夾	zi1 liao4 jia3
+桌面	zhuo1 mian4
+視窗	shi4 chuang1
+選單	xuan3 dan1
+按鈕	an4 niu3
+輸入框	shu1 ru4 kuang1
+勾選	gou1 xuan3
+下拉	xia4 la1
+捲動	juan3 dong4
+點擊	dian3 ji1
+拖曳	tuo1 ye4
+縮放	suo1 fang4
+切換	qie4 huan4
+刷新	shua1 xin1
+重置	chong2 zhi4
+預設	yu4 she4
+自訂	zi4 ding4
+進階	jin4 jie1
+簡易	jian3 yi4
+專業	zhuan1 ye4
+版本	ban3 ben3
+序號	xu4 hao4
+註冊	zhu4 ce4
+登入	deng1 ru4
+登出	deng1 chu1
+帳號	zhang4 hao4
+密碼	mi4 ma3
+驗證	yan4 zheng4
+安全	an1 quan2
+隱私	yin3 si1
+條款	tiao2 kuan1
+政策	zheng4 ce4
+幫助	bang1 zhu4
+反饋	fan3 kui4
+問題	wen4 ti2
+解答	jie3 da2
+支援	zhi1 yuan2
+聯絡	lian2 luo4
+關於	guan1 yu2
+官方	guan1 fang1
+正式	zheng4 shi4
+測試	ce4 shi4
+實驗	shi2 yan4
+正式版	zheng4 shi4 ban3
+測試版	ce4 shi4 ban3
+開發者	kai1 fa1 zhe3
+社群	she4 qun2
+討論	tao3 lun4
+論壇	lun4 tan2
+教學	jiao4 xue2
+文檔	wen2 dang4
+範例	fan4 li4
+原始碼	yuan2 shi3 ma3
+開源	kai1 yuan2
+專利	zhuan1 li4
+版權	ban3 quan2
+免費	mian4 fei4
+付費	fu4 fei4
+訂閱	ding4 yue4
+試用	shi4 yong4
+購買	gou4 mai3
+退款	tui4 kuan3
+帳單	zhang4 dan1
+發票	fa1 piao4
+餘額	yu2 e2
+點數	dian3 shu4
+折扣	zhe2 kou4
+優惠	you1 hui4
+活動	huo4 dong4
+禮物	li3 wu4
+抽獎	chou1 jiang3
+排名	pai2 ming2
+等級	deng3 ji2
+成就	cheng2 jiu4
+積分	ji1 fen1
+任務	ren4 wu4
+挑戰	tiao2 zhan4
+合作	he2 zuo4
+競爭	jing4 zheng1
+比賽	bi3 sai4
+獎勵	jiang3 li4
+懲罰	cheng2 fa2
+規則	gui1 ze2
+系統	xi4 tong3
+機制	ji1 zhi4
+架構	jia4 gou4
+模式	mo2 shi4
+流程	liu2 cheng2
+步驟	bu4 zhou4
+階段	jie4 duan4
+目標	mu4 biao1
+計畫	ji4 hua4
+執行	zhi2 xing2
+成果	cheng2 guo3
+回顧	hui2 gu4
+改善	gai3 shan4
+未來	wei4 lai2
+過去	guo4 qu4
+現在	xian4 zai4
+目前	mu4 qian2
+最近	zui4 jin4
+安排	an1 pai2
+整理	zheng3 li3
+清單	qing1 dan1
+筆記	bi3 ji4
+日曆	ri4 li4
+鬧鐘	nao4 zhong1
+天氣	tian1 qi4
+溫度	wen2 du4
+濕度	shi1 du4
+空氣	kong1 qi4
+品質	pin3 zhi4
+健康	jian4 kang1
+睡眠	shui2 mian4
+步數	bu4 shu4
+卡路里	ka3 lu4 li3
+心率	xin1 lv4
+壓力	ya1 li4
+放鬆	fang4 song1
+休息	xiu1 xi2
+飲水	yin3 shui3
+飲食	yin3 shi2
+營養	ying2 yang3
+維生素	wei2 sheng1 su4
+藥品	yao4 pin3
+診所	zhen3 suo3
+醫院	yi1 yuan4
+掛號	gua4 hao4
+醫生	yi1 sheng1
+檢查	jian3 cha2
+結果	jie2 guo3
+處方	chu3 fang1
+復健	fu4 jian4
+療程	liao2 cheng2
+保養	bao3 yang3
+預防	yu4 fang2
 
 
 # Added from commonly-used-chinese-characters-and-words

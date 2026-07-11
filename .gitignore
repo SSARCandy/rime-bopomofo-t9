@@ -1,0 +1,12 @@
+# 打包產物（可由 yuanshu-skin/ 與方案檔重新打包）
+*.cskin
+*.zip
+
+# 皮膚編譯產物（由 jsonnet 生成：手機上長按皮膚→運行 main.jsonnet，
+# 或 PC 端於 yuanshu-skin/ 執行 jsonnet -S -m . --tla-code debug=true jsonnet/main.jsonnet）
+yuanshu-skin/config.yaml
+yuanshu-skin/light/
+yuanshu-skin/dark/
+
+# 裝置日誌
+*.log

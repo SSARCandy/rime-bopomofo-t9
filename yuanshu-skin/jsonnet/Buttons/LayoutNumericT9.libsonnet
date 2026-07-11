@@ -62,12 +62,13 @@ local commonButtons = import './Common.libsonnet';
     name: 'numEqualButton',
     params: {
       action: { symbol: '=' },
+      # 右緣按鍵：依 v2 視覺順序（> < % ~ $），預設選最右的 $
       longPress: [
-        { text: '$', action: { symbol: '$' }, selected: true },
-        { text: '~', action: { symbol: '~' } },
-        { text: '%', action: { symbol: '%' } },
-        { text: '<', action: { symbol: '<' } },
         { text: '>', action: { symbol: '>' } },
+        { text: '<', action: { symbol: '<' } },
+        { text: '%', action: { symbol: '%' } },
+        { text: '~', action: { symbol: '~' } },
+        { text: '$', action: { symbol: '$' }, selected: true },
       ],
     },
   },

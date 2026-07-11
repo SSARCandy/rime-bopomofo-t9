@@ -1,10 +1,17 @@
 schema:
   schema_id: bopomofo_t9
   name: 注音九宮格
-  version: "10.2"
+  version: "10.4"
+
+# 自動聯想開關（萬象 user_predict.lua 實作，見 README）
+switches:
+  - name: prediction
+    states: [ 關閉預測, 開啟預測 ]
+    reset: 1
 
 engine:
   processors:
+    - lua_processor@*wanxiang.user_predict*P   # 自動聯想（萬象 lua 實作）
     - speller
     - recognizer
     - key_binder
@@ -16,13 +23,15 @@ engine:
     - fallback_segmentor
   translators:
     - script_translator
+    - lua_translator@*wanxiang.user_predict*T  # 自動聯想候選
   filters:
     - lua_filter@t9_sort_filter
+    - lua_filter@*wanxiang.user_predict*F      # 聯想上下文調頻
     - uniquifier
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz1234567890ABCDEIJKLMNOPSRVXZ"
-  initials: "abcdefghijklmnopqrstuvwxyz1234567890ABCDEIJKLMNOPSRVXZ"
+  alphabet: "abcdefghijklmnopqrstuvwxyz1234567890ABCDEIJKLMNOPSRVXZ›"
+  initials: "abcdefghijklmnopqrstuvwxyz1234567890ABCDEIJKLMNOPSRVXZ›"
   use_space: false
   delimiter: " '"
   algebra:
@@ -194,3 +203,11 @@ recognizer:
   import_preset: default
   patterns:
     abc: "^[a-zA-Z0-9]+$"
+
+# 自動聯想設定（lua/wanxiang/user_predict.lua：從你上屏的詞自動學習，
+# 資料存在使用者目錄 predict.userdb，剛安裝時沒有聯想、打幾次就會出現）
+user_predict:
+  db_name: predict
+  mobile_predict_style: post   # post=上屏後跳出聯想 / reorder=只做輸入調頻 / off=關閉
+  max_candidates: 6            # 一次最多顯示幾個聯想詞
+  max_predictions: 3           # 連續聯想最多幾輪
