@@ -1,7 +1,7 @@
 schema:
   schema_id: bopomofo_t9
   name: 注音九宮格
-  version: "10.1"
+  version: "10.2"
 
 engine:
   processors:
@@ -61,10 +61,14 @@ speller:
     - xform/([iv])e/$1E/
 
     # 3. 聲調轉換 (放在最後，確保不會被前面的 xform 誤傷)
-    - xform/1$/q/
-    - xform/2$/w/
-    - xform/3$/x/
-    - xform/4$/y/
+    # 僅在前一碼為字母時轉換，避免誤傷 emoji 等純數字鍵碼（如 01294）
+    - xform/([a-zA-Z])1$/$1q/
+    - xform/([a-zA-Z])2$/$1w/
+    - xform/([a-zA-Z])3$/$1x/
+    - xform/([a-zA-Z])4$/$1y/
+    # 輕聲（第5聲）沒有聲調鍵，直接去除，使「的(de5)、了(le5)、豆腐(fu5)」等
+    # 輕聲字詞可用無聲調完整注音輸入
+    - xform/([a-zA-Z])5$/$1/
 
     # 4. T9 模糊鍵映射
     # 按鍵 1：ㄅ(b) ㄉ(d) ㄚ(a)
@@ -105,14 +109,25 @@ speller:
     - derive/[qwxy]$//
     - derive/^(.).+$/$1/
 
+# 語法模型（可選，建議啟用）：用 n-gram 語言模型大幅改善長句的自動斷詞。
+# 啟用方式：
+#   1. 下載繁體八股文詞語模型 zh-hant-t-essay-bgw.gram（約 10.5 MB）
+#      https://github.com/lotem/rime-octagram-data （hant 分支）
+#   2. 將 .gram 檔放入 Hamster 的 RIME 使用者目錄（與本檔同層）
+#   3. 取消下面 grammar 區塊與 translator/contextual_suggestions 的註解，重新部署
+grammar:
+  language: zh-hant-t-essay-bgw
+
 translator:
   dictionary: bopomofo_t9
   prism: bopomofo_t9_custom
   enable_user_dict: true
-  enable_sentence: true
-  enable_encoder: true
-  encode_commit_history: true
-  max_phrase_length: 7
+  # 說明：script_translator 的整句組句 (Poet) 是內建行為，分段選詞上屏後
+  # 整句會自動寫入使用者詞典（下次同編碼整句直接出現）。
+  # enable_sentence / enable_encoder / encode_commit_history / max_phrase_length
+  # 為 table_translator 專用選項，對 script_translator 無效，故不設定。
+  contextual_suggestions: true   # 啟用語法模型時取消此行註解
+  max_homophones: 7              # 啟用語法模型時取消此行註解（擴大同音詞搜索）
   preedit_format:
     # 先轉換所有符號
     - xform/A/ㄑ/
@@ -152,11 +167,11 @@ translator:
     - xform/a/ㄚ/
     - xform/o/ㄛ/
     - xform/e/ㄜ/
-    # 最後轉換聲調 (直接匹配末尾)
-    - xform/q$/ˉ/
-    - xform/w$/ˊ/
-    - xform/x$/ˇ/
-    - xform/y$/ˋ/
+    # 轉換聲調（q/w/x/y 只會由聲調鍵產生，中間音節的聲調也要顯示）
+    - xform/q/ˉ/
+    - xform/w/ˊ/
+    - xform/x/ˇ/
+    - xform/y/ˋ/
     # 數字回顯
     - xform/1/ㄅ/
     - xform/2/ㄍ/
@@ -168,7 +183,7 @@ translator:
     - xform/8/ㄏ/
     - xform/9/ㄕ/
     - xform/0/ㄈ/
-    - xform/v/ㄖ/
+    # 注意：T9 鍵 v 與精確碼 ㄩ 共用字元 v，已在前面統一顯示為 ㄩ
 
 key_binder:
   import_preset: default

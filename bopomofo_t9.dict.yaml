@@ -5,7 +5,7 @@
 
 ---
 name: bopomofo_t9
-version: "2026.05.20"
+version: "2026.07.11"
 sort: by_weight
 use_preset_vocabulary: true
 max_phrase_length: 5
@@ -27,6 +27,7 @@ min_phrase_weight: 100
 不	bu2	1%
 不	bu4	99%
 丐	gai4
+丑	chou3
 且	qie3
 丕	pi1
 世	shi4
@@ -76,6 +77,7 @@ min_phrase_weight: 100
 予	yu3	100%
 事	shi4
 二	er4
+于	yu2
 互	hu4
 五	wu3
 井	jing3
@@ -167,10 +169,10 @@ min_phrase_weight: 100
 佑	you4
 佔	zhan1	50%
 佔	zhan4
-佔	zhan4	50%
 何	he2
 佗	tuo2
 佚	yi4
+余	yu2
 佛	fo2
 作	zuo4
 佝	gou1	50%
@@ -313,7 +315,6 @@ min_phrase_weight: 100
 像	xiang4
 僑	qiao2
 僕	pu1
-僕	pu1	0%
 僕	pu2	100%
 僖	xi1
 僚	liao2
@@ -363,7 +364,6 @@ min_phrase_weight: 100
 克	ke4
 兌	dui4
 免	mian3
-兒	er2	1%
 兒	er2	95%
 兒	r5	5%
 兒	ren2	99%
@@ -420,6 +420,7 @@ min_phrase_weight: 100
 凰	huang2
 凱	kai3
 凳	deng4
+凶	xiong1
 凸	tu1
 凹	ao1
 出	chu1
@@ -486,7 +487,6 @@ min_phrase_weight: 100
 剿	jiao3	50%
 劂	jue2
 劃	hua2
-劃	hua2	5%
 劃	hua4	95%
 劇	ju4
 劈	pi1	90%
@@ -583,6 +583,8 @@ min_phrase_weight: 100
 卜	bo5	5%
 卜	bu3	95%
 卞	bian4
+占	zhan1	50%
+占	zhan4	50%
 卡	ka3	90%
 卡	qia3	10%
 卦	gua4
@@ -641,6 +643,7 @@ min_phrase_weight: 100
 叭	ba1
 叮	ding1
 可	ke3
+台	tai2
 叱	chi4
 史	shi3
 右	you4
@@ -648,6 +651,7 @@ min_phrase_weight: 100
 司	si1
 叻	le4
 叼	diao1
+吁	xu1
 吃	chi1
 吃	ji2
 各	ge4
@@ -659,6 +663,7 @@ min_phrase_weight: 100
 吋	cun4
 同	tong2
 名	ming2
+后	hou4
 吏	li4
 吐	tu3	80%
 吐	tu4	20%
@@ -753,6 +758,7 @@ min_phrase_weight: 100
 咱	zan2	95%
 咳	hai1	5%
 咳	ke2	95%
+咸	xian2
 咻	xiu1
 咽	yan1	33.33%
 咽	yan4	33.33%
@@ -1131,7 +1137,6 @@ min_phrase_weight: 100
 壘	lei3
 壙	kuang4
 壞	huai4
-壞	huai4	0%
 壞	pei2	100%
 壞	pi1	5%
 壟	long3
@@ -1168,6 +1173,7 @@ min_phrase_weight: 100
 夯	hang1	95%
 失	shi1
 夷	yi2
+夸	kua1
 夾	jia1
 夾	jia2
 奄	yan1	50%
@@ -1390,9 +1396,7 @@ min_phrase_weight: 100
 寤	wu4
 寥	liao2
 實	shi2
-寧	ning2	0%
 寧	ning2	80%
-寧	ning4	0%
 寧	ning4	20%
 寧	zhu4	100%
 寨	zhai4
@@ -1474,6 +1478,7 @@ min_phrase_weight: 100
 岡	gang1
 岫	xiu4
 岱	dai4
+岳	yue4
 岷	min2
 岸	an4
 峇	ba1	50%
@@ -1524,7 +1529,6 @@ min_phrase_weight: 100
 嶸	rong2
 嶺	ling2	99%
 嶺	ling3
-嶺	ling3	1%
 嶼	yu3
 嶽	yue4
 巆	hong1	50%
@@ -1593,6 +1597,7 @@ min_phrase_weight: 100
 幫	bang1
 幬	chou2	50%
 幬	dao4	50%
+干	gan1
 平	ping2
 年	nian2
 幵	jian1	95%
@@ -1600,13 +1605,10 @@ min_phrase_weight: 100
 幸	xing4
 幹	gan1	50%
 幹	gan4
-幹	gan4	50%
 幻	huan4
 幼	you4
 幽	you1
 幾	ji1
-幾	ji1	10%
-幾	ji3	0%
 幾	ji3	90%
 庇	bi4
 床	chuang2
@@ -1738,7 +1740,6 @@ min_phrase_weight: 100
 微	wei1
 微	wei2
 徵	zheng1
-徵	zheng1	95%
 徵	zhi3	5%
 德	de2
 徹	che4
@@ -1941,10 +1942,8 @@ min_phrase_weight: 100
 懶	lan3
 懷	fu4	100%
 懷	huai2
-懷	huai2	0%
 懸	xuan2
 懺	chan4
-懺	chan4	1%
 懺	qian1	50%
 懺	qian3	49%
 懼	ju4
@@ -1993,6 +1992,7 @@ min_phrase_weight: 100
 打	da2	1%
 打	da3	99%
 扔	reng1
+托	tuo1
 扛	gang1	1%
 扛	kang2	99%
 扢	gu3	50%
@@ -2135,7 +2135,6 @@ min_phrase_weight: 100
 掛	gua4
 掠	lve4
 採	cai3
-採	cai3	100%
 採	cai4	0%
 探	tan4
 掣	che4
@@ -2226,7 +2225,6 @@ min_phrase_weight: 100
 撲	po3	1%
 撲	pou4	0.9%
 撲	pu1
-撲	pu1	98%
 撳	qin4
 撻	ta4
 撼	han4
@@ -2270,7 +2268,6 @@ min_phrase_weight: 100
 擺	bai3
 擻	sou3
 擾	rao3
-擾	rao3	0%
 擾	you4	100%
 擿	ti1	50%
 擿	zhi4	50%
@@ -2330,6 +2327,8 @@ min_phrase_weight: 100
 斐	fei3
 斑	ban1
 斕	lan2
+斗	dou3	90%
+斗	dou4	10%
 料	liao4
 斛	hu2
 斜	xie2
@@ -2346,7 +2345,6 @@ min_phrase_weight: 100
 方	fang1
 於	wu1	0%
 於	yu2
-於	yu2	100%
 施	shi1
 旁	pang2
 旄	mao2	50%
@@ -2559,6 +2557,7 @@ min_phrase_weight: 100
 柵	zha4
 柿	shi4
 栓	shuan1
+栗	li4
 栘	yi2
 校	jiao4	25%
 校	xiao4	100%
@@ -2675,13 +2674,11 @@ min_phrase_weight: 100
 槃	pan2
 構	gou3
 構	gou4
-構	gou4	0%
 槌	chui2
 槍	qiang1
 槐	huai2
 槓	gang1	50%
 槓	gang4
-槓	gang4	50%
 槨	guo3
 槭	qi1	50%
 槭	qi4	50%
@@ -2719,7 +2716,6 @@ min_phrase_weight: 100
 橘	ju2
 橙	cheng2
 機	ji1
-機	ji1	20%
 機	ji3	70%
 機	wei4	10%
 橡	xiang4
@@ -3170,7 +3166,6 @@ min_phrase_weight: 100
 濃	nong2
 濕	shi1
 濘	ning4
-濘	ning4	0%
 濘	zhu4
 濛	meng2
 濟	ji4
@@ -3930,9 +3925,7 @@ min_phrase_weight: 100
 稟	bing3
 稠	chou2
 種	chong2
-種	zhong3	0%
 種	zhong3	80%
-種	zhong4	0%
 種	zhong4	20%
 稱	chen4	33.33%
 稱	cheng1	33.33%
@@ -4053,7 +4046,6 @@ min_phrase_weight: 100
 篇	pian1
 築	zhu2	50%
 築	zhu4
-築	zhu4	50%
 篌	hou2
 篙	gao1
 篛	ruo4
@@ -4098,7 +4090,6 @@ min_phrase_weight: 100
 籲	xu1	90%
 籲	yu2	4%
 籲	yu4
-籲	yu4	1%
 米	mi3
 籽	zi3
 粉	fen3
@@ -4288,7 +4279,6 @@ min_phrase_weight: 100
 繫	xi4	50%
 繭	chong2	100%
 繭	jian3
-繭	jian3	0%
 繰	qiao1	50%
 繰	sao1	50%
 繳	jiao3
@@ -4331,7 +4321,6 @@ min_phrase_weight: 100
 羚	ling2
 羞	xiu1
 群	qun2
-羨	xian4	1%
 羨	xian4	99.9%
 羨	yan2	0.1%
 羨	yi2	99%
@@ -4404,7 +4393,6 @@ min_phrase_weight: 100
 聳	song3
 聶	nie4
 職	zhi2
-聽	ting1	1%
 聽	ting1	95%
 聽	ting4	5%
 聽	yi2	1%
@@ -4525,7 +4513,6 @@ min_phrase_weight: 100
 臍	qi2
 臏	bin4
 臘	la4
-臘	la4	0%
 臘	xi1	100%
 臚	lu2
 臟	zang4
@@ -4544,7 +4531,6 @@ min_phrase_weight: 100
 臺	si4	1%
 臺	tai1	30%
 臺	tai2
-臺	tai2	30%
 臺	yi2	39%
 臻	zhen1
 臼	jiu4
@@ -4554,7 +4540,6 @@ min_phrase_weight: 100
 舅	jiu4
 與	yu2	0%
 與	yu3
-與	yu3	90%
 與	yu4	10%
 興	xing1	80%
 興	xing4	20%
@@ -4666,7 +4651,6 @@ min_phrase_weight: 100
 莉	li4
 莊	peng2	98%
 莊	zhuang1
-莊	zhuang1	2%
 莎	sha1	50%
 莎	suo1	50%
 莒	ju3
@@ -4717,7 +4701,6 @@ min_phrase_weight: 100
 萑	tui1	10%
 萑	zhui1	40%
 萬	wan4
-萬	wan4	99%
 萱	xuan1
 萵	wo1
 萸	yu2
@@ -4836,7 +4819,6 @@ min_phrase_weight: 100
 蘊	yun4
 蘋	pin2	50%
 蘋	ping2
-蘋	ping2	50%
 蘑	mo2
 蘗	nie4
 蘚	xian3
@@ -4955,13 +4937,11 @@ min_phrase_weight: 100
 蠅	ying2
 蠍	he2	99%
 蠍	xie1
-蠍	xie1	1%
 蠔	ci4
 蠔	hao2
 蠕	ru2
 蠟	ji2	0%
 蠟	la4
-蠟	la4	0%
 蠟	qu4	50%
 蠟	zha4	50%
 蠡	li2	50%
@@ -4970,7 +4950,6 @@ min_phrase_weight: 100
 蠣	li4
 蠱	gu3
 蠶	can2
-蠶	can2	1%
 蠶	tian3	99%
 蠹	du4
 蠻	man2
@@ -5099,7 +5078,6 @@ min_phrase_weight: 100
 解	xie4	4%
 觴	shang1
 觸	chu4
-觸	chu4	0%
 觸	hong2	100%
 觼	jue2
 言	yan2
@@ -5527,6 +5505,8 @@ min_phrase_weight: 100
 轡	pei4
 辛	xin1
 辜	gu1
+辟	bi4	50%
+辟	pi4	50%
 辣	la4
 辦	ban4
 辨	bian4
@@ -5618,7 +5598,6 @@ min_phrase_weight: 100
 遨	ao2
 適	kuo4
 適	shi4
-適	shi4	0%
 遭	zao1
 遮	zhe1
 遲	chi2
@@ -5655,6 +5634,7 @@ min_phrase_weight: 100
 邵	shao4
 邶	bei4
 邸	di3
+郁	yu4
 郃	he2
 郊	jiao1
 郎	lang2
@@ -5724,8 +5704,10 @@ min_phrase_weight: 100
 釁	xin4
 釅	yan4
 釆	bian4
+采	cai3
 釉	you4
 釋	shi4
+里	li3
 重	chong2	10%
 重	zhong4	90%
 野	ye3
@@ -5940,7 +5922,6 @@ min_phrase_weight: 100
 闡	chan3
 闢	bi4	50%
 闢	pi4
-闢	pi4	50%
 阜	fu4
 阡	qian1
 阪	ban3
@@ -6242,7 +6223,6 @@ min_phrase_weight: 100
 驕	jiao1
 驗	yan4
 驚	jing1
-驚	jing1	0%
 驚	liang2
 驛	yi4
 驟	zhou4
@@ -6264,7 +6244,6 @@ min_phrase_weight: 100
 髑	du2
 髒	zang1
 髓	sui3
-體	ti3
 體	ti3
 髖	kuan1
 高	gao1
@@ -6391,9 +6370,7 @@ min_phrase_weight: 100
 麼	ma2
 麼	ma5	0%
 麼	me5
-麼	me5	0%
 麼	mo2
-麼	mo2	0%
 麼	yao1	100%
 麾	hui1
 黃	huang2
@@ -32524,7 +32501,6 @@ min_phrase_weight: 100
 🇦🇩​	3183
 🇦🇪​	1063568
 🇦🇪​​​​​​	10114063871129v294
-🇦🇪​​​​​​	10114063871129v294
 🇦🇫​	10983
 🇦🇬​​​​​	3165126111911
 🇦🇮​	329501
@@ -32599,7 +32575,6 @@ min_phrase_weight: 100
 🇫🇲​​​​	765709476861
 🇫🇴​​	0109459618
 🇫🇷	01294
-🇫🇷	01294
 🇬🇦	2614v
 🇬🇧	6v294
 🇬🇧​	6v2703
@@ -32627,7 +32602,6 @@ min_phrase_weight: 100
 🇭🇹	8216
 🇭🇺​	8vv106
 🇮🇩	6676
-🇮🇩​​​	661976861
 🇮🇩​​​	661976861
 🇮🇪​	2303
 🇮🇱​	697060
@@ -32686,7 +32660,6 @@ min_phrase_weight: 100
 🇲🇻​​	7131609
 🇲🇼​	710195
 🇲🇽​	748627
-🇲🇾​​	7102861
 🇲🇾​​	7102861
 🇲🇿​​	74931657
 🇳🇦​​	7176161

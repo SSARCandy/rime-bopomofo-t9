@@ -39,6 +39,21 @@
 1. 在 Hamster App 首頁點擊 **RIME** -> **重新部署**。
 2. 在 Hamster App 中進入 ***輸入方案設定** -> 選擇 **注音九宮格**。
 
+## 🚀 進階：啟用語法模型（強烈建議）
+
+長句自動斷詞的品質可以透過 n-gram 語法模型大幅提升（Hamster 內建 octagram 插件）：
+
+1. 下載繁體八股文詞語模型 [`zh-hant-t-essay-bgw.gram`](https://github.com/lotem/rime-octagram-data/raw/hant/zh-hant-t-essay-bgw.gram)（約 10.5 MB）。
+2. 將 `.gram` 檔放入 Hamster 的 RIME 使用者目錄（與 schema 同層）。
+3. 打開 `bopomofo_t9.schema.yaml`，取消 `grammar:` 區塊以及 `contextual_suggestions`、`max_homophones` 兩行的註解。
+4. 重新部署。
+
+## 💡 長句輸入技巧
+
+- 打完整串注音後，若整句猜測不對，直接從候選列挑出正確的**第一段**（候選列前端會輪流出現各種長度的首段選擇），選完 RIME 會對剩餘輸入繼續出候選，一段一段選完自動上屏。
+- **在同一次輸入內分段選完**（不要分次上屏），RIME 會把整句記進使用者詞典——下次輸入同樣的編碼，整句會直接出現。
+- 多打聲調：聲調鍵同時是「精確過濾」與「斷詞錨點」，斷錯位置的候選會被自動壓到最後。
+
 
 ## 🔗 相關連結
 - [Hamster GitHub](https://github.com/imfuxiao/Hamster)

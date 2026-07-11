@@ -12,7 +12,7 @@ Custom RIME input method schema for T9 (3x4) Bopomofo layout, specifically optim
 - `bopomofo_t9.schema.yaml`: The main RIME schema definition containing spelling algebra and engine configuration.
 - `t9bopomo.yaml`: Keyboard layout definition (for Hamster or similar mobile RIME clients).
 - `bopomofo_t9.dict.yaml`: The source dictionary providing characters and their pinyin/bopomofo readings.
-- `rime.lua`: Lua script for smart candidate sorting (v14), prioritizing perfect matches when tones are used.
+- `rime.lua`: Lua script for smart candidate sorting (v16). Full-coverage candidates (sentence guess / whole-phrase matches) come first, then the best candidate of each coverage length is emitted round-robin so that every possible "first segment" choice surfaces near the top, enabling segment-by-segment selection of long inputs. Candidates that would strand a tone key at the start of the next segment (invalid segmentation) are demoted to the bottom.
 
 ## Development Conventions
 
@@ -22,7 +22,7 @@ The schema uses four unique, clean, and case-insensitive alphanumeric characters
 - **Tone 2 (ˊ)**: Mapped to `w`
 - **Tone 3 (ˇ)**: Mapped to `x`
 - **Tone 4 (ˋ)**: Mapped to `y`
-- (Tone 5 is disabled)
+- (Tone 5 / 輕聲: no key on the layout. The algebra strips trailing `5` from dictionary codes — e.g. `de5`(的), `le5`(了), `fu5`(豆腐) — so neutral-tone syllables are typed with no tone key. They cannot be tone-anchored.)
 
 ### Key Mapping Logic
 The `speller/algebra` in the schema file maps Bopomofo symbols to numeric keys. This version utilizes case-sensitivity for symbols (e.g., `S` for ㄕ and `s` for ㄙ) to free up the tone letters:
@@ -40,7 +40,8 @@ The `speller/algebra` in the schema file maps Bopomofo symbols to numeric keys. 
 
 ### Long-Phrase & Accuracy Optimizations
 - **No Predict/Simplifier**: The schema explicitly avoids the `predict_translator` and OpenCC `simplifier` filters to maximize engine performance, as `bopomofo_t9.dict.yaml` is already fully Traditional Chinese.
-- **Enhanced Translator Memory**: The translator is explicitly configured with `enable_user_dict: true`, `enable_sentence: true`, and `encode_commit_history: true` to leverage the user's typing history and Viterbi decoding for accurate sentence building, while maintaining `derive/^(.).+$/$1/` to support T9 multi-character fuzzy shorthand (e.g. `24` -> `ㄐㄊ` -> `今天`).
+- **Translator Memory**: `enable_user_dict: true` enables the user dictionary. Sentence composition (Poet) is built into `script_translator` — no switch needed. When the user builds a sentence by selecting segments within one composition, `ScriptTranslator::Memorize` saves both the component words and the whole sentence (full text + full code) into the user dictionary, so the same long input surfaces the learned sentence next time. Note: `enable_sentence`, `enable_encoder`, `encode_commit_history`, and `max_phrase_length` are `table_translator`-only options and have no effect on `script_translator` (they were removed from the schema). The schema keeps `derive/^(.).+$/$1/` to support T9 multi-character fuzzy shorthand (e.g. `24` -> `ㄐㄊ` -> `今天`).
+- **Optional Grammar Model (octagram)**: Hamster bundles the librime-octagram plugin. Download `zh-hant-t-essay-bgw.gram` from https://github.com/lotem/rime-octagram-data (hant branch) into the RIME user directory, then uncomment the `grammar:` block and `translator/contextual_suggestions: true` in the schema for n-gram–based sentence composition — the single biggest improvement available for long-input segmentation.
 
 ## Building and Usage
 1. Copy `bopomofo_t9.schema.yaml` and `bopomofo_t9.dict.yaml` to your RIME user directory.
@@ -215,7 +216,7 @@ keyboards:
 - **氣泡選單方向與順序 (Callout Alignment)**：iOS 鍵盤在右側的按鍵（例如 T9 鍵盤的第 3 列：`3`、`6`、`9`、`v`），其長按彈出的氣泡會**向左展開**。為了確保畫面上的視覺順序依然是從左到右（與按鈕標籤如 `ㄓㄗㄢㄦ` 一致），在 YAML 裡的 `callout` 陣列順序必須**反轉**定義。
 - **精確碼覆蓋範圍 (Callout Precision)**：
   - **聲母 (Initials)**：**支援精確輸入**。長按時送出對應 ASCII 字母做精確篩選：
-    * `ㄅ(b)`、`ㄉ(d)`、`ㄍ(g)`、`ㄐ(j)`、`ㄓ(Z)`、`ㄗ(z)`、`ㄆ(p)`、`ㄊ(t)`、`ㄎ(k)`、`ㄑ(q)`、`ㄔ(C)`、`ㄘ(c)`、`ㄇ(m)`、`ㄋ(n)`、`ㄏ(h)`、`ㄒ(x)`、`ㄕ(S)`、`ㄙ(s)`、`ㄈ(f)`、`ㄌ(l)`、`ㄖ(r)`。
+    * `ㄅ(b)`、`ㄉ(d)`、`ㄍ(g)`、`ㄐ(j)`、`ㄓ(Z)`、`ㄗ(z)`、`ㄆ(p)`、`ㄊ(t)`、`ㄎ(k)`、`ㄑ(A)`、`ㄔ(C)`、`ㄘ(c)`、`ㄇ(m)`、`ㄋ(n)`、`ㄏ(h)`、`ㄒ(B)`、`ㄕ(S)`、`ㄙ(s)`、`ㄈ(f)`、`ㄌ(l)`、`ㄖ(r)`。
   - **介母與韻母 (Medials & Finals)**：**僅支援模糊輸入**。長按時僅送出對應的數字模糊碼（同直接點擊該鍵）：
     * 介母：`ㄧ`、`ㄨ`、`ㄩ`。
     * 韻母：`ㄚ`、`ㄛ`、`ㄜ`、`ㄝ`、`ㄞ`、`ㄟ`、`ㄠ`、`ㄡ`、`ㄢ`、`ㄣ`、`ㄤ`、`ㄥ`、`ㄦ`。
