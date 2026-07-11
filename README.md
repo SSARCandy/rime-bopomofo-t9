@@ -17,19 +17,28 @@
 - **獨立聲調鍵**：獨立聲調鍵（ˉ ˊ ˇ ˋ），支援精確過濾。
 - **有數字鍵盤**：可以快速切換成九宮格數字鍵盤。
 
+## 📁 目錄結構
+
+```
+bopomofo_t9/     RIME 方案本體（元書 RimeUserData 的內容，壓縮此資料夾即可導入）
+  ├ bopomofo_t9.schema.yaml   方案
+  ├ bopomofo_t9.dict.yaml     字典
+  ├ rime.lua                  智慧排序腳本
+  └ lua/wanxiang/             自動聯想模組
+yuanshu-skin/    元書鍵盤皮膚原始碼（jsonnet，打包成 .cskin）
+tests/           迴歸測試台（電腦上跑真實 librime 引擎驗證候選）
+demo/            截圖
+```
+
 ## 🛠️ 安裝步驟（元書輸入法）
 
 > 倉輸入法 (Hamster) 已停止維護，本方案已遷移至同作者的 [元書輸入法](https://apps.apple.com/app/id6744464701)。舊版倉輸入法的安裝方式見文末。
 
 ### 1. 導入 RIME 方案
-1. 將以下檔案放進一個名為 `bopomofo_t9` 的資料夾，壓縮成 zip（UTF-8 編碼）：
-   - `bopomofo_t9.schema.yaml` (RIME 方案)
-   - `bopomofo_t9.dict.yaml` (字典檔)
-   - `rime.lua` (智慧排序腳本)
-   - `lua/` 資料夾 (自動聯想模組)
+1. 下載兩個外部檔案放進 `bopomofo_t9/` 資料夾（repo 不附大檔）：
    - `zh-hant-t-essay-bgw.gram` (語法模型，[下載](https://github.com/lotem/rime-octagram-data/raw/hant/zh-hant-t-essay-bgw.gram)，強烈建議)
-   - `essay.txt` (預設詞彙表，[下載](https://github.com/rime/rime-essay)；組句品質的關鍵，部分輸入法已內建，一併放入可確保生效)
-2. 把 zip 傳到 iPhone（AirDrop / iCloud），**用元書開啟**，會自動導入到 `RimeUserData/bopomofo_t9/`。
+   - `essay.txt` (預設詞彙表，[下載](https://raw.githubusercontent.com/rime/rime-essay/master/essay.txt)；組句品質的關鍵，部分輸入法已內建，一併放入可確保生效)
+2. 把整個 `bopomofo_t9/` 資料夾壓縮成 zip（UTF-8 編碼），傳到 iPhone（AirDrop / iCloud），**用元書開啟**，會自動導入到 `RimeUserData/bopomofo_t9/`。
    - 也可改用元書的「WiFi 檔案傳輸」把檔案直接放進 `RimeUserData/bopomofo_t9/`。
 3. 在元書「輸入方案」頁 → 右上角 `…` → **方案目錄切換** → 選 `bopomofo_t9`，並重新部署。
 4. 選擇輸入方案 **注音九宮格**。
@@ -65,12 +74,23 @@
 <summary>舊版：倉輸入法 (Hamster) 安裝方式（已停止維護）</summary>
 
 1. 在 iOS 設備上安裝 [倉輸入法 (Hamster)](https://apps.apple.com/app/id6446617683)。
-2. 將 `bopomofo_t9.schema.yaml`、`bopomofo_t9.dict.yaml`、`rime.lua`、`t9bopomo.yaml`（舊版鍵盤佈局檔）放入 Hamster 的 RIME 用戶目錄。
+2. 將 `bopomofo_t9/` 內的 `bopomofo_t9.schema.yaml`、`bopomofo_t9.dict.yaml`、`rime.lua` 與舊版鍵盤佈局檔 `t9bopomo.yaml` 放入 Hamster 的 RIME 用戶目錄。
+   - `t9bopomo.yaml` 已自本倉庫移除（元書改用 `yuanshu-skin/` 皮膚），需要的話請至 git 歷史取得（最後存在於 2026-07-11 之前的版本）。
 3. 在 Hamster App 中進入 **鍵盤佈局**，導入並啟用 `t9bopomo.yaml`。
 4. 在 Hamster App 首頁點擊 **RIME** -> **重新部署**，並於 **輸入方案設定** 選擇 **注音九宮格**。
 5. 語法模型：將 `.gram` 放入 RIME 使用者目錄（與 schema 同層）後重新部署。
 
 </details>
+
+## 🧪 迴歸測試
+
+改動 schema／字典／rime.lua 後，可在電腦上用真實 librime 引擎驗證（詳見 `tests/README.md`）：
+
+```
+python tests/setup_bench.py   # 第一次：下載 librime 引擎與詞彙表（~30MB）
+python tests/run_tests.py     # 跑全部迴歸測試
+python tests/bench.py "6q=吃"  # 臨時查某個鍵序的候選排名
+```
 
 ## 💡 長句輸入技巧
 

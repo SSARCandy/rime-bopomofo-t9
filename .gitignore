@@ -10,3 +10,8 @@ yuanshu-skin/dark/
 
 # 裝置日誌
 *.log
+
+# 測試台（下載的相依與執行時工作目錄）
+tests/deps/
+tests/workdir/
+__pycache__/

@@ -1,223 +1,53 @@
 # RIME T9 Bopomofo Project
 
-Custom RIME input method schema for T9 (3x4) Bopomofo layout, specifically optimized for mobile devices or numeric keypads.
+Custom RIME input method schema for T9 (3x4) Bopomofo layout, deployed via **元書輸入法 (Hamster3)** on iOS.
 
 ## Project Overview
-- **Type**: RIME Input Method Schema
+- **Type**: RIME Input Method Schema + keyboard skin + regression tests
 - **Target Layout**: T9 (3x4) numeric grid for Traditional Chinese (Bopomofo/注音).
-- **Core Technology**: RIME engine, deployed via **Hamster (倉輸入法)** on iOS.
-- **Dictionary**: `bopomofo_t9.dict.yaml` (Based on `terra_pinyin` Earth Pinyin logic) with tone support.
+- **Client**: 元書輸入法 (App Store id6744464701, librime-based). The predecessor Hamster (倉輸入法) is deprecated; legacy notes live in README's collapsed section.
 
-## Key Files
-- `bopomofo_t9.schema.yaml`: The main RIME schema definition containing spelling algebra and engine configuration.
-- `t9bopomo.yaml`: Keyboard layout definition (for Hamster or similar mobile RIME clients).
-- `bopomofo_t9.dict.yaml`: The source dictionary providing characters and their pinyin/bopomofo readings.
-- `rime.lua`: Lua script for smart candidate sorting (v16). Full-coverage candidates (sentence guess / whole-phrase matches) come first, then the best candidate of each coverage length is emitted round-robin so that every possible "first segment" choice surfaces near the top, enabling segment-by-segment selection of long inputs. Candidates that would strand a tone key at the start of the next segment (invalid segmentation) are demoted to the bottom.
+## Repository Layout
+- `bopomofo_t9/` — the RIME schema folder, shaped exactly as 元書's `RimeUserData/bopomofo_t9/`. Zip this folder and open with 元書 to install. Contains:
+  - `bopomofo_t9.schema.yaml` — schema: spelling algebra, tone handling, grammar model config, prediction wiring.
+  - `bopomofo_t9.dict.yaml` — dictionary (Traditional Chinese, tone-annotated readings, T9 digit-code emoji entries).
+  - `rime.lua` — smart candidate sorting filter (v16): full-coverage candidates (sentence guess) first, then best candidate per coverage length round-robin, orphan-tone candidates demoted.
+  - `lua/wanxiang/` — self-learning next-word prediction (from wanxiang project; pure librime-lua, no plugin needed). `user_predict.lua` is forked with `env.is_t9 = true` hardcoded.
+  - Two large files are downloaded, not committed: `essay.txt` (preset vocabulary — critical for sentence composition quality) and `zh-hant-t-essay-bgw.gram` (octagram grammar model).
+- `yuanshu-skin/` — 元書 keyboard skin source (jsonnet, forked from kongshan-suying which has no license — ask author before public redistribution). `config.yaml`/`light/`/`dark/` are build products (gitignored). Package: wrap contents in one top-level folder, zip, rename `.cskin`.
+- `tests/` — regression bench: drives the real librime 1.17.0 engine (same version/plugins as 元書) via ctypes. `python tests/setup_bench.py` once, then `python tests/run_tests.py`. Ad-hoc query: `python tests/bench.py "6q=吃"`.
 
 ## Development Conventions
 
-### Tone Filtering
-The schema uses four unique, clean, and case-insensitive alphanumeric characters for Bopomofo tone marks. These letters are not used by any Bopomofo symbol in any case (upper or lower):
-- **Tone 1 (ˉ)**: Mapped to `q`
-- **Tone 2 (ˊ)**: Mapped to `w`
-- **Tone 3 (ˇ)**: Mapped to `x`
-- **Tone 4 (ˋ)**: Mapped to `y`
-- (Tone 5 / 輕聲: no key on the layout. The algebra strips trailing `5` from dictionary codes — e.g. `de5`(的), `le5`(了), `fu5`(豆腐) — so neutral-tone syllables are typed with no tone key. They cannot be tone-anchored.)
+### Tone Keys
+Tone marks map to letters unused by any Bopomofo code:
+- **ˉ**: `q` **ˊ**: `w` **ˇ**: `x` **ˋ**: `y`
+- Tone 5 (輕聲): no key; algebra strips trailing `5` from dictionary codes, so neutral-tone syllables are typed toneless.
 
-### Key Mapping Logic
-The `speller/algebra` in the schema file maps Bopomofo symbols to numeric keys. This version utilizes case-sensitivity for symbols (e.g., `S` for ㄕ and `s` for ㄙ) to free up the tone letters:
-1. `ㄅㄉㄚ` -> `1` (b, d, a)
-2. `ㄍㄐㄞ` -> `2` (g, j, I)
-3. `ㄓㄗㄢㄦ` -> `3` (Z, z, M, R)
-4. `ㄆㄊㄛ` -> `4` (p, t, o)
-5. `ㄎㄑㄟ` -> `5` (k, A, J)
-6. `ㄔㄘㄣㄧ` -> `6` (C, c, N, i)
-7. `ㄇㄋㄜ` -> `7` (m, n, e)
-8. `ㄏㄒㄠㄡ` -> `8` (h, B, K, L)
-9. `ㄕㄙㄤㄨ` -> `9` (S, s, O, u)
-10. `ㄈㄌㄝ` -> `0` (f, l, E)
-11. `ㄖㄥㄩ` -> `v` (r, P, v)
+### Key Mapping (T9 fuzzy groups)
+1. `ㄅㄉㄚ`→`1` (b,d,a) 2. `ㄍㄐㄞ`→`2` (g,j,I) 3. `ㄓㄗㄢㄦ`→`3` (Z,z,M,R)
+4. `ㄆㄊㄛ`→`4` (p,t,o) 5. `ㄎㄑㄟ`→`5` (k,A,J) 6. `ㄔㄘㄣㄧ`→`6` (C,c,N,i)
+7. `ㄇㄋㄜ`→`7` (m,n,e) 8. `ㄏㄒㄠㄡ`→`8` (h,B,K,L) 9. `ㄕㄙㄤㄨ`→`9` (S,s,O,u)
+10. `ㄈㄌㄝ`→`0` (f,l,E) 11. `ㄖㄥㄩ`→`v` (r,P,v)
 
-### Long-Phrase & Accuracy Optimizations
-- **No Predict/Simplifier**: The schema explicitly avoids the `predict_translator` and OpenCC `simplifier` filters to maximize engine performance, as `bopomofo_t9.dict.yaml` is already fully Traditional Chinese.
-- **Translator Memory**: `enable_user_dict: true` enables the user dictionary. Sentence composition (Poet) is built into `script_translator` — no switch needed. When the user builds a sentence by selecting segments within one composition, `ScriptTranslator::Memorize` saves both the component words and the whole sentence (full text + full code) into the user dictionary, so the same long input surfaces the learned sentence next time. Note: `enable_sentence`, `enable_encoder`, `encode_commit_history`, and `max_phrase_length` are `table_translator`-only options and have no effect on `script_translator` (they were removed from the schema). The schema keeps `derive/^(.).+$/$1/` to support T9 multi-character fuzzy shorthand (e.g. `24` -> `ㄐㄊ` -> `今天`).
-- **Optional Grammar Model (octagram)**: Hamster bundles the librime-octagram plugin. Download `zh-hant-t-essay-bgw.gram` from https://github.com/lotem/rime-octagram-data (hant branch) into the RIME user directory, then uncomment the `grammar:` block and `translator/contextual_suggestions: true` in the schema for n-gram–based sentence composition — the single biggest improvement available for long-input segmentation.
+Long-press callouts send the precise ASCII letter (e.g. `Z` for ㄓ) for exact filtering; plain taps send the ambiguous digit. Case-sensitivity is exploited (`S`=ㄕ vs `s`=ㄙ). Medials/finals precise codes use uppercase letters (I,J,K,L,M,N,O,P,R,E) per the table above.
+
+### Dictionary Weight Mechanics (hard-won lessons)
+- Entries without an explicit weight column get their weight from `essay.txt` preset-vocabulary lookup. **Words absent from essay get near-zero weight and are buried** — colloquial/Taiwan-tech/finance words needed an explicit floor weight (10000).
+- A single-char reading with percentage **below 5% is excluded from word encoding** (librime threshold) — e.g. `什 shen2 1%` silently caused essay's 什麼-family to be indexed under shi2. Keep legitimate word-forming readings ≥5%.
+- essay is a formal corpus: colloquial chars/words (吃 805!) are undervalued; fix with explicit weights.
+- Dictionary body lines MUST be Tab-separated (`word<TAB>codes`); space-separated lines are silently dropped at deploy (E-level "Encode failure" in log).
+- Word readings use citation tones, not sandhi: 一下 = `yi1 xia4` (not yi2).
+
+### Long-Phrase & Accuracy
+- Sentence composition (Poet) is built into `script_translator`; `enable_sentence`/`enable_encoder`/`encode_commit_history`/`max_phrase_length` are table_translator-only (no effect here).
+- **Grammar model enabled by default** (`grammar: language: zh-hant-t-essay-bgw` + `contextual_suggestions: true`, `max_homophones: 7`). Measured: essay vocabulary matters far more than which .gram (wanxiang LTS 421MB gave only marginal gains over 八股文 10.5MB — not adopted).
+- **Prediction**: 元書's librime lacks the librime-predict plugin; prediction is implemented via wanxiang's `user_predict.lua` (learns from commits into `predict.userdb`; placeholder char `›` must be in speller alphabet/initials).
+- `derive/^(.).+$/$1/` single-key shorthand is the main ambiguity source but is a core user habit — keep.
 
 ## Building and Usage
-1. Copy `bopomofo_t9.schema.yaml` and `bopomofo_t9.dict.yaml` to your RIME user directory.
-2. Add `bopomofo_t9` to your `default.custom.yaml` under `schema_list`.
-3. Deploy RIME.
-4. For Hamster iOS, upload files via Wi-Fi or iCloud sync, then redeploy.
-
----
-
-## Hamster (倉輸入法) — iOS Client
-
-- **GitHub**: https://github.com/imfuxiao/Hamster
-- **App Store**: 搜尋「倉輸入法」(id6446617683)
-- **Engine**: librime (BSD) + KeyboardKit (MIT)
-- **Wiki**: https://github.com/imfuxiao/Hamster/wiki
-- **Online Layout Builder**: https://lost-melody.github.io/hamster-tools
-
-### File Deployment (上傳方案)
-
-| 方式 | 步驟 |
-|---|---|
-| Wi-Fi 上傳 | App 內開啟 Wi-Fi 服務 → 瀏覽器輸入 LAN 地址 → 拖入文件 → 重新部署 |
-| iCloud 同步 | 開啟 iCloud → 將文件放入 `iCloud/Hamster/RIME/Rime/` → 重新部署 |
-| 壓縮包導入 | 打包（根目錄直接放文件，無子目錄）→ 分享給倉 App 開啟 |
-
-> 修改後務必在 App 的 **RIME → 重新部署** 使設定生效。
-
----
-
-### hamster.yaml 主配置
-
-主配置文件為 `hamster.yaml`（推薦使用 `hamster.custom.yaml` 以 `patch:` 方式覆寫，避免更新覆蓋）。
-
-```yaml
-keyboard:
-  useKeyboardType: chineseNineGrid  # 預設鍵盤類型
-  disableSwipeLabel: false           # 是否隱藏划動標籤
-  swipeLabelUpAndDownLayout: false   # 上下滑動標籤規則布局
-  upSwipeOnLeft: true                # 上滑標籤顯示在左側
-  displayButtonBubbles: true         # 顯示按鍵氣泡
-  enableKeySounds: true
-  enableHapticFeedback: false
-  longPressDelay: 0.3                # 長按觸發延遲（秒）
-
-swipe:
-  spaceDragSensitivity: 15     # 空格拖移靈敏度（越小越靈敏）
-  distanceThreshold: 40         # 划動觸發距離閾值（px）
-  tangentThreshold: 0.577       # 划動角度限制（tan值，≈30度）
-  longPressDelay: 0.3
-
-rime:
-  maximumNumberOfCandidate: 100
-  overrideDictFiles: true       # 重新部署時覆蓋詞庫（自造詞需設 false）
-```
-
-**鍵盤類型 (useKeyboardType)**：
-
-| 值 | 說明 |
-|---|---|
-| `chinese` | 中文 26 鍵 |
-| `chineseNineGrid` | 中文九宮格（T9） |
-| `alphabetic` | 英文鍵盤 |
-| `numericNineGrid` | 數字九宮格 |
-| 自定義名稱 | 填入自定義鍵盤的 `name` 值 |
-
----
-
-### 自定義鍵盤布局 (keyboards)
-
-布局定義在 `hamster.yaml` 的 `keyboards` 區塊，或獨立的 `hamster_keyboards.yaml` 文件。
-
-#### 基本結構
-
-```yaml
-keyboards:
-  - name: 我的T9鍵盤             # 對應 useKeyboardType 的值
-    rows:
-      - keys:
-          - action: { character: { char: "1" } }
-            width:
-              portrait: { widthType: percentage, width: 0.333 }
-            swipe:
-              - direction: up
-                action: { symbol: { char: "ㄅ" } }
-                label: "ㄅ"
-            callout:
-              - label: "ㄅ"
-                action: { character: { char: "1" } }
-              - label: "ㄉ"
-                action: { character: { char: "1" } }
-```
-
-#### Action 類型
-
-| Action | 格式範例 | 說明 |
-|---|---|---|
-| 字符輸入（過 RIME） | `{ character: { char: "6" } }` | 送入 RIME 引擎，觸發拼音/注音處理 |
-| 符號輸入（不過 RIME） | `{ symbol: { char: "！" } }` | 直接上屏，跳過 RIME 引擎 |
-| 切換鍵盤 | `{ keyboardType: chineseNineGrid }` | 切換到指定鍵盤 |
-| 快捷指令 | `{ shortcutCommand: "#左移" }` | 執行內建系統指令 |
-
-#### 內建快捷指令 (shortcutCommand)
-
-| 指令 | 功能 |
-|---|---|
-| `#重输` | 清空未上屏的輸入緩衝 |
-| `#左移` | 光標左移一格 |
-| `#右移` | 光標右移一格 |
-| `#换行` | 換行（等同 Enter） |
-| `#简繁切换` | 簡繁切換 |
-| `#中英切换` | 中英模式切換 |
-| `#复制` | 複製選中文字 |
-| `#粘贴` | 貼上剪貼板 |
-| `#剪切` | 剪切選中文字 |
-
----
-
-### 按鍵手勢配置
-
-#### 划動 (Swipe)
-
-每個按鍵支持四個方向的划動，各自綁定獨立 action：
-
-```yaml
-- action: { character: { char: "6" } }
-  swipe:
-    - direction: up       # 上滑 → 送出注音符號
-      action: { character: { char: "6" } }
-      label: "ㄧ"
-    - direction: down     # 下滑 → 重新輸入
-      action: { shortcutCommand: "#重输" }
-    - direction: left     # 左滑 → 直接上屏逗號
-      action: { symbol: { char: "，" } }
-    - direction: right    # 右滑 → 直接上屏句號
-      action: { symbol: { char: "。" } }
-```
-
-**direction 值**：`up` | `down` | `left` | `right`
-
-划動靈敏度由 `hamster.yaml` 的 `swipe` 區塊全局控制：
-- `distanceThreshold`：划動最小距離（px），預設 40
-- `tangentThreshold`：角度限制（tan 值），預設 0.577（≈30°），防止誤觸
-- `longPressDelay`：長按觸發延遲，預設 0.3 秒
-
-#### 長按呼出 (Callout)
-
-長按按鍵後彈出選字氣泡（類似 iOS 原生長按字母鍵）：
-
-```yaml
-- action: { character: { char: "1" } }
-  callout:
-    - label: "ㄅ"
-      action: { character: { char: "1" } }
-    - label: "ㄉ"
-      action: { character: { char: "1" } }
-    - label: "ㄚ"
-      action: { character: { char: "1" } }
-```
-
-長按延遲由 `keyboard/longPressDelay`（秒）控制，預設 0.3。
-
----
-
-### T9 九宮格注意事項
-
-- 若九宮格只能輸入數字（不觸發 RIME），檢查「鍵盤設定 → 數字鍵由 RIME 處理」需**關閉**。
-- RIME schema 的 `speller/algebra` 必須正確將數字鍵映射至注音符號。
-- `processByRIME: true`（預設）表示按鍵輸入送入 RIME；`false` 直接上屏（適合符號鍵）。
-- 上傳方案文件後必須**重新部署**才生效。
-- 詞庫修改後若啟用 `overrideDictFiles: true`，重新部署會覆蓋用戶自造詞；如需保留請設為 `false`。
-- **精確聲母輸入 (Callout)**：Hamster 對非 ASCII 字元（如直接傳送 `ㄅ`）的 `character` action 會直接上屏而不過 RIME。因此，需使用 ASCII 聲母精確碼（如 `b`, `d`, `g` 等）傳送，並由 RIME 端的 `algebra` 進行精確匹配與 `derive` 模糊化。
-- **氣泡選單方向與順序 (Callout Alignment)**：iOS 鍵盤在右側的按鍵（例如 T9 鍵盤的第 3 列：`3`、`6`、`9`、`v`），其長按彈出的氣泡會**向左展開**。為了確保畫面上的視覺順序依然是從左到右（與按鈕標籤如 `ㄓㄗㄢㄦ` 一致），在 YAML 裡的 `callout` 陣列順序必須**反轉**定義。
-- **精確碼覆蓋範圍 (Callout Precision)**：
-  - **聲母 (Initials)**：**支援精確輸入**。長按時送出對應 ASCII 字母做精確篩選：
-    * `ㄅ(b)`、`ㄉ(d)`、`ㄍ(g)`、`ㄐ(j)`、`ㄓ(Z)`、`ㄗ(z)`、`ㄆ(p)`、`ㄊ(t)`、`ㄎ(k)`、`ㄑ(A)`、`ㄔ(C)`、`ㄘ(c)`、`ㄇ(m)`、`ㄋ(n)`、`ㄏ(h)`、`ㄒ(B)`、`ㄕ(S)`、`ㄙ(s)`、`ㄈ(f)`、`ㄌ(l)`、`ㄖ(r)`。
-  - **介母與韻母 (Medials & Finals)**：**僅支援模糊輸入**。長按時僅送出對應的數字模糊碼（同直接點擊該鍵）：
-    * 介母：`ㄧ`、`ㄨ`、`ㄩ`。
-    * 韻母：`ㄚ`、`ㄛ`、`ㄜ`、`ㄝ`、`ㄞ`、`ㄟ`、`ㄠ`、`ㄡ`、`ㄢ`、`ㄣ`、`ㄤ`、`ㄥ`、`ㄦ`。
-  - *說明*：若未來需支援介母與韻母之精確碼，需為其定義額外的專屬 ASCII 字母並於 RIME schema 新增 `algebra` 與 `alphabet` 映射規則。
+1. Download `essay.txt` + `zh-hant-t-essay-bgw.gram` into `bopomofo_t9/`.
+2. Zip the `bopomofo_t9/` folder (UTF-8), open with 元書 → auto-imports to `RimeUserData/bopomofo_t9/`.
+3. 元書 輸入方案 page → `…` → 方案目錄切換 → `bopomofo_t9` → redeploy → select 注音九宮格.
+4. Skin: package `yuanshu-skin/` as `.cskin` (see its README), import, select.
+5. After any schema/dict/lua change, run `python tests/run_tests.py` before shipping.
