@@ -245,14 +245,11 @@ local commonButtons = import './Common.libsonnet';
     },
   },
 
-  // 退格鍵：在通用退格鍵基礎上，增加長按「清空」
+  // 退格鍵：使用通用退格鍵（按住＝連續刪字；打字中上滑＝刪一個音節）
+  // 註：不加長按「清空」——它會與 repeatAction 連刪衝突，且氣泡會彈到上方蓋住 123 鍵。
   t9BackspaceButton: {
     name: commonButtons.backspaceButton.name,
-    params: commonButtons.backspaceButton.params + {
-      longPress: [
-        { text: '清空', action: { shortcut: '#重输' } },
-      ],
-    },
+    params: commonButtons.backspaceButton.params,
   },
 
   // 空格鍵：長按快速輸入標點
