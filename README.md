@@ -26,7 +26,9 @@
    - `bopomofo_t9.schema.yaml` (RIME 方案)
    - `bopomofo_t9.dict.yaml` (字典檔)
    - `rime.lua` (智慧排序腳本)
+   - `lua/` 資料夾 (自動聯想模組)
    - `zh-hant-t-essay-bgw.gram` (語法模型，[下載](https://github.com/lotem/rime-octagram-data/raw/hant/zh-hant-t-essay-bgw.gram)，強烈建議)
+   - `essay.txt` (預設詞彙表，[下載](https://github.com/rime/rime-essay)；組句品質的關鍵，部分輸入法已內建，一併放入可確保生效)
 2. 把 zip 傳到 iPhone（AirDrop / iCloud），**用元書開啟**，會自動導入到 `RimeUserData/bopomofo_t9/`。
    - 也可改用元書的「WiFi 檔案傳輸」把檔案直接放進 `RimeUserData/bopomofo_t9/`。
 3. 在元書「輸入方案」頁 → 右上角 `…` → **方案目錄切換** → 選 `bopomofo_t9`，並重新部署。
