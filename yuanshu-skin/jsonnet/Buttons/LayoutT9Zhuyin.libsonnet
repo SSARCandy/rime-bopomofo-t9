@@ -67,9 +67,10 @@ local commonButtons = import './Common.libsonnet';
       text: 'ㄍㄐㄞ',
       action: { character: '2' },
       swipeUp: { action: { symbol: '2' } },  // 上滑直接輸入數字
+      // 中間欄按鍵：氣泡預設選中間項（往兩側展開）
       longPress: [
-        { text: 'ㄍ', action: { character: 'g' }, selected: true },
-        { text: 'ㄐ', action: { character: 'j' } },
+        { text: 'ㄍ', action: { character: 'g' } },
+        { text: 'ㄐ', action: { character: 'j' }, selected: true },
         { text: 'ㄞ', action: { character: 'I' } },
       ],
     },
@@ -107,9 +108,10 @@ local commonButtons = import './Common.libsonnet';
       text: 'ㄎㄑㄟ',
       action: { character: '5' },
       swipeUp: { action: { symbol: '5' } },  // 上滑直接輸入數字
+      // 中間欄按鍵：氣泡預設選中間項（往兩側展開）
       longPress: [
-        { text: 'ㄎ', action: { character: 'k' }, selected: true },
-        { text: 'ㄑ', action: { character: 'A' } },
+        { text: 'ㄎ', action: { character: 'k' } },
+        { text: 'ㄑ', action: { character: 'A' }, selected: true },
         { text: 'ㄟ', action: { character: 'J' } },
       ],
     },
@@ -147,10 +149,11 @@ local commonButtons = import './Common.libsonnet';
       text: 'ㄏㄒㄠㄡ',
       action: { character: '8' },
       swipeUp: { action: { symbol: '8' } },  // 上滑直接輸入數字
+      // 中間欄按鍵：氣泡預設選中間項（偶數項取中間靠右，往兩側展開）
       longPress: [
-        { text: 'ㄏ', action: { character: 'h' }, selected: true },
+        { text: 'ㄏ', action: { character: 'h' } },
         { text: 'ㄒ', action: { character: 'B' } },
-        { text: 'ㄠ', action: { character: 'K' } },
+        { text: 'ㄠ', action: { character: 'K' }, selected: true },
         { text: 'ㄡ', action: { character: 'L' } },
       ],
     },
