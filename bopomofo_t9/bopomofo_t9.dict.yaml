@@ -5,7 +5,7 @@
 
 ---
 name: bopomofo_t9
-version: "2026.07.11.5"
+version: "2026.07.12.1"
 sort: by_weight
 use_preset_vocabulary: true
 max_phrase_length: 5
@@ -841,6 +841,7 @@ min_phrase_weight: 100
 啤	pi2
 啦	la1	30%
 啦	la5	70%
+啥	sha2
 啪	pa1
 啪	pia1
 啵	bo1	50%
