@@ -771,11 +771,14 @@ function P.func(key, env)
         -- （原版在這裡清記憶鏈，導致聯想猜錯的當下永遠學不到正確接續，
         -- 舊聯想反覆霸屏、新關聯進不了資料庫。）
         if env.is_t9 and (s_match(repr, "^[0-9a-zA-Z]$") or s_match(repr, "^KP_[0-9]$")) then
-            ctx:clear()
+            -- 旗標必須在 clear() 之前歸零：clear() 會「同步」觸發
+            -- update_notifier，若當下 is_predicting 仍為 true，update_cb
+            -- 會誤判為「外部清空輸入框」而 reset_memory_chain 洗掉上下文。
             predict_count = 0
             is_predicting = false
             pending_cands = nil
             env.need_push = false
+            ctx:clear()
             return 2
         end
         -- 非 T9：数字键打断联想并上屏数字
