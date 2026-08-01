@@ -78,16 +78,30 @@ end
 -- 標點鍵映射：皮膚（空格長按等）送出 ASCII 標點鍵，由此轉成全形上屏。
 -- 走按鍵而非前端 symbol 動作，聯想彈窗開著時才攔得住（symbol 動作會
 -- 先把反白的聯想詞連帶上屏）。
-local SYMBOL_MAP = { ["?"] = "？", ["!"] = "！", [","] = "，", ["."] = "。", ["\\"] = "、" }
+-- 注意：librime 的 key:repr() 對標點回傳 X11 keysym 名稱（question、
+-- comma…），不是字元本身；字元鍵名一併保留以防前端實作差異。
+local SYMBOL_MAP = {
+    ["question"] = "？", ["?"] = "？",
+    ["exclam"] = "！", ["!"] = "！",
+    ["comma"] = "，", [","] = "，",
+    ["period"] = "。", ["."] = "。",
+    ["backslash"] = "、", ["\\"] = "、",
+}
 -- 原樣上屏的 ASCII 符號鍵（= 鍵與其長按、# @）：也要在 key_binder 之前
 -- 攔下，否則組字中會被預設綁定（equal → 翻頁）吃掉。
 local RAW_SYMBOL_KEYS = {
-    ["="] = true, [">"] = true, ["<"] = true, ["%"] = true,
-    ["~"] = true, ["$"] = true, ["#"] = true, ["@"] = true,
+    ["equal"] = "=", ["="] = "=",
+    ["greater"] = ">", [">"] = ">",
+    ["less"] = "<", ["<"] = "<",
+    ["percent"] = "%", ["%"] = "%",
+    ["asciitilde"] = "~", ["~"] = "~",
+    ["dollar"] = "$", ["$"] = "$",
+    ["numbersign"] = "#", ["#"] = "#",
+    ["at"] = "@", ["@"] = "@",
 }
 -- 回傳按鍵應上屏的符號文字；非符號鍵回傳 nil
 local function symbol_output(repr)
-    return SYMBOL_MAP[repr] or (RAW_SYMBOL_KEYS[repr] and repr) or nil
+    return SYMBOL_MAP[repr] or RAW_SYMBOL_KEYS[repr]
 end
 
 local utf8_len = utf8 and utf8.len or function(str)
