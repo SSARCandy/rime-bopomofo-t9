@@ -103,9 +103,28 @@ local RAW_SYMBOL_KEYS = {
 local function symbol_output(repr)
     return SYMBOL_MAP[repr] or RAW_SYMBOL_KEYS[repr]
 end
--- 數字鍵盤（皮膚以 sendKeys 送出 keypad 按鍵）：KP 鍵不在 speller 字母表，
--- 不會被方案當注音碼吃掉，由 lua 直接上屏對應字元，絕不連帶上屏候選。
+-- 數字鍵盤映射：皮膚把數字鍵盤各鍵送成「方案沒用到的字元鍵」（鍵面仍顯示
+-- 數字），由此映射回實際字元上屏，絕不連帶上屏候選。
+-- 為何繞這一圈：數字字元本身是 T9 注音碼（會被 speller 吃掉）；前端
+-- symbol 動作會先把組字上屏（搶候選）；而元書的 sendKeys 實測不認
+-- KP_* 鍵名（按了無反應）。KP 鍵名仍保留，支援硬體數字鍵盤。
 local NUMPAD_MAP = {
+    ["parenleft"] = "1", ["("] = "1",
+    ["parenright"] = "2", [")"] = "2",
+    ["bracketleft"] = "3", ["["] = "3",
+    ["bracketright"] = "4", ["]"] = "4",
+    ["braceleft"] = "5", ["{"] = "5",
+    ["braceright"] = "6", ["}"] = "6",
+    ["semicolon"] = "7", [";"] = "7",
+    ["colon"] = "8", [":"] = "8",
+    ["quotedbl"] = "9", ["\""] = "9",
+    ["bar"] = "0", ["|"] = "0",
+    ["ampersand"] = ",", ["&"] = ",",   -- 數字鍵盤的半形逗號
+    ["underscore"] = ".", ["_"] = ".",  -- 數字鍵盤的半形句點
+    ["plus"] = "+", ["+"] = "+",
+    ["minus"] = "-", ["-"] = "-",
+    ["asterisk"] = "*", ["*"] = "*",
+    ["slash"] = "/", ["/"] = "/",
     ["KP_0"] = "0", ["KP_1"] = "1", ["KP_2"] = "2", ["KP_3"] = "3",
     ["KP_4"] = "4", ["KP_5"] = "5", ["KP_6"] = "6", ["KP_7"] = "7",
     ["KP_8"] = "8", ["KP_9"] = "9",

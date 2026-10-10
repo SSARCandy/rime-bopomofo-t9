@@ -5,10 +5,11 @@
 # 長按皮膚，選擇「運行 main.jsonnet」生效。
 #
 # 包含 T9 數字九宮格佈局的按鍵
-# （數字與運算符以 sendKeys 送出 keypad 按鍵進 RIME，由
-#   user_predict.lua 的 NUMPAD_MAP 上屏：組字/聯想中按下時
-#   只會丟棄候選、絕不連帶上屏。KP 鍵不在方案字母表，
-#   不會被當成注音碼。）
+# （各鍵以 character 送出「方案沒用到的字元鍵」進 RIME，由
+#   user_predict.lua 的 NUMPAD_MAP 映射回數字上屏：組字/聯想中
+#   按下時只會丟棄候選、絕不連帶上屏。
+#   不用 symbol——前端插字前會把組字上屏（搶候選）；
+#   不用 sendKeys KP_*——元書實測不認 keypad 鍵名。）
 # =====================================
 
 local commonButtons = import './Common.libsonnet';
@@ -16,19 +17,19 @@ local commonButtons = import './Common.libsonnet';
 {
   local root = self,
 
-  // ===== 數字鍵 =====
-  numOneButton:   { name: 'numOneButton',   params: { action: { sendKeys: 'KP_1' }, text: '1' } },
-  numTwoButton:   { name: 'numTwoButton',   params: { action: { sendKeys: 'KP_2' }, text: '2' } },
-  numThreeButton: { name: 'numThreeButton', params: { action: { sendKeys: 'KP_3' }, text: '3' } },
-  numFourButton:  { name: 'numFourButton',  params: { action: { sendKeys: 'KP_4' }, text: '4' } },
-  numFiveButton:  { name: 'numFiveButton',  params: { action: { sendKeys: 'KP_5' }, text: '5' } },
-  numSixButton:   { name: 'numSixButton',   params: { action: { sendKeys: 'KP_6' }, text: '6' } },
-  numSevenButton: { name: 'numSevenButton', params: { action: { sendKeys: 'KP_7' }, text: '7' } },
-  numEightButton: { name: 'numEightButton', params: { action: { sendKeys: 'KP_8' }, text: '8' } },
-  numNineButton:  { name: 'numNineButton',  params: { action: { sendKeys: 'KP_9' }, text: '9' } },
-  numZeroButton:  { name: 'numZeroButton',  params: { action: { sendKeys: 'KP_0' }, text: '0' } },
-  numCommaButton: { name: 'numCommaButton', params: { action: { sendKeys: 'KP_Separator' }, text: ',' } },
-  numDotButton:   { name: 'numDotButton',   params: { action: { sendKeys: 'KP_Decimal' }, text: '.' } },
+  // ===== 數字鍵（text 顯示數字，character 為 lua 映射用的替身鍵） =====
+  numOneButton:   { name: 'numOneButton',   params: { action: { character: '(' }, text: '1' } },
+  numTwoButton:   { name: 'numTwoButton',   params: { action: { character: ')' }, text: '2' } },
+  numThreeButton: { name: 'numThreeButton', params: { action: { character: '[' }, text: '3' } },
+  numFourButton:  { name: 'numFourButton',  params: { action: { character: ']' }, text: '4' } },
+  numFiveButton:  { name: 'numFiveButton',  params: { action: { character: '{' }, text: '5' } },
+  numSixButton:   { name: 'numSixButton',   params: { action: { character: '}' }, text: '6' } },
+  numSevenButton: { name: 'numSevenButton', params: { action: { character: ';' }, text: '7' } },
+  numEightButton: { name: 'numEightButton', params: { action: { character: ':' }, text: '8' } },
+  numNineButton:  { name: 'numNineButton',  params: { action: { character: '"' }, text: '9' } },
+  numZeroButton:  { name: 'numZeroButton',  params: { action: { character: '|' }, text: '0' } },
+  numCommaButton: { name: 'numCommaButton', params: { action: { character: '&' }, text: ',' } },
+  numDotButton:   { name: 'numDotButton',   params: { action: { character: '_' }, text: '.' } },
 
   numberButtons: [
     self.numOneButton,
@@ -45,11 +46,11 @@ local commonButtons = import './Common.libsonnet';
     self.numDotButton,
   ],
 
-  // ===== 左側欄運算符 =====
-  numPlusButton:     { name: 'numPlusButton',     params: { action: { sendKeys: 'KP_Add' },      text: '+' } },
-  numMinusButton:    { name: 'numMinusButton',    params: { action: { sendKeys: 'KP_Subtract' }, text: '-' } },
-  numMultiplyButton: { name: 'numMultiplyButton', params: { action: { sendKeys: 'KP_Multiply' }, text: '*' } },
-  numSlashButton:    { name: 'numSlashButton',    params: { action: { sendKeys: 'KP_Divide' },   text: '/' } },
+  // ===== 左側欄運算符（字元不是注音碼，直接送本尊） =====
+  numPlusButton:     { name: 'numPlusButton',     params: { action: { character: '+' }, text: '+' } },
+  numMinusButton:    { name: 'numMinusButton',    params: { action: { character: '-' }, text: '-' } },
+  numMultiplyButton: { name: 'numMultiplyButton', params: { action: { character: '*' }, text: '*' } },
+  numSlashButton:    { name: 'numSlashButton',    params: { action: { character: '/' }, text: '/' } },
 
   operatorButtons: [
     self.numPlusButton,
@@ -60,14 +61,14 @@ local commonButtons = import './Common.libsonnet';
 
   // ===== 右側欄功能鍵 =====
 
-  // 等號鍵：長按選其他符號（與注音鍵盤上的等號鍵相同）
+  // 等號鍵：長按選其他符號（與注音鍵盤上的等號鍵相同，
+  // character 進 RIME，user_predict.lua 的 RAW_SYMBOL_KEYS 攔截上屏）
   numEqualButton: {
     name: 'numEqualButton',
     params: {
-      action: { sendKeys: 'KP_Equal' },
+      action: { character: '=' },
       text: '=',
       # 右緣按鍵：依 v2 視覺順序（> < % ~ $），預設選最右的 $
-      # （character 進 RIME，user_predict.lua 的 RAW_SYMBOL_KEYS 攔截上屏）
       longPress: [
         { text: '>', action: { character: '>' } },
         { text: '<', action: { character: '<' } },
