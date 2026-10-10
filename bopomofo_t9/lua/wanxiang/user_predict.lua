@@ -103,6 +103,16 @@ local RAW_SYMBOL_KEYS = {
 local function symbol_output(repr)
     return SYMBOL_MAP[repr] or RAW_SYMBOL_KEYS[repr]
 end
+-- 數字鍵盤（皮膚以 sendKeys 送出 keypad 按鍵）：KP 鍵不在 speller 字母表，
+-- 不會被方案當注音碼吃掉，由 lua 直接上屏對應字元，絕不連帶上屏候選。
+local NUMPAD_MAP = {
+    ["KP_0"] = "0", ["KP_1"] = "1", ["KP_2"] = "2", ["KP_3"] = "3",
+    ["KP_4"] = "4", ["KP_5"] = "5", ["KP_6"] = "6", ["KP_7"] = "7",
+    ["KP_8"] = "8", ["KP_9"] = "9",
+    ["KP_Decimal"] = ".", ["KP_Separator"] = ",",
+    ["KP_Add"] = "+", ["KP_Subtract"] = "-",
+    ["KP_Multiply"] = "*", ["KP_Divide"] = "/", ["KP_Equal"] = "=",
+}
 
 local utf8_len = utf8 and utf8.len or function(str)
     local _, count = string.gsub(str, "[^\128-\191]", "")
@@ -789,8 +799,27 @@ function P.func(key, env)
         if is_predicting then
             ctx:clear()
             reset_memory_chain(env, "退格强清联想")
-            return 1 
+            return 1
         end
+    end
+
+    -- 數字鍵盤 KP 鍵：只上屏對應字元，絕不連帶上屏候選。
+    -- 聯想中按 → 關閉彈窗（保留記憶鏈，數字對語境透明）；
+    -- 組字中按 → 丟棄未選字的組字（要那個詞使用者會自己選）。
+    local kp_text = NUMPAD_MAP[repr]
+    if kp_text then
+        if is_predicting then
+            predict_count = 0
+            is_predicting = false
+            pending_cands = nil
+            env.need_push = false
+        end
+        if ctx:is_composing() then ctx:clear() end
+        if s_match(kp_text, "^[0-9]$") then
+            is_after_number = true   -- 餵給量詞調頻（數字後接「個、次、點」等）
+        end
+        env.engine:commit_text(kp_text)
+        return 1
     end
     
     if is_predicting then
@@ -844,19 +873,10 @@ function P.func(key, env)
         return 2
     end
 
-    -- 組字中按符號鍵（空格長按選標點、= 鍵）：先上屏當前反白候選，再上屏符號
-    -- （重現前端 symbol 動作「先上屏再插入符號」的行為，但可被上面的聯想分支攔截）
+    -- 組字中按符號鍵（空格長按選標點、= 鍵）：丟棄未選字的組字，只上屏符號，
+    -- 不連帶上屏反白候選（要那個詞使用者會自己選）。
     local composing_sym = symbol_output(repr)
     if composing_sym and ctx:is_composing() then
-        if ctx.commit then
-            ctx:commit()   -- 走正常上屏流程（觸發 commit_notifier，照常學習）
-        else
-            -- 防禦：若 librime-lua 未暴露 Context::Commit，退化為直接上屏文字
-            local txt = ctx:get_commit_text()
-            ctx:clear()
-            if txt and txt ~= "" then env.engine:commit_text(txt) end
-        end
-        -- 符號斷開語境，並取消上屏後剛觸發的聯想（含已推入的佔位符）
         reset_memory_chain(env, "符號上屏斷開語境")
         ctx:clear()
         env.engine:commit_text(composing_sym)

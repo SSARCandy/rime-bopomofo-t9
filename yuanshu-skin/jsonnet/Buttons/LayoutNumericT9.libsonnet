@@ -5,7 +5,10 @@
 # 長按皮膚，選擇「運行 main.jsonnet」生效。
 #
 # 包含 T9 數字九宮格佈局的按鍵
-# （所有數字與符號均直接上屏，不經過 RIME）
+# （數字與運算符以 sendKeys 送出 keypad 按鍵進 RIME，由
+#   user_predict.lua 的 NUMPAD_MAP 上屏：組字/聯想中按下時
+#   只會丟棄候選、絕不連帶上屏。KP 鍵不在方案字母表，
+#   不會被當成注音碼。）
 # =====================================
 
 local commonButtons = import './Common.libsonnet';
@@ -14,18 +17,18 @@ local commonButtons = import './Common.libsonnet';
   local root = self,
 
   // ===== 數字鍵 =====
-  numOneButton:   { name: 'numOneButton',   params: { action: { symbol: '1' } } },
-  numTwoButton:   { name: 'numTwoButton',   params: { action: { symbol: '2' } } },
-  numThreeButton: { name: 'numThreeButton', params: { action: { symbol: '3' } } },
-  numFourButton:  { name: 'numFourButton',  params: { action: { symbol: '4' } } },
-  numFiveButton:  { name: 'numFiveButton',  params: { action: { symbol: '5' } } },
-  numSixButton:   { name: 'numSixButton',   params: { action: { symbol: '6' } } },
-  numSevenButton: { name: 'numSevenButton', params: { action: { symbol: '7' } } },
-  numEightButton: { name: 'numEightButton', params: { action: { symbol: '8' } } },
-  numNineButton:  { name: 'numNineButton',  params: { action: { symbol: '9' } } },
-  numZeroButton:  { name: 'numZeroButton',  params: { action: { symbol: '0' } } },
-  numCommaButton: { name: 'numCommaButton', params: { action: { symbol: ',' } } },
-  numDotButton:   { name: 'numDotButton',   params: { action: { symbol: '.' } } },
+  numOneButton:   { name: 'numOneButton',   params: { action: { sendKeys: 'KP_1' }, text: '1' } },
+  numTwoButton:   { name: 'numTwoButton',   params: { action: { sendKeys: 'KP_2' }, text: '2' } },
+  numThreeButton: { name: 'numThreeButton', params: { action: { sendKeys: 'KP_3' }, text: '3' } },
+  numFourButton:  { name: 'numFourButton',  params: { action: { sendKeys: 'KP_4' }, text: '4' } },
+  numFiveButton:  { name: 'numFiveButton',  params: { action: { sendKeys: 'KP_5' }, text: '5' } },
+  numSixButton:   { name: 'numSixButton',   params: { action: { sendKeys: 'KP_6' }, text: '6' } },
+  numSevenButton: { name: 'numSevenButton', params: { action: { sendKeys: 'KP_7' }, text: '7' } },
+  numEightButton: { name: 'numEightButton', params: { action: { sendKeys: 'KP_8' }, text: '8' } },
+  numNineButton:  { name: 'numNineButton',  params: { action: { sendKeys: 'KP_9' }, text: '9' } },
+  numZeroButton:  { name: 'numZeroButton',  params: { action: { sendKeys: 'KP_0' }, text: '0' } },
+  numCommaButton: { name: 'numCommaButton', params: { action: { sendKeys: 'KP_Separator' }, text: ',' } },
+  numDotButton:   { name: 'numDotButton',   params: { action: { sendKeys: 'KP_Decimal' }, text: '.' } },
 
   numberButtons: [
     self.numOneButton,
@@ -43,10 +46,10 @@ local commonButtons = import './Common.libsonnet';
   ],
 
   // ===== 左側欄運算符 =====
-  numPlusButton:     { name: 'numPlusButton',     params: { action: { symbol: '+' } } },
-  numMinusButton:    { name: 'numMinusButton',    params: { action: { symbol: '-' } } },
-  numMultiplyButton: { name: 'numMultiplyButton', params: { action: { symbol: '*' } } },
-  numSlashButton:    { name: 'numSlashButton',    params: { action: { symbol: '/' } } },
+  numPlusButton:     { name: 'numPlusButton',     params: { action: { sendKeys: 'KP_Add' },      text: '+' } },
+  numMinusButton:    { name: 'numMinusButton',    params: { action: { sendKeys: 'KP_Subtract' }, text: '-' } },
+  numMultiplyButton: { name: 'numMultiplyButton', params: { action: { sendKeys: 'KP_Multiply' }, text: '*' } },
+  numSlashButton:    { name: 'numSlashButton',    params: { action: { sendKeys: 'KP_Divide' },   text: '/' } },
 
   operatorButtons: [
     self.numPlusButton,
@@ -61,14 +64,16 @@ local commonButtons = import './Common.libsonnet';
   numEqualButton: {
     name: 'numEqualButton',
     params: {
-      action: { symbol: '=' },
+      action: { sendKeys: 'KP_Equal' },
+      text: '=',
       # 右緣按鍵：依 v2 視覺順序（> < % ~ $），預設選最右的 $
+      # （character 進 RIME，user_predict.lua 的 RAW_SYMBOL_KEYS 攔截上屏）
       longPress: [
-        { text: '>', action: { symbol: '>' } },
-        { text: '<', action: { symbol: '<' } },
-        { text: '%', action: { symbol: '%' } },
-        { text: '~', action: { symbol: '~' } },
-        { text: '$', action: { symbol: '$' }, selected: true },
+        { text: '>', action: { character: '>' } },
+        { text: '<', action: { character: '<' } },
+        { text: '%', action: { character: '%' } },
+        { text: '~', action: { character: '~' } },
+        { text: '$', action: { character: '$' }, selected: true },
       ],
     },
   },
