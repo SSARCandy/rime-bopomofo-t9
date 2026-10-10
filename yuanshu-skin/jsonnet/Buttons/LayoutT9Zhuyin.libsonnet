@@ -213,20 +213,23 @@ local commonButtons = import './Common.libsonnet';
 
   // ===== 右側欄功能鍵 =====
 
-  // 等號鍵：直接上屏，長按選其他符號
+  // 等號鍵：單按上屏 =，長按選括弧／引號。
   // 同空格長按：走 character 進 RIME，避免 symbol 動作在聯想彈窗開著時
-  // 把反白的聯想詞連帶上屏（這些 ASCII 鍵 RIME 不消化，前端會原樣插入）。
+  // 把反白的聯想詞連帶上屏。括弧／引號送「方案字母表沒用到的大寫字母」
+  // 當替身鍵（F G T U W Y），由 user_predict.lua 的 SYMBOL_MAP 轉全形上屏。
+  // （> < % ~ $ 移駐數字鍵盤的 = 鍵長按，那裡本來就有同一組。）
   equalButton: {
     name: 'equalButton',
     params: {
       action: { character: '=' },
-      # 右緣按鍵：依 v2 視覺順序（> < % ~ $），預設選最右的 $
+      # 右緣按鍵：氣泡往左展開，預設選最常用的「（」（倒數第二位）
       longPress: [
-        { text: '>', action: { character: '>' } },
-        { text: '<', action: { character: '<' } },
-        { text: '%', action: { character: '%' } },
-        { text: '~', action: { character: '~' } },
-        { text: '$', action: { character: '$' }, selected: true },
+        { text: '《', action: { character: 'W' } },
+        { text: '》', action: { character: 'Y' } },
+        { text: '“', action: { character: 'T' } },
+        { text: '”', action: { character: 'U' } },
+        { text: '（', action: { character: 'F' }, selected: true },
+        { text: '）', action: { character: 'G' } },
       ],
     },
   },

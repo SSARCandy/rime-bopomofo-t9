@@ -86,6 +86,14 @@ local SYMBOL_MAP = {
     ["comma"] = "，", [","] = "，",
     ["period"] = "。", ["."] = "。",
     ["backslash"] = "、", ["\\"] = "、",
+    -- 括弧／引號（= 鍵長按）：皮膚送「方案字母表沒用到的大寫字母」當替身鍵
+    -- （大寫字母的 repr 就是字母本身，無 X11 別名）
+    ["F"] = "（",
+    ["G"] = "）",
+    ["T"] = "“",
+    ["U"] = "”",
+    ["W"] = "《",
+    ["Y"] = "》",
 }
 -- 原樣上屏的 ASCII 符號鍵（= 鍵與其長按、# @）：也要在 key_binder 之前
 -- 攔下，否則組字中會被預設綁定（equal → 翻頁）吃掉。
@@ -842,6 +850,18 @@ function P.func(key, env)
     end
     
     if is_predicting then
+        -- 符號鍵：關閉聯想彈窗（不上屏聯想詞），只上屏符號，並斷開語境。
+        -- 必須排在下方 [0-9a-zA-Z] 注音鍵判斷之前——括弧／引號的替身鍵
+        -- 是大寫字母（F G T U W Y），否則會被當成注音鍵放行而漏出原始字母。
+        -- （reset 須在 clear 之前，避免 update_cb 誤判「外部清空輸入框」。）
+        local pred_sym = symbol_output(repr)
+        if pred_sym then
+            reset_memory_chain(env, "符號上屏斷開語境")
+            ctx:clear()
+            env.engine:commit_text(pred_sym)
+            return 1
+        end
+
         -- T9：注音鍵（數字鍵、v 鍵、精確注音字母）＝使用者放棄聯想、開始打下一個詞。
         -- 只結束聯想狀態，「不可」呼叫 reset_memory_chain 清掉上下文——
         -- 記憶鏈要留著，下一個詞上屏時才學得到「上一詞→使用者真正想打的詞」。
@@ -874,16 +894,6 @@ function P.func(key, env)
             if cand and cand.type == "predict" then
                 return 2
             end
-        end
-
-        -- 符號鍵：關閉聯想彈窗（不上屏聯想詞），只上屏符號，並斷開語境
-        -- （reset 須在 clear 之前，避免 update_cb 誤判「外部清空輸入框」）。
-        local pred_sym = symbol_output(repr)
-        if pred_sym then
-            reset_memory_chain(env, "符號上屏斷開語境")
-            ctx:clear()
-            env.engine:commit_text(pred_sym)
-            return 1
         end
 
         -- 任何其他按键都打断联想
