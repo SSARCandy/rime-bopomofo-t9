@@ -13,7 +13,8 @@
 #      （元書要求檔案不能直接放在壓縮檔根目錄，資料夾名＝皮膚顯示名稱）
 #   3. 壓成 zip，副檔名改為 .cskin
 #
-# 需要 jsonnet（google/go-jsonnet 或 C++ jsonnet 或 jrsonnet 皆可）。
+# 需要 jsonnet（google/go-jsonnet 或 jrsonnet；C++ 版 jsonnet 不支援
+# 本皮膚用到的負索引語法，會編譯失敗）。
 # 找不到時會提示安裝方式；可用 --jsonnet 或環境變數 JSONNET 指定路徑。
 import argparse
 import os
@@ -151,7 +152,7 @@ def main():
         if not jsonnet_bin:
             eprint('找不到 jsonnet。請安裝其中之一並確認在 PATH 上：')
             eprint('  • go-jsonnet： go install github.com/google/go-jsonnet/cmd/jsonnet@latest')
-            eprint('  • Homebrew：   brew install jsonnet')
+            eprint('  • Homebrew：   brew install go-jsonnet（C++ 版 jsonnet 編譯本皮膚會失敗）')
             eprint('  • 或用 --jsonnet /path/to/jsonnet 指定，或設環境變數 JSONNET')
             sys.exit(1)
         if not args.quiet:

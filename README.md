@@ -6,7 +6,7 @@
   <img src="demo/demo-numpad.png" width="30%" />
 </p>
 
-本項目為 RIME 輸入法引擎量身打造的 T9 (3x4) 九宮格注音輸入方案，特別針對 iOS 上的 **倉輸入法 (Hamster)** 進行了深度優化。
+本項目為 RIME 輸入法引擎量身打造的 T9 (3x4) 九宮格注音輸入方案，特別針對 iOS 上的 **元書輸入法** 進行了深度優化（前身倉輸入法 Hamster 的安裝方式見文末）。
 
 ## 🌟 特色功能
 
@@ -44,8 +44,7 @@ demo/            截圖
 4. 選擇輸入方案 **注音九宮格**。
 
 ### 2. 安裝鍵盤皮膚
-1. 將 `yuanshu-skin/` 打包成皮膚檔：內容須包在一層資料夾裡壓縮成 zip（**檔案不能直接放在 zip 根目錄**），再把副檔名改為 `.cskin`。
-   打包前先在 `yuanshu-skin/` 目錄產生編譯產物：`jsonnet -S -m . --tla-code debug=true jsonnet/main.jsonnet`（或導入後在手機上長按皮膚 → 運行 `main.jsonnet`）。
+1. 將 `yuanshu-skin/` 打包成皮膚檔：在 repo 根目錄執行 `python scripts/package_skin.py`，會自動編譯並產生 `T9注音九宮格.cskin`（需要 [go-jsonnet](https://github.com/google/go-jsonnet)；C++ 版 jsonnet 不支援本皮膚用到的負索引語法）。手動打包方式見 `yuanshu-skin/README.md`。
 2. 把 `.cskin` 傳到 iPhone 後點開，元書會自動導入。
 3. 在元書皮膚列表選用「T9注音九宮格」。
 
@@ -66,8 +65,8 @@ demo/            截圖
   整句一次上屏也會以句尾當上文學習接續詞。
 - 聯想時直接按注音鍵可繼續打字（此時「上一詞→你接著打的詞」照樣會被
   學進資料庫，聯想猜錯幾次後就會被你常用的接續詞蓋過）；退格清除聯想。
-- 標點（空格長按）與數字鍵盤**永遠不會**把未選字的候選連帶上屏：
-  聯想／組字中按下時會丟棄候選、只上屏標點或數字。
+- 標點與括弧／引號（空格、等號鍵長按）與數字鍵盤**永遠不會**把未選字的
+  候選連帶上屏：聯想／組字中按下時會丟棄候選、只上屏標點或數字。
 - 方案選單可切換「開啟／關閉預測」；聯想數量與連續輪數可在 schema 底部
   `user_predict:` 區塊調整（`mobile_predict_style: off` 可整組關閉）。
 
