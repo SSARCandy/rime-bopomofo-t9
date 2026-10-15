@@ -34,6 +34,12 @@ DEFAULT_SKIN_NAME = 'T9注音九宮格'
 # jsonnet 編譯後的產物（相對於 SKIN_DIR）；這些不進版控（見 .gitignore）
 BUILD_ARTIFACTS = ['config.yaml', 'light', 'dark']
 
+# Windows 主控台／管線預設用系統 ANSI 代碼頁（如 cp950），印不出 ✅ • 等字元
+# 會直接拋 UnicodeEncodeError 中斷；改成遇到編不出的字元以 ? 代替。
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, 'reconfigure'):
+        _stream.reconfigure(errors='replace')
+
 
 def eprint(*a):
     print(*a, file=sys.stderr)
