@@ -94,6 +94,9 @@ local SYMBOL_MAP = {
     ["U"] = "”",
     ["W"] = "《",
     ["Y"] = "》",
+    -- 半形冒號（數字鍵盤 = 鍵長按，打時間 12:30）：「:」字元本身已是 8 鍵的
+    -- 替身（見 NUMPAD_MAP），同樣借沒用到的大寫字母當替身鍵
+    ["H"] = ":",
 }
 -- 原樣上屏的 ASCII 符號鍵（= 鍵與其長按、# @）：也要在 key_binder 之前
 -- 攔下，否則組字中會被預設綁定（equal → 翻頁）吃掉。
@@ -852,7 +855,7 @@ function P.func(key, env)
     if is_predicting then
         -- 符號鍵：關閉聯想彈窗（不上屏聯想詞），只上屏符號，並斷開語境。
         -- 必須排在下方 [0-9a-zA-Z] 注音鍵判斷之前——括弧／引號的替身鍵
-        -- 是大寫字母（F G T U W Y），否則會被當成注音鍵放行而漏出原始字母。
+        -- 是大寫字母（F G T U W Y H），否則會被當成注音鍵放行而漏出原始字母。
         -- （reset 須在 clear 之前，避免 update_cb 誤判「外部清空輸入框」。）
         local pred_sym = symbol_output(repr)
         if pred_sym then

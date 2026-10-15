@@ -62,14 +62,18 @@ local commonButtons = import './Common.libsonnet';
   // ===== 右側欄功能鍵 =====
 
   // 等號鍵：長按選其他符號（與注音鍵盤上的等號鍵相同，
-  // character 進 RIME，user_predict.lua 的 RAW_SYMBOL_KEYS 攔截上屏）
+  // character 進 RIME，user_predict.lua 的 RAW_SYMBOL_KEYS 攔截上屏）。
+  // 半形冒號例外：「:」字元是 8 鍵的替身（NUMPAD_MAP 會轉成 8），
+  // 所以送方案字母表沒用到的大寫 H 當替身鍵，由 SYMBOL_MAP 轉回「:」。
   numEqualButton: {
     name: 'numEqualButton',
     params: {
       action: { character: '=' },
       text: '=',
-      # 右緣按鍵：依 v2 視覺順序（> < % ~ $），預設選最右的 $
+      # 右緣按鍵：氣泡往左展開，依 v2 視覺順序（> < % ~ $）、
+      # 新增的 : 排最左，預設仍選最右的 $
       longPress: [
+        { text: ':', action: { character: 'H' } },
         { text: '>', action: { character: '>' } },
         { text: '<', action: { character: '<' } },
         { text: '%', action: { character: '%' } },
